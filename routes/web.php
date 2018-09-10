@@ -73,6 +73,10 @@ Route::get('/center','CenterController@center');
 Route::get('/url','CenterController@url');
 Route::get('/ywb','CenterController@ywb');
 
+// 设置
+Route::get('/admin/settings', 'SettingController@setting');
+Route::post('/admin/settings', 'SettingController@update');
+
 
 
 
