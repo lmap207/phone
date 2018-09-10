@@ -1,0 +1,303 @@
+@extends('layouts.home') @section('daohang')
+<div class="site-header">
+    <div class="mzcontainer">
+        <div class="header-logo">
+            <a href="http://www.meizu.com/" target="_blank">
+                <img src="/qiantai/img/logo-header.png" srcset="/qiantai/img/logo-header@2x.png 2x" width="115" height="20" alt="魅族科技（中国）有限公司">
+            </a>
+        </div>
+        <div class="header-nav">
+            <ul class="nav-list">
+            
+            </ul>
+        </div>
+        <div class="header-cart" id="MzHeaderCart">
+            <a href="http://store.meizu.com/cart" target="_blank" data-yoyi="2500">
+                <div class="header-cart-wrap">
+                    <span class="header-cart-icon"></span> 购物车
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
+                    <div class="header-cart-spacer"></div>
+                </div>
+            </a>
+            <div class="header-cart-detail">
+                <div class="header-cart-empty" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
+            </div>
+        </div>
+    </div>
+    <div id="MzNavMenu" class="header-nav-menu" style="">
+        <div class="mzcontainer">
+            <ul class="menu-product-list">
+                <li class="menu-product-item">
+                    <a href="http://store.meizu.com/item/meizu_pro5.html?rc=sd" target="_blank">
+                        <div class="menu-product-figure">
+                            <img src="/qiantai/img/1450928403@126x126.png" data-src="/qiantai/img/1450928403@126x126.png" width="100" height="150">
+                        </div>
+                        <p class="menu-product-name">PRO 5</p>
+                        <p class="menu-product-price">
+                            ¥
+                            <span>2799</span>
+                        </p>
+                    </a>
+                </li>
+                <!-- more -->
+            </ul>
+        </div>
+    </div>
+</div>
+@endsection @section('content')
+<main class="wrapper">
+    <div class="container">
+        <section class="crumbs clearfix">
+            <a href="/">首页</a>&nbsp;&gt;&nbsp;
+            <a class="ellipsis crumbs-title">{{$phones->pname}}</a>
+        </section>
+        <section class="row">
+            <div class="preview" id="preview">
+                <div class="preview-booth">
+                    <a href="javascript:;">
+                            <img src="{{$phones->pic}}" height="510" width="660" alt="" style="display: inline;">
+                        </a>
+                </div>
+                <!--
+                <ul class="preview-thumb clearfix" id="J_previewThumb">
+                    <li class="current"><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1453884271-20264.png@120x120.jpg" width="110" height="110"></a></li>
+                    <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332831-67349.png@120x120.jpg" width="110" height="110"></a></li>
+                    <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332904-16654.png@120x120.jpg" width="110" height="110"></a></li>
+                    <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332877-94122.png@120x120.jpg" width="110" height="110"></a></li>
+                </ul>
+                -->
+            </div>
+            <div class="property" id="property">
+                <div class="property-hd">
+                    <h1>{{$phones->pname}}</h1>
+                    <p class="mod-price">
+                        <em class="vm-yen">¥</em>
+                        <span class="vm-price">{{$phones->money}}</span>
+                    </p>
+                </div>
+                <dl class="property-sale">
+                    <dt class="vm-metatit">网络类型:</dt>
+                    <dd>
+                        <ul data-property="网络类型" class="clearfix">
+                            @foreach ($types as $v)
+                            <li data-value="14:43" class="selected">
+                                <a href="http://store.meizu.com/item/meilan2.html#">
+                                    <span>{{$v['tname']}}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="property-sale">
+                    <dt class="vm-metatit">颜色分类:</dt>
+                    <dd>
+                        <ul data-property="颜色分类" class="clearfix">
+                            @foreach ($colors as $v)
+                            <li data-value="3:11" class="selected">
+                                <a class="vm-sale-img" href="http://store.meizu.com/item/meilan2.html#">
+                                    <img src="/qiantai/img/1450922313-97036.png" width="16" height="16">
+                                    <span>{{$v['cname']}}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="property-sale">
+                    <dt class="vm-metatit">机身内存:</dt>
+                    <dd>
+                        <ul data-property="机身内存" class="clearfix">
+                            @foreach ($memorys as $v)
+                            <li data-value="13:36"class="selected">
+                                <a href="http://store.meizu.com/item/meilan2.html#">
+                                    <span>{{$v['mname']}}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </dd>
+                </dl>
+                
+                <dl class="property-quantity">
+                    <dt class="vm-metatit">数量:</dt>
+                    <dd class="clearfix">
+                        <div class="property-quantity-control">
+                            <a title="减少" href="javascript:;" class="vm-minus">-</a>
+                            <input type="text" value="1" id="J_quantity" data-max="1">
+                            <a title="增加" href="javascript:;" class="vm-plus">+</a>
+                        </div>
+                        <span id="J_Stock" class="vm-count"></span>
+                    </dd>
+                </dl>
+                <dl class="property-info" id="propertyInfo">
+                    <!--
+                    <dt class="mod-title">
+                        您已选择以下商品:
+                    </dt>
+                    <dd class="mod-summary">
+                        <p id="J_summaryMain">魅蓝2 公开版 白色 16GB&nbsp;&nbsp;￥599</p>
+                        <p id="J_summaryPackageName"></p>
+                        <p id="J_sumaryPackageItemNames"></p>
+                        <p>本商品由 魅族 负责发货，并由 魅族 提供售后服务</p>
+                    </dd>
+                    -->
+                    <dd class="mod-total">
+                        价格:<em class="vm-price">￥{{$phones->money}}</em>
+                    </dd>
+                </dl>
+                <dl class="property-buy" id="J_BuyOrDiy">
+                    <dt class="vm-message" id="J_message"></dt>
+                    <dd>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-lg">立即购买</a>
+                    </dd>
+                </dl>
+            </div>
+        </section>
+    </div>
+    <section class="row detail" id="detail">
+        <div style="height:62px;">
+            <div class="detail-tab" id="detailTabFixed">
+                <div class="fixed-container">
+                    <ul class="clearfix">
+                        <li class="current">
+                            <a href="http://store.meizu.com/item/meilan2.html#">商品详情</a>
+                        </li>
+                        <li class="">
+                            <a href="http://store.meizu.com/item/meilan2.html#">规格参数</a>
+                        </li>
+                        <li class="">
+                            <a href="http://store.meizu.com/item/meilan2.html#">常见问题</a>
+                        </li>
+                    </ul>
+                    <div class="shortcut trans">
+                        <div class="mod-buy">
+                            <a href="javascript:void(0);" id="J_btnBuyShortcut" class="btn btn-primary btn-lg"><i></i>现在购买</a>
+                        </div>
+                        <div class="mod-total">
+                            <em class="vm-price"><b style="color:red;">￥ {{$phones->money}}</b></em>
+                        </div>
+                        <div class="mod-title" style="color: red;">
+                            <b>{{$phones->pname}}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-content container">
+            <!--
+            <div class="introduce current" id="introduce" style="display: block;">
+                <img class="lazy" data-original="/qiantai/img/1451371311-22741.jpg" width="1240" alt="" src="/qiantai/img/1451371311-22741.jpg" style="display: inline;">
+                <img class="lazy" data-original="/qiantai/img/1451371325-70841.jpg" width="1240" alt="" src="/qiantai/img/1451371325-70841.jpg" style="display: inline;">
+                <img class="lazy" data-original="/qiantai/img/1451371339-99629.jpg" width="1240" alt="" src="/qiantai/img/1451371339-99629.jpg" style="display: inline;">
+                <img class="lazy" data-original="/qiantai/img/1451371355-50755.jpg" width="1240" alt="" src="/qiantai/img/1451371355-50755.jpg" style="display: inline;">
+                <img class="lazy" data-original="/qiantai/img/1451371368-29830.jpg" width="1240" alt="" src="/qiantai/img/1451371368-29830.jpg" style="display: inline;">
+            </div>
+            -->
+            <div class="id="introduce current" id="introduce" style="display: block;">{!!$phones->content!!}</div>
+            <div class="standard" id="standard" style="display: none;">
+                <table class="standard-table">
+                    <tbody>
+                        
+                        <tr>
+                            <th>品牌</th>
+                            <td></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>型号</th>
+                            <td>魅蓝2</td>
+                        </tr>
+                        <tr>
+                            <th>电池容量</th>
+                            <td>2500mAh</td>
+                        </tr>
+                        <tr>
+                            <th>尺寸</th>
+                            <td>140.1×68.9×8.7mm</td>
+                        </tr>
+                        <tr>
+                            <th>重量</th>
+                            <td>131g</td>
+                        </tr>
+                        <tr>
+                            <th>屏幕尺寸</th>
+                            <td>5.0英寸</td>
+                        </tr>
+                        <tr>
+                            <th>分辨率</th>
+                            <td>1280 x 720</td>
+                        </tr>
+                        <tr>
+                            <th>运行内存（RAM）</th>
+                            <td>2GB</td>
+                        </tr>
+                        <tr>
+                            <th>CPU</th>
+                            <td>MTK MT6735 处理器</td>
+                        </tr>
+                        <tr>
+                            <th>GPU</th>
+                            <td>Mali T720 图形处理器</td>
+                        </tr>
+                        <tr>
+                            <th>网络模式</th>
+                            <td>双卡多模</td>
+                        </tr>
+                        <tr>
+                            <th>前置摄像头</th>
+                            <td>500万像素</td>
+                        </tr>
+                        <tr>
+                            <th>后置摄像头</th>
+                            <td>1300万像素</td>
+                        </tr>
+                        <tr>
+                            <th>系统版本</th>
+                            <td>Flyme 4.5</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="question" id="question" style="display: none;">
+                <div class="question-list">
+                    <h2>热门回答</h2>
+                    <dl class="mod-item">
+                        <dt class="vm-question">
+                            怎样才算购买成功？
+                        </dt>
+                        <dd class="vm-answer">
+                            由于系统设置为付款后减库存，所以拍下并不代表购买成功。为了确保购买成功，建议拍下后尽快完成付款。
+                        </dd>
+                    </dl>
+                    <dl class="mod-item">
+                        <dt class="vm-question">
+                            魅蓝2用的是什么屏幕保护玻璃？
+                        </dt>
+                        <dd class="vm-answer">
+                            魅蓝2采用全球最大的两家屏幕玻璃厂商之一——旭硝子出品的“龙迹2代”强化玻璃，其强度是普通玻璃的6倍，在耐冲击、耐刮花方面都会远远超过普通玻璃。
+                        </dd>
+                    </dl>
+                    <dl class="mod-item">
+                        <dt class="vm-question">
+                            魅蓝2可以插几张卡？都支持运营商的哪些网络？
+                        </dt>
+                        <dd class="vm-answer">
+                            魅蓝2为双卡双待设计，移动、联通版魅蓝2更公开版固件后支持移动联通双4G，电信版魅蓝2支持电信4G和移动联通2G。
+                        </dd>
+                    </dl>
+                    <dl class="mod-item">
+                        <dt class="vm-question">
+                            魅蓝2支持TF卡扩展吗？
+                        </dt>
+                        <dd class="vm-answer">
+                            支持。您可以选择安装两张Nano SIM卡或者安装一张Nano SIM 一张Micro SD卡。
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+@endsection
