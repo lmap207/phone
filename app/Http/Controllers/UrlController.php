@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Url;
 use Illuminate\Http\Request;
 
 class UrlController extends Controller
@@ -13,7 +14,12 @@ class UrlController extends Controller
      */
     public function index()
     {
-        //
+        //读取数据库 获取用户数据
+        $url = Url::orderBy('id','asc')
+            ->where('shname','like', '%'.request()->keywords.'%')
+            ->get();
+        //解析模板显示用户数据
+        return view('home.center.url', ['url'=>$url]);
     }
 
     /**
@@ -23,7 +29,7 @@ class UrlController extends Controller
      */
     public function create()
     {
-        //
+        return back();
     }
 
     /**
@@ -34,7 +40,19 @@ class UrlController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $url = new Url;
+
+        $url -> user_id = $request->user_id;
+        $url -> shname = $request->shname;
+        $url -> shtel = $request->shtel;
+        $url -> shadd = $request->shadd;
+        $url -> xadd = $request->xadd;
+
+        if($url -> save()){
+            return redirect('/url')->with('success', '添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -56,7 +74,9 @@ class UrlController extends Controller
      */
     public function edit($id)
     {
-        //
+        $url = Url::findOrFail($id);
+
+        return view('home.center.url', ['url'=>$url]);
     }
 
     /**
@@ -68,7 +88,18 @@ class UrlController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $url = Url::findOrFail($id);
+        
+        $url -> shname = $request -> shname;
+        $url -> shtel = $request->shtel;
+        $url -> shadd = $request->shadd;
+        $url -> xadd = $request->xadd;
+        
+        if($url -> save()){
+            return redirect('/url')->with('success', '更新成功');
+        }else{
+            return back()->with('error','更新失败');
+        }    
     }
 
     /**

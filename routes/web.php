@@ -70,11 +70,12 @@ Route::post('/','ZhuceController@dologin');
 
 //个人中心
 Route::get('/center','CenterController@center');
-Route::get('/url','CenterController@url');
+Route::get('/center/url','CenterController@url');
 Route::get('/ywb','CenterController@ywb');
 
 
-
-
-
+//地址管理
+Route::get('/url','UrlController@create');
+Route::post('/url','UrlController@store');
+Route::post('/url','UrlController@index');
 

@@ -21,7 +21,7 @@
         <!--注册-->
         <div class="qlogin" id="qlogin" style="display: block; ">
             <div class="web_login">
-                <form name="form2" id="regUser" accept-charset="utf-8" action="/home/denglu" method="post" enctype="multipart/form-data">
+                <form name="form2" id="regUser" accept-charset="utf-8" action="/home/zhuce" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <input type="hidden" name="to" value="reg" />
                     <input type="hidden" name="did" value="0" />

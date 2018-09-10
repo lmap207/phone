@@ -18,6 +18,7 @@ class ZhuceController extends Controller
 
     public function store(Request $request)
     {
+        // dd(111);
         $user = new User;
         $user -> name = $request -> name;
         $user -> password = Hash::make($request->password);
@@ -33,7 +34,7 @@ class ZhuceController extends Controller
         return view('home.denglu');
     }
 
-        public function dologin(Request $req)
+    public function dologin(Request $req)
     {
         // $user = User::where('username',$request->username)->first();
         //  if(!$user){
