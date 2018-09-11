@@ -110,6 +110,12 @@ class UrlController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $url = Url::findOrFail($id);
+
+        if($url -> delete()){
+            return redirect('/url')->with('success', '删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }   
     }
 }
