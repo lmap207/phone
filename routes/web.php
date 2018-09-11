@@ -50,8 +50,6 @@ Route::get('phones', 'PhoneController@list');
 Route::get('/','PhoneController@shouyei');
 
 
-
-
 //后台路由
 Route::get('/admin', 'AdminController@index');
 //登录路由

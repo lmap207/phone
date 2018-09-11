@@ -39,5 +39,6 @@ class AdminController extends Controller
       {
         $request->session()->flush();
         return redirect('/admin/login')->with('success','退出成功');
-      }          
+      }        
+
 }
