@@ -35,7 +35,7 @@
 	    <div class="login_form">
 	    	<div class="user">
 
-	        	<input class="text_value" value="" name="name" type="text" id="username" placeholder="请输入用户名">
+	        	<input class="text_value" value="" name="username" type="text" id="username" placeholder="请输入用户名">
 	            <input class="text_value" value="" name="password" type="password" placeholder="请输入密码" id="password">
 	        </div>
 	        <button class="button" id="submit" type="submit">登录</button>

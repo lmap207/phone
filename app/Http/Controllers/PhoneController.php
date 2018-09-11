@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Brand;
 use App\Color;
 use App\Memory;
@@ -21,9 +19,10 @@ class PhoneController extends Controller
     public function index()
     {
         //读取数据库 获取用户数据
-        $phones = Phone::orderBy('id','desc')
+    $phones = Phone::orderBy('id','desc')
             ->where('pname','like', '%'.request()->keywords.'%')
             ->paginate(10);
+
         //解析模板显示用户数据
         return view('admin.phone.index', ['phones'=>$phones]);
     }
@@ -34,11 +33,15 @@ class PhoneController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {    
         $brand = Brand::all();
+        //型号
         $xinghao = Xinghao::all();
+        //手机类型
         $type = Type::all();
+        //颜色
         $color = Color::all();
+         //
         $memory = Memory::all();
 
         return view('admin.phone.create', compact('brand','xinghao','type','color','memory'));

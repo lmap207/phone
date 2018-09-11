@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -28,6 +29,7 @@ Route::resource('parameter', 'ParameterController');
 //型号
 Route::resource('xinghao', 'XinghaoController');
 
+
 //网络类型
 Route::resource('type', 'TypeController');
 
@@ -39,10 +41,12 @@ Route::resource('brand', 'BrandController');
 
 //内存
 Route::resource('memory', 'MemoryController');
+//友情链接
+Route::resource('link','LinkController');
 
 
 //前台路由
-//详情页
+//详情页  
 Route::get('/{id}.html', 'PhoneController@show');
 //列表页
 Route::get('phones', 'PhoneController@list');
