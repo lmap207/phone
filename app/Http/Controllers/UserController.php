@@ -127,4 +127,6 @@ class UserController extends Controller
             return back()->with('error','删除失败!');
         }
     }
+
+   
 }

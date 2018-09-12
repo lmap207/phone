@@ -14,6 +14,7 @@
     <link href="http://store.res.meizu.com/resources/php/store/favicon.ico" rel="icon" type="image/x-icon">
     <!-- common css -->
     <link rel="stylesheet" href="/qiantai/css/site-base.css">
+    <script type="text/javascript" src="/qiantai/js/jquery-1.9.0.min.js"></script>
     <!--[if lt IE 9]>
     <script>
         var c = ["log","debug","info","warn","exception","assert","dir","dirxml","trace","group","groupCollapsed","groupEnd","profile","profileEnd","count","clear","time","timeEnd","timeStamp","table","error"];

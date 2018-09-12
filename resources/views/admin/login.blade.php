@@ -38,6 +38,55 @@
                 </div>
                 <button class="button" id="submit" type="submit">登录</button>
             </div>
+
+            @endif
+    </div>       
+<div class="login">
+	<form action="/admin/login" method="post" id="form">
+		<div class="logo"></div>
+	    <div class="login_form">
+	    	<div class="user">
+
+	        	<input class="text_value" value="" name="username" type="text" id="username" placeholder="请输入用户名">
+	            <input class="text_value" value="" name="password" type="password" placeholder="请输入密码" id="password">
+	        </div>
+	        <button class="button" id="submit" type="submit">登录</button>
+	    </div>
+	    {{csrf_field()}}
+	    <div id="tip"></div>
+	    <div class="foot">
+		Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="#"></a>
+	    </div>
+	</form>
+</div>
+<script>var basedir='/public/ui/';</script>
+<script src="/htlogin/ui/do.js"></script>
+<script src="/htlogin/ui/config.js"></script>
+<script>
+Do.ready('form', function() {
+	$("#form").Validform({
+			ajaxPost:true,
+			postonce:true,
+			tiptype:function(msg,o,cssctl){
+				if(!o.obj.is("form")){
+					var objtip=o.obj.siblings(".Validform_checktip");
+					cssctl(objtip,o.type);
+					objtip.text(msg);
+				}else{
+					var objtip=o.obj.find("#tip");
+					cssctl(objtip,o.type);
+					if(o.type==2){
+						window.location.href='index.php?r=admin/index/index';
+					}else{
+						objtip.text(msg);
+					}
+				}
+			}
+	});
+});
+
+</script>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
             {{csrf_field()}}
             <div id="tip"></div>
             <div class="foot">
@@ -76,6 +125,7 @@
     <div style="display:none">
         <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
     </div>
+
 </body>
 
 </html>

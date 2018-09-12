@@ -1,12 +1,16 @@
 <div class="site-topbar clearfix">
         <div class="mzcontainer">
             <div class="topbar-nav">
+            
+            <img src="" alt="" style="width:60px;height:60px;border-radius:360px;margin-right:80px">
+           
                 <a href="http://www.meizu.com/" target="_blank">魅族官网</a>
                 <a href="http://store.meizu.com/">魅族商城</a>
                 <a href="http://www.flyme.cn/" target="_blank">Flyme</a>
                 <a href="http://retail.meizu.com/index.html" target="_blank">专卖店</a>
                 <a href="http://service.meizu.com/index.html" target="_blank">服务</a>
                 <a href="http://bbs.meizu.cn/" target="_blank">社区</a>
+                <a href="/yjfk" target="_blank">意见反馈</a>
             </div>
             <div class="topbar-right">
                 <ul class="topbar-info">

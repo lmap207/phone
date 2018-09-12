@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -32,12 +33,30 @@ Route::resource('color', 'ColorController');
 Route::resource('brand', 'BrandController');
 //内存
 Route::resource('memory', 'MemoryController');
+
+//友情链接
+Route::resource('link','LinkController');
+//前台路由
+//详情页  
+Route::get('/{id}.html', 'PhoneController@show');
+//列表页
+Route::get('phones', 'PhoneController@list');
+//首页
+Route::get('/','PhoneController@shouyei');
+//意见反馈前台
+Route::get('/yjfk','PhoneController@yjfk');
+//意见反馈的增加
+Route::post('/ycreate','PhoneController@ycreate');
+//意见反馈后台
+Route::get('/hyjfk','PhoneController@hyjfk');
+
 // 设置
 Route::get('/admin/settings', 'SettingController@setting');
 Route::post('/admin/settings', 'SettingController@update');
 
 //广告管理
 Route::resource('advert','AdvertController');
+
 
 //后台路由
 Route::get('/admin', 'AdminController@index');
@@ -51,6 +70,8 @@ Route::get('/admin/logout','AdminController@logout');
 
 
 
+
+
 //前台路由
 //详情页
 Route::get('/{id}.html', 'PhoneController@show');
@@ -58,6 +79,14 @@ Route::get('/{id}.html', 'PhoneController@show');
 Route::get('phones', 'PhoneController@list');
 //首页
 Route::get('/','PhoneController@shouyei');
+//前台购物车添加
+Route::post('add/{id}','PhoneController@add');
+
+//前台添加购物车到数据库
+
+Route::get('tianjia','PhoneController@tianjia');
+//验证码
+Route::get('/captcha/{tmp}','PhoneController@captcha');
 
 
 //注册
@@ -69,8 +98,10 @@ Route::get('/home/denglu','ZhuceController@denglu');
 Route::get('/captcha/{tmp}','ZhuceController@captcha');
 //验证登录
 Route::post('/','ZhuceController@dologin');
+
 //退出登录
 Route::get('home/logout','ZhuceController@tuichu');
+
 
 
 //个人中心
@@ -80,13 +111,19 @@ Route::get('/center/ziliao','CenterController@ziliao');
 //我的地址
 Route::resource('/center/url','UrlController');
 //个人中心
-/*
+
 Route::get('/center','CenterController@center');
 Route::get('/center/url','CenterController@url');
 Route::get('/ywb','CenterController@ywb');
 
+// 设置
+Route::get('/admin/settings', 'SettingController@setting');
+Route::post('/admin/settings', 'SettingController@update');
+
+
+
 
 //地址管理
 Route::resource('/url','UrlController@create');
-*/
 
+ 

@@ -538,6 +538,7 @@ input[type="button"].btn-block {
 }
 
 
+
 /*!
  * base.css
  * @date 2015.11.16
@@ -590,6 +591,7 @@ input { line-height: normal; } */
     float: right;
     _display: inline;
 }
+
 
 
 /* Box-model */
@@ -848,6 +850,7 @@ input { line-height: normal; } */
 }
 
 
+
 /* Typography */
 
 .fs12 {
@@ -988,6 +991,7 @@ input { line-height: normal; } */
 }
 
 
+
 /* filter */
 
 .togray {
@@ -995,6 +999,7 @@ input { line-height: normal; } */
     -webkit-filter: grayscale(1);
     filter: url("data:image/svg+xml; utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
 }
+
 
 
 /* html5 */
@@ -1029,6 +1034,7 @@ textarea:focus,
 select:focus {
     outline: 0;
 }
+
 
 
 /* animate */
@@ -1344,7 +1350,7 @@ a {
 
 .property-sale li.selected a,
 .property-package-tab li.selected a {
-    border-color: #00c3f5;
+    border-color: #ddd;
 }
 
 .property-sale li.disabled a,
@@ -1841,6 +1847,7 @@ a {
 }
 
 
+
 /* Box-model */
 
 .hide {
@@ -2097,6 +2104,7 @@ a {
 }
 
 
+
 /* Typography */
 
 .fs12 {
@@ -2237,6 +2245,7 @@ a {
 }
 
 
+
 /* filter */
 
 .togray {
@@ -2244,6 +2253,7 @@ a {
     -webkit-filter: grayscale(1);
     filter: url("data:image/svg+xml; utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
 }
+
 
 
 /* html5 */
@@ -2280,6 +2290,7 @@ select:focus {
 }
 
 
+
 /* animate */
 
 .trans {
@@ -2313,6 +2324,7 @@ select:focus {
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
 }
+
 
 
 /*!
@@ -2352,6 +2364,7 @@ select:focus {
     background: #00c3f5;
     color: #fff;
 }
+
 
 
 /*!
@@ -2591,6 +2604,7 @@ select:focus {
 }
 
 
+
 /*
  * jQuery FlexSlider v2.6.0
  * http://www.woothemes.com/flexslider/
@@ -2617,6 +2631,7 @@ select:focus {
 }
 
 
+
 /* ====================================================================================================================
  * RESETS
  * ====================================================================================================================*/
@@ -2638,6 +2653,7 @@ select:focus {
 .flex-pauseplay span {
     text-transform: capitalize;
 }
+
 
 
 /* ====================================================================================================================
@@ -2679,6 +2695,7 @@ html[xmlns] .flexslider .slides {
 .no-js .flexslider .slides>li:first-child {
     display: block;
 }
+
 
 
 /* ====================================================================================================================
@@ -2903,6 +2920,7 @@ html[xmlns] .flexslider .slides {
     opacity: 1;
     cursor: default;
 }
+
 
 
 /* ====================================================================================================================

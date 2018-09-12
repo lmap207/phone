@@ -54,29 +54,11 @@
             </div>
         </div>
     </div>
-    <div id="MzNavMenu" class="header-nav-menu" style="">
-        <div class="mzcontainer">
-            <ul class="menu-product-list">
-                <li class="menu-product-item">
-                    <a href="http://store.meizu.com/item/meizu_pro5.html?rc=sd" target="_blank">
-                        <div class="menu-product-figure">
-                            <img src="/qiantai/img/1450928403@126x126.png" data-src="/qiantai/img/1450928403@126x126.png" width="100" height="150">
-                        </div>
-                        <p class="menu-product-name">PRO 5</p>
-                        <p class="menu-product-price">
-                            ¥
-                            <span>2799</span>
-                        </p>
-                    </a>
-                </li>
-                <!-- more -->
-            </ul>
-        </div>
-    </div>
+   
 </div>
 @endsection @section('content')
 <div class="wrapper" id="main">
-    <div class="crumbs">
+    <div class="crumbs" style="margin-left:50px">
         <a href="/">首页&nbsp;&gt;&nbsp;</a><a href="/phones">全部商品</a>
     </div>
     <div class="container">
