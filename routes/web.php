@@ -18,27 +18,37 @@ Route::get('/', function () {
 
 //用户管理
 Route::resource('user','UserController');
-
 //手机
 Route::resource('phone', 'PhoneController');
-
 //参数
 Route::resource('parameter', 'ParameterController');
-
 //型号
 Route::resource('xinghao', 'XinghaoController');
-
 //网络类型
 Route::resource('type', 'TypeController');
-
 //颜色
 Route::resource('color', 'ColorController');
-
 //品牌
 Route::resource('brand', 'BrandController');
-
 //内存
 Route::resource('memory', 'MemoryController');
+// 设置
+Route::get('/admin/settings', 'SettingController@setting');
+Route::post('/admin/settings', 'SettingController@update');
+
+//广告管理
+Route::resource('advert','AdvertController');
+
+//后台路由
+Route::get('/admin', 'AdminController@index');
+//登录路由
+Route::get('/admin/login','AdminController@login');
+//登录操作
+Route::post('/admin/login','AdminController@dologin');
+//退出登录
+Route::get('/admin/logout','AdminController@logout');
+
+
 
 
 //前台路由
@@ -58,15 +68,33 @@ Route::get('tianjia','PhoneController@tianjia');
 Route::get('/captcha/{tmp}','PhoneController@captcha');
 
 
-
-
-//后台路由
-Route::get('/admin', 'AdminController@index');
-//登录路由
-Route::get('/admin/login','AdminController@login');
-//登录操作
-Route::post('/admin/login','AdminController@dologin');
+//注册
+Route::get('/home/zc','ZhuceController@zhuce');
+//验证注册
+Route::post('/home/zhuce','ZhuceController@store');
+//登录
+Route::get('/home/denglu','ZhuceController@denglu');
+Route::get('/captcha/{tmp}','ZhuceController@captcha');
+//验证登录
+Route::post('/','ZhuceController@dologin');
 //退出登录
-Route::get('/admin/logout','AdminController@logout');
+Route::get('home/logout','ZhuceController@tuichu');
 
+
+//个人中心
+Route::get('/center','CenterController@index');
+//我的资料
+Route::get('/center/ziliao','CenterController@ziliao');
+//我的地址
+Route::resource('/center/url','UrlController');
+//个人中心
+/*
+Route::get('/center','CenterController@center');
+Route::get('/center/url','CenterController@url');
+Route::get('/ywb','CenterController@ywb');
+
+
+//地址管理
+Route::resource('/url','UrlController@create');
+*/
 

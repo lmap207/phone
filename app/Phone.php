@@ -64,4 +64,5 @@ class Phone extends Model
         //读取推荐文章内容
         return self::where('recom','1')->take($num)->orderBy('id','desc')->get();
     }
+
 }

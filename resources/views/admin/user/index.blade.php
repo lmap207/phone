@@ -55,7 +55,7 @@
                                 <input type="checkbox">
                             </td>
                             <td>{{$v['id']}}</td>
-                            <td class="am-hide-sm-only">{{$v['username']}}</td>
+                            <td class="am-hide-sm-only">{{$v['name']}}</td>
                             <td class="am-hide-sm-only"><img src="{{$v['pic']}}" alt="" style="width:60px;height:60px;border-radius:360px"></td>
 
                             <td>
