@@ -55,9 +55,9 @@
                 <div class="footer-nav-item">
                 
                     <ul>
-                        @foreach($links as $v)
-                        <li style="float:left;margin-left:50px;"><a href="{{$v['url']}}">{{$v['name']}}</a></li>
-                        @endforeach
+                        
+                        <li style="float:left;margin-left:50px;"><a href="{">}</a></li>
+                       
                     </ul>
                 </div>
            

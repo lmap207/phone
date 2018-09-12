@@ -58,8 +58,8 @@
                             <td>{{$v->brand->bname}}</td>
                             <td>{{$v->xinghao->xname}}</td>
                             <td>{{$v->type['tname']}}</td>
-                            <td>{{$v->color->cname}}</td>
-                            <td>{{$v->memory->mname}}</td>
+                            <td>{{$v->color['cname']}}</td>
+                            <td>{{$v->memory['mname']}}</td>
                             <td>{{$v['money']}}</td>
                             <td><img src="{{$v['pic']}}" width="50" alt=""></td>
                             <td>

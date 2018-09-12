@@ -341,6 +341,7 @@ public function dologin(Request $req){
     return back()->with('error','验证码错误');
 
     }
+}
 
     //意见反馈
     public function yjfk(){
@@ -359,5 +360,5 @@ public function dologin(Request $req){
         return view('admin.yjfk.index');
      }
 
-}
+
 }
