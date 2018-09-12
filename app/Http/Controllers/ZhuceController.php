@@ -18,7 +18,6 @@ class ZhuceController extends Controller
 
     public function store(Request $request)
     {
-        // dd(111);
         $user = new User;
         $user -> name = $request -> name;
         $user -> password = Hash::make($request->password);
@@ -103,4 +102,14 @@ class ZhuceController extends Controller
         header('Content-Type: image/jpeg');
         $builder->output();
     }
+
+    /*
+     * 退出登录 
+     */
+    public function tuichu(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/home/denglu')->with('success','退出成功');
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Url;
+use App\User;
 use Illuminate\Http\Request;
 
 class UrlController extends Controller
@@ -14,12 +15,19 @@ class UrlController extends Controller
      */
     public function index()
     {
+        $urls = Url::all();
+        $users = User::all();
+        $urls -> user_id = \Session::get('id');
+        // dd($urls);
+        return view('home.center.dizhi.create', ['urls' =>$urls,'users'=>$users]);
         //读取数据库 获取用户数据
+        /*
         $url = Url::orderBy('id','asc')
             ->where('shname','like', '%'.request()->keywords.'%')
             ->get();
+        */
         //解析模板显示用户数据
-        return view('home.center.url', ['url'=>$url]);
+        //return view('home.center.url', ['url'=>$url]);
     }
 
     /**
@@ -29,7 +37,7 @@ class UrlController extends Controller
      */
     public function create()
     {
-        return back();
+        return view('home.center.dizhi.create');
     }
 
     /**
@@ -40,19 +48,19 @@ class UrlController extends Controller
      */
     public function store(Request $request)
     {
-        $url = new Url;
+        $urls = new Url;
+        $urls -> sheng = $request->sheng;
+        $urls -> shi = $request->shi;
+        $urls -> qu = $request->qu;
+        $urls -> user_id = \Session::get('id');
 
-        $url -> user_id = $request->user_id;
-        $url -> shname = $request->shname;
-        $url -> shtel = $request->shtel;
-        $url -> shadd = $request->shadd;
-        $url -> xadd = $request->xadd;
-
-        if($url -> save()){
-            return redirect('/url')->with('success', '添加成功');
+        // dd($urls);
+        if($urls -> save()){
+            return back()->with('success', '添加成功');
         }else{
             return back()->with('error','添加失败');
         }
+        
     }
 
     /**
@@ -74,9 +82,11 @@ class UrlController extends Controller
      */
     public function edit($id)
     {
+        /*
         $url = Url::findOrFail($id);
 
         return view('home.center.url', ['url'=>$url]);
+        */
     }
 
     /**
@@ -88,6 +98,7 @@ class UrlController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
         $url = Url::findOrFail($id);
         
         $url -> shname = $request -> shname;
@@ -99,7 +110,8 @@ class UrlController extends Controller
             return redirect('/url')->with('success', '更新成功');
         }else{
             return back()->with('error','更新失败');
-        }    
+        }
+        */    
     }
 
     /**
@@ -110,12 +122,12 @@ class UrlController extends Controller
      */
     public function destroy($id)
     {
-         $url = Url::findOrFail($id);
+        $urls = Url::findOrFail($id);
 
-        if($url -> delete()){
-            return redirect('/url')->with('success', '删除成功');
+        if($urls->delete()){
+            return back()->with('success','删除成功');
         }else{
-            return back()->with('error','删除失败');
-        }   
+            return back()->with('error','删除失败!');
+        }
     }
 }
