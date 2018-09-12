@@ -101,8 +101,6 @@ class ZhuceController extends Controller
         ob_clean();
         header('Content-Type: image/jpeg');
         $builder->output();
-
-
     }
 
     /*
@@ -113,6 +111,5 @@ class ZhuceController extends Controller
         $request->session()->flush();
         return redirect('/home/denglu')->with('success','退出成功');
     }
-
 
 }

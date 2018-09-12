@@ -36,6 +36,9 @@ Route::resource('memory', 'MemoryController');
 Route::get('/admin/settings', 'SettingController@setting');
 Route::post('/admin/settings', 'SettingController@update');
 
+//广告管理
+Route::resource('advert','AdvertController');
+
 //后台路由
 Route::get('/admin', 'AdminController@index');
 //登录路由
