@@ -5,9 +5,14 @@ use App\Color;
 use App\Memory;
 use App\Parameter;
 use App\Phone;
+use App\Setting;
 use App\Type;
 use App\Xinghao;
+use App\Yjfk;
+use App\link;
 use Illuminate\Http\Request;
+
+
 
 class PhoneController extends Controller
 {
@@ -172,7 +177,8 @@ class PhoneController extends Controller
      * 商品列表
      */
     public function list(Request $request)
-    {
+    {   
+
         $phones = Phone::all();
         $brands = Brand::all();
         $recoms = Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
@@ -189,6 +195,26 @@ class PhoneController extends Controller
      */
     public function shouyei()
     {
-        return view('home.shouyei');
+        $links = link::all();
+        $settings = Setting::all();
+        $phones = Phone::all();
+       return view('home.shouyei',compact('links','settings','phones'));
+    
     }
+    //意见反馈
+    public function yjfk(){
+        return view('home.yjfk');    
+    } 
+    public function ycreate(Request $request){
+        $yjfk = new Yjfk;
+         $yjfk -> user_id = $request -> user_id;
+         $yjfk -> yijian = $request -> yijian;
+        dd($yjfk);
+        
+
+    } 
+    //后台意见反馈
+     public function hyjfk(){
+        return view('admin.yjfk.index');
+     }
 }

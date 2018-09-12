@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Yjfk extends Model
 {
-     return $this->hasMany('App\Yjfk'); 
+    //
 }

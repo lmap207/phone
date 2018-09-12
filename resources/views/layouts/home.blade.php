@@ -56,22 +56,6 @@
         background-image: url(http://store.res.meizu.com/resources/php/store/static/detail/assets/img/gotop-arrow.png);
         margin-top: 5px
     }
-    /*轮播图的style代码*/
-
-         #div1{
-       width: 1400px;
-       height: 400px;
-       /*轮博图*/
-       border: 1px solid gray;
-       margin: 0 auto;
-       position: relative;
-       overflow: hidden;
-    
-      }
-       #div1 img{
-       position: absolute;
-        float:left;
-       }
     </style>
 </head>
 
@@ -84,16 +68,6 @@
     <!-- 导航标记 结束 -->
     <!--下面是模板标签，不可删除-->
     <!-- 内容标记 开始 -->
-         <!-- 轮播图开始 -->
-   
-             <div id="div1">     
-             
-                     <img src="" width="1500px"/ alt="duoduo">
-            
-              </div>
-     
-          
-         <!-- 轮播图结束 -->
     @section('content') @show
     <!-- 内容标记 结束 -->
     <input type="hidden" name="curr_microtime" id="curr_microtime" value="1459049673948">
@@ -176,38 +150,6 @@
         s.parentNode.insertBefore(hm, s);
     })();
     </script>
-    <!-- 轮播图js文件 -->
-    <script>
- //获取页面元素
- var div1 = document.getElementById('div1');
- var div2 = document.getElementById('div2');
- var imgs = div1.getElementsByTagName('img');
- //初始化页面图片的位置
- window.onload=function(){
-  for(var i=0; i<imgs.length; i++){
-   imgs[i].style.left = i*192 +'px'
-  }
- };
- //轮播移动的函数
- function imgMove(){
-  var b1 = false;
-  for(var i = 0; i < imgs.length; i++) {
-   imgs[i].style.left = imgs[i].offsetLeft-1 + 'px';
-   if(imgs[i].offsetLeft==0){
-    b1=true;
-    if(i==0)
-    imgs[imgs.length-1].style='1000px';
-    else
-    imgs[i-1].style.left='1000px'
-   }
-  }
-  if(!b1)
-   setTimeout(imgMove,0.8);
-  else
-   setTimeout(imgMove,100);
- }
- setTimeout(imgMove,100);
-</script>
     <div class="site-gotop" id="siteGotop" style="opacity: 0; display: block;">
         <a class="gotop-suggest" title="建议反馈" href="http://store.meizu.com/member/suggest/index" target="_blank"></a>
         <div class="gotop-arrow" title="回到顶部">
