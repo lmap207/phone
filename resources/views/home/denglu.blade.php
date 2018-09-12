@@ -10,7 +10,7 @@
 </head>
 
 <body style="zoom: 1;">
-    <div class="img1"><img src=""></div>
+    <div class="img1"><img src="/qiantai/img/myface.jpg"></div>
     <h1>魅族账号登陆</h1>
     <div class="login" style="margin-top:50px;">
         <div class="header">

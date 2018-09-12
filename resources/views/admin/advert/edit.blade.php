@@ -16,7 +16,7 @@
     
     <div class="am-g">
         <div class="tpl-form-body tpl-form-line">
-            <form class="am-form tpl-form-line-form" method="post" action="/advert/{{$adverts['id']}}">
+            <form class="am-form tpl-form-line-form" method="post" action="/advert/{{$adverts['id']}}" enctype="multipart/form-data">
                 <div class="am-form-group">
                     <label for="user-name" class="am-u-sm-3 am-form-label">广告名称<span class="tpl-form-line-small-title"></span></label>
                     <div class="am-u-sm-9">
@@ -27,6 +27,7 @@
                 <div class="am-form-group">
                     <label for="user-name" class="am-u-sm-3 am-form-label">广告图片 <span class="tpl-form-line-small-title"></span></label>
                     <div class="am-u-sm-9">
+                        <img src="{{$adverts['adpic']}}" width="100">
                         <input type="file" name="adpic" class="tpl-form-input" id="user-name" value="{{$adverts['adpic']}}">
                     </div>
                 </div>
