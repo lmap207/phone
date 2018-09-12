@@ -48,6 +48,14 @@ Route::get('/{id}.html', 'PhoneController@show');
 Route::get('phones', 'PhoneController@list');
 //首页
 Route::get('/','PhoneController@shouyei');
+//前台购物车添加
+Route::post('add/{id}','PhoneController@add');
+
+//前台添加购物车到数据库
+
+Route::get('tianjia','PhoneController@tianjia');
+//验证码
+Route::get('/captcha/{tmp}','PhoneController@captcha');
 
 
 

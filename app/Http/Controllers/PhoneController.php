@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+
+use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
+use Session; 
 use App\Brand;
 use App\Color;
 use App\Memory;
 use App\Parameter;
 use App\Phone;
 use App\Type;
+use App\Car;
 use App\Xinghao;
 use Illuminate\Http\Request;
 
@@ -188,4 +193,137 @@ class PhoneController extends Controller
     {
         return view('home.shouyei');
     }
+   /*
+   *购物车添加
+   */
+    public function add(Request $request,$id)
+    {
+       
+        $tname_id = $request ->tname;
+
+        $cars = new Car;
+       
+
+        $tname = Type::findOrFail($tname_id);
+
+        $cars->tname = $tname->tname;
+
+        $color_id = $request ->cname;
+
+        $cname = Color::findOrFail($color_id);
+         
+        $cars->cname = $cname->cname;
+        $mname_id = $request ->mname;
+
+        $mname = Memory::findOrFail($mname_id);
+        $cars->mname = $mname->mname;
+
+        $cars->shuliang = $request ->shuliang;
+
+        $cars->phone_id = $id;
+  
+       if($cars->save()){
+
+          return redirect('/tianjia');
+       }else{
+
+         return back();
+       }      
+
+        
+    }
+
+    /*
+    *添加购物车到数据库
+    */
+    public function tianjia()
+    {
+
+      return view('home.shop.dingdan');
+
+    }
+
+    public function captcha($tmp)
+
+    {
+
+    //生成验证码图片的Builder对象，配置相应属性
+
+    $builder = new CaptchaBuilder;
+
+    //可以设置图片宽高及字体
+
+    $builder->build($width = 100, $height = 40, $font = null);
+
+    //获取验证码的内容
+
+    $phrase = $builder->getPhrase();
+
+    //把内容存入session
+
+    Session::flash('milkcaptcha', $phrase);
+
+    //dd($a);
+
+    //生成图片
+
+    header("Cache-Control: no-cache, must-revalidate");
+    ob_clean();
+
+    header('Content-Type: image/jpeg');
+
+    $builder->output();
+
+     }
+
+
+
+public function dologin(Request $req){
+
+    //根据用户名读数据库
+
+    $user=User::where('name',$req->name)->first();
+
+    $userInput = \Request::get('captcha');
+
+    // if(!$user){
+
+    //     return back()->with('error','登录失败');
+
+    // }
+
+    //校验密码
+
+     // if(Hash::check($req->password,$user->password)){
+
+    //写入session
+
+    //     session(['name'=>$user->name,'id'=>$user->id]);
+
+     //     return redirect('/admin')->with('success','登陆成功');
+
+    // }else{
+
+     //     return back()->with('error','登录失败');
+
+     // }
+
+    //$password=Hash::check($req->password,$user->password); 
+
+     if(Session::get('milkcaptcha') == $userInput){
+
+     
+
+      return redirect('#')->with('success','登陆成功');
+
+        
+
+ }else{
+
+    //echo '验证码错误';
+
+    return back()->with('error','验证码错误');
+
+    }
+}
 }

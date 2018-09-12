@@ -8,7 +8,6 @@
         </div>
         <div class="header-nav">
             <ul class="nav-list">
-            
             </ul>
         </div>
         <div class="header-cart" id="MzHeaderCart">
@@ -51,14 +50,16 @@
             <a href="/">首页</a>&nbsp;&gt;&nbsp;
             <a class="ellipsis crumbs-title">{{$phones->pname}}</a>
         </section>
-        <section class="row">
-            <div class="preview" id="preview">
-                <div class="preview-booth">
-                    <a href="javascript:;">
-                            <img src="{{$phones->pic}}" height="510" width="660" alt="" style="display: inline;">
+        <form action="/add/{{$phones->id}}" method="post">
+            {{csrf_field()}}
+            <section class="row">
+                <div class="preview" id="preview">
+                    <div class="preview-booth">
+                        <a href="javascript:;">
+                            <img src="{{$phones->pic}}"  alt="" style="display: inline;">
                         </a>
-                </div>
-                <!--
+                    </div>
+                    <!--
                 <ul class="preview-thumb clearfix" id="J_previewThumb">
                     <li class="current"><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1453884271-20264.png@120x120.jpg" width="110" height="110"></a></li>
                     <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332831-67349.png@120x120.jpg" width="110" height="110"></a></li>
@@ -66,72 +67,69 @@
                     <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332877-94122.png@120x120.jpg" width="110" height="110"></a></li>
                 </ul>
                 -->
-            </div>
-            <div class="property" id="property">
-                <div class="property-hd">
-                    <h1>{{$phones->pname}}</h1>
-                    <p class="mod-price">
-                        <em class="vm-yen">¥</em>
-                        <span class="vm-price">{{$phones->money}}</span>
-                    </p>
                 </div>
-                <dl class="property-sale">
-                    <dt class="vm-metatit">网络类型:</dt>
-                    <dd>
-                        <ul data-property="网络类型" class="clearfix">
-                            @foreach ($types as $v)
-                            <li data-value="14:43" class="selected">
-                                <a href="http://store.meizu.com/item/meilan2.html#">
-                                    <span>{{$v['tname']}}</span>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </dd>
-                </dl>
-                <dl class="property-sale">
-                    <dt class="vm-metatit">颜色分类:</dt>
-                    <dd>
-                        <ul data-property="颜色分类" class="clearfix">
-                            @foreach ($colors as $v)
-                            <li data-value="3:11" class="selected">
-                                <a class="vm-sale-img" href="http://store.meizu.com/item/meilan2.html#">
-                                    <img src="/qiantai/img/1450922313-97036.png" width="16" height="16">
-                                    <span>{{$v['cname']}}</span>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </dd>
-                </dl>
-                <dl class="property-sale">
-                    <dt class="vm-metatit">机身内存:</dt>
-                    <dd>
-                        <ul data-property="机身内存" class="clearfix">
-                            @foreach ($memorys as $v)
-                            <li data-value="13:36"class="selected">
-                                <a href="http://store.meizu.com/item/meilan2.html#">
-                                    <span>{{$v['mname']}}</span>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </dd>
-                </dl>
-                
-                <dl class="property-quantity">
-                    <dt class="vm-metatit">数量:</dt>
-                    <dd class="clearfix">
-                        <div class="property-quantity-control">
-                            <a title="减少" href="javascript:;" class="vm-minus">-</a>
-                            <input type="text" value="1" id="J_quantity" data-max="1">
-                            <a title="增加" href="javascript:;" class="vm-plus">+</a>
-                        </div>
-                        <span id="J_Stock" class="vm-count"></span>
-                    </dd>
-                </dl>
-                <dl class="property-info" id="propertyInfo">
-                    <!--
+                <div class="property" id="property">
+                    <div class="property-hd">
+                        <h1>{{$phones->pname}}</h1>
+                        <p class="mod-price">
+                            <em class="vm-yen">¥</em>
+                            <span class="vm-price">{{$phones->money}}</span>
+                        </p>
+                    </div>
+                    <dl class="property-sale">
+                        <dt class="vm-metatit">网络类型:</dt>
+                        <dd>
+                            <ul data-property="网络类型" class="clearfix">
+                                @foreach ($types as $v)
+                                <label>
+                                    <input type="radio" value="{{$v['id']}}" name="tname" class="tname">
+                                    <span style="margin-right:20px">{{$v['tname']}}</span>
+                                </label>
+                                @endforeach
+                            </ul>
+                        </dd>
+                    </dl>
+                    <!-- 鼠标点击事件 -->
+                    <dl class="property-sale">
+                        <dt class="vm-metatit">颜色分类:</dt>
+                        <dd>
+                            <ul data-property="颜色分类" class="clearfix">
+                                @foreach ($colors as $v)
+                                <!--  <li data-value="3:11" class="selected">
+                            <input type="radio" value="{{$v->id}}" name="cname">
+                            </li> -->
+                                <label>
+                                    <input type="radio" value="{{$v->id}}" name="cname" class="cname">
+                                    <span style="margin-right:20px">{{$v['cname']}}</span>
+                                </label> @endforeach
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="property-sale">
+                        <dt class="vm-metatit">机身内存:</dt>
+                        <dd>
+                            <ul data-property="机身内存" class="clearfix">
+                                @foreach ($memorys as $v)
+                                <label>
+                                    <input type="radio" name="mname" value="{{$v->id}}" class="mname">
+                                    <span style="margin-right:20px">{{$v['mname']}}</span></label>
+                                @endforeach
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="property-quantity">
+                        <dt class="vm-metatit">数量:</dt>
+                        <dd class="clearfix">
+                            <div class="property-quantity-control">
+                                <a title="减少" href="javascript:;" class="vm-minus">-</a>
+                                <input type="text" value="1" id="J_quantity" data-max="5" name="shuliang">
+                                <a title="增加" href="javascript:;" class="vm-plus">+</a>
+                            </div>
+                            <span id="J_Stock" class="vm-count"></span>
+                        </dd>
+                    </dl>
+                    <dl class="property-info" id="propertyInfo">
+                        <!--
                     <dt class="mod-title">
                         您已选择以下商品:
                     </dt>
@@ -142,18 +140,19 @@
                         <p>本商品由 魅族 负责发货，并由 魅族 提供售后服务</p>
                     </dd>
                     -->
-                    <dd class="mod-total">
-                        价格:<em class="vm-price">￥{{$phones->money}}</em>
-                    </dd>
-                </dl>
-                <dl class="property-buy" id="J_BuyOrDiy">
-                    <dt class="vm-message" id="J_message"></dt>
-                    <dd>
-                        <a href="javascript:void(0);" class="btn btn-primary btn-lg">立即购买</a>
-                    </dd>
-                </dl>
-            </div>
-        </section>
+                        <dd class="mod-total">
+                            价格:<em class="vm-price">￥{{$phones->money}}</em>
+                        </dd>
+                    </dl>
+                    <dl class="property-buy" id="J_BuyOrDiy">
+                        <dt class="vm-message" id="J_message"></dt>
+                        <dd>
+                            <button class="btn btn-primary btn-lg">立即购买</button>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+        </form>
     </div>
     <section class="row detail" id="detail">
         <div style="height:62px;">
@@ -194,9 +193,9 @@
                 <img class="lazy" data-original="/qiantai/img/1451371368-29830.jpg" width="1240" alt="" src="/qiantai/img/1451371368-29830.jpg" style="display: inline;">
             </div>
             -->
-            <div class="id="introduce current" id="introduce" style="display: block;">{!!$phones->content!!}</div>
-            <div class="standard" id="standard" style="display: none;">
-                <table class="standard-table">
+            <div class="id=" introduce current " id="introduce " style="display: block; ">{!!$phones->content!!}</div>
+            <div class="standard " id="standard " style="display: none; ">
+                <table class="standard-table ">
                     <tbody>
                         
                         <tr>
@@ -260,38 +259,38 @@
                     </tbody>
                 </table>
             </div>
-            <div class="question" id="question" style="display: none;">
-                <div class="question-list">
+            <div class="question " id="question " style="display: none; ">
+                <div class="question-list ">
                     <h2>热门回答</h2>
-                    <dl class="mod-item">
-                        <dt class="vm-question">
+                    <dl class="mod-item ">
+                        <dt class="vm-question ">
                             怎样才算购买成功？
                         </dt>
-                        <dd class="vm-answer">
+                        <dd class="vm-answer ">
                             由于系统设置为付款后减库存，所以拍下并不代表购买成功。为了确保购买成功，建议拍下后尽快完成付款。
                         </dd>
                     </dl>
-                    <dl class="mod-item">
-                        <dt class="vm-question">
+                    <dl class="mod-item ">
+                        <dt class="vm-question ">
                             魅蓝2用的是什么屏幕保护玻璃？
                         </dt>
-                        <dd class="vm-answer">
+                        <dd class="vm-answer ">
                             魅蓝2采用全球最大的两家屏幕玻璃厂商之一——旭硝子出品的“龙迹2代”强化玻璃，其强度是普通玻璃的6倍，在耐冲击、耐刮花方面都会远远超过普通玻璃。
                         </dd>
                     </dl>
-                    <dl class="mod-item">
-                        <dt class="vm-question">
+                    <dl class="mod-item ">
+                        <dt class="vm-question ">
                             魅蓝2可以插几张卡？都支持运营商的哪些网络？
                         </dt>
-                        <dd class="vm-answer">
+                        <dd class="vm-answer ">
                             魅蓝2为双卡双待设计，移动、联通版魅蓝2更公开版固件后支持移动联通双4G，电信版魅蓝2支持电信4G和移动联通2G。
                         </dd>
                     </dl>
-                    <dl class="mod-item">
-                        <dt class="vm-question">
+                    <dl class="mod-item ">
+                        <dt class="vm-question ">
                             魅蓝2支持TF卡扩展吗？
                         </dt>
-                        <dd class="vm-answer">
+                        <dd class="vm-answer ">
                             支持。您可以选择安装两张Nano SIM卡或者安装一张Nano SIM 一张Micro SD卡。
                         </dd>
                     </dl>
