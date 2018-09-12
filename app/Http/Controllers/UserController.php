@@ -15,10 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {  
-          
-    $users = User::orderBy('id','desc')
-            ->where('username','like', '%'.request()->keywords.'%')
-            ->paginate(1);
+          $users = User::orderBy('id','asc')
+            ->where('name','like', '%'.request()->keywords.'%')
+            ->paginate(5);
         //解析模板显示用户数据
         return view('admin.user.index', ['users'=>$users]);
   
@@ -42,13 +41,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         $user = new User;
-         $user->username = $request->username;
-          
-        //会报一个username的报错   解决方案：
-              if ($request->hasFile('pic')) {
+        $user = new User;
+        $user->name = $request->name;
+    
+        if ($request->hasFile('pic')) {
             $user->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
-             }
+        }    
         //单向加密
         //验证密码是否正确见手册
         $user->password = Hash::make($request->password);
@@ -60,6 +58,7 @@ class UserController extends Controller
         }
 
     }
+
 
     /**
      * Display the specified resource.
@@ -95,11 +94,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-             //获取用户的信息
+        //获取用户的信息
         $user = User::findOrFail($id);
 
         //更新
-        $user -> username = $request->username;
+        $user -> name = $request->name;
          if ($request->hasFile('pic')) {
             $user->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
         }

@@ -45,8 +45,8 @@
                         <div class="content">
                             <div class="waitPay clearfix">
                                 <span class="f-fl cercl">
-                                        <i class="iconfont icon-waitingPay"></i>
-                                    </span>
+                                     <i class="iconfont icon-waitingPay"></i>
+                                </span>
                                 <div class="text f-fl">
                                     <p>待付款订单：<span class="num">0</span></p>
                                     <a class="detail" href="http://store.meizu.com/member/myorder/index?type=0">查看全部待付款订单 &gt;</a>
@@ -54,8 +54,8 @@
                             </div>
                             <div class="waitDeliver clearfix">
                                 <span class="f-fl cercl">
-                                        <i class="iconfont icon-waitingDeliver"></i>
-                                    </span>
+                    <i class="iconfont icon-waitingDeliver"></i>
+                                </span>
                                 <div class="text f-fl">
                                     <p>待发货订单：<span class="num">0</span></p>
                                     <a class="detail" href="http://store.meizu.com/member/myorder/index?type=1">查看全部待发货订单 &gt; </a>

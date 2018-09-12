@@ -28,7 +28,7 @@
                         <div class="content">
                             <div class="row namePhone clearfix">
                                 <div class="f-fl addressName">
-                                    <span>{收货人姓名}<i class="mark">*</i></span>
+                                    <span>收货人姓名<i class="mark">*</i></span>
                                     <input id="shname" class="varify" name="shname" type="text" placeholder="长度不超过12个字" maxlength="12">
                                 </div>
                                 <div class="f-fl addressPhone">
@@ -56,8 +56,7 @@
                     <div class="list ">
                         <div class="row ">
                             <div class="title ">
-                                <div>已有地址</div>
-                               
+                                <div>已有地址</div>                               
                                 <div class="upload hide ">
                                     <i class="iconfont icon-zhuyi "></i>
                                     <span>因配送地址库数据升级，请点击地址进行升级，让您享受更好的配送服务！</span>
@@ -73,22 +72,19 @@
                             <span class="center w20 ">操作</span>
                         </div>
                         @foreach($url as $v)
-                         <div class="listHead ">
-                            <span class="center w15 ">{{$v['shname']}}</span>
-                            <span class="center w15 ">{{$v['shtel']}}</span>
-                            <span class="center w20 ">{{$v['shadd']}}</span>
-                            <span class="center w20 ">{{$v['xadd']}}</span>
-                            <span class="center w20 "> 
-                                <div class="am-btn-group am-btn-group-xs ">
+                            <div class="listHead ">
+                                <span class="center w15 ">{{$v['shname']}}</span>
+                                <span class="center w15 ">{{$v['shtel']}}</span>
+                                <span class="center w20 ">{{$v['shadd']}}</span>
+                                <span class="center w20 ">{{$v['xadd']}}</span>
+                                <span class="center w20 "> 
+                                    <div class="am-btn-group am-btn-group-xs ">
                                         <a href="/center/url"><span class="am-icon-pencil-square-o "></span> 编辑</a>
-                                        <form style="float:left " action="" method="post ">
-                                            
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only "><span class="am-icon-trash-o "></span> 删除</button>
+                                        <form style="float:left " action="" method="post "><button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only "><span class="am-icon-trash-o "></span> 删除</button>
                                         </form>
-
-                                </div>
-                            </span>
-                        </div>
+                                    </div>
+                                </span>
+                            </div>
                         @endforeach
                         <ul id="tableList " class=" "></ul>
                     </div>

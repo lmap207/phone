@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function dologin(Request $request){
             //获取用户的数据
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('name', $request->name)->first();
 
         if(!$user){
             return back()->with('error','登陆失败!');
@@ -28,7 +28,7 @@ class AdminController extends Controller
         //校验密码
         if(Hash::check($request->password, $user->password)){
             //写入session
-            session(['username'=>$user->username, 'id'=>$user->id]);
+            session(['name'=>$user->name, 'id'=>$user->id]);
             return redirect('/admin')->with('success','登陆成功');
         }else{
             return back()->with('error','登陆失败!');
@@ -40,5 +40,6 @@ class AdminController extends Controller
       {
         $request->session()->flush();
         return redirect('/admin/login')->with('success','退出成功');
-      }          
+      }        
+
 }
