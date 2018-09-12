@@ -52,7 +52,7 @@
                                 <input type="checkbox">
                             </td>
                             <td>{{$v['id']}}</td>
-                            <td>{{$v->phone->pname}}</td>
+                            <td>{{$v->phone['pname']}}</td>
                             <td>{{$v['capacity']}}</td>
                             <td>{{$v['size']}}</td>
                             <td>{{$v['memory']}}</td>

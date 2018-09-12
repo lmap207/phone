@@ -18,28 +18,28 @@
         <div class="tpl-form-body tpl-form-line">
             <form class="am-form tpl-form-line-form" method="post" action="/advert" enctype="multipart/form-data">
                 <div class="am-form-group">
-                    <label for="user-name" class="am-u-sm-3 am-form-label">广告名称 <span class="tpl-form-line-small-title"></span></label>
+                    <label for="user-name" class="am-u-sm-3 am-form-label">广告名称<span class="tpl-form-line-small-title"></span></label>
                     <div class="am-u-sm-9">
                         <input type="text" name="adname" class="tpl-form-input" id="user-name" placeholder="请输入广告名">
                     </div>
                 </div>
 
                 <div class="am-form-group">
-                    <label for="user-name" class="am-u-sm-3 am-form-label">广告图片 <span class="tpl-form-line-small-title"></span></label>
+                    <label for="user-name" class="am-u-sm-3 am-form-label">广告图片<span class="tpl-form-line-small-title"></span></label>
                     <div class="am-u-sm-9">
                         <input type="file" name="adpic" class="tpl-form-input">
                     </div>
                 </div>
 
                 <div class="am-form-group">
-                    <label for="user-name" class="am-u-sm-3 am-form-label">广告内容 <span class="tpl-form-line-small-title"></span></label>
+                    <label for="user-name" class="am-u-sm-3 am-form-label">广告内容<span class="tpl-form-line-small-title"></span></label>
                     <div class="am-u-sm-9">
                         <input type="text" name="adcontent" class="tpl-form-input" id="user-name" placeholder="请输入广告内容">
                     </div>
                 </div>
 
                 <div class="am-form-group">
-                    <label for="user-name" class="am-u-sm-3 am-form-label">广告时间 <span class="tpl-form-line-small-title"></span></label>
+                    <label for="user-name" class="am-u-sm-3 am-form-label">广告时间<span class="tpl-form-line-small-title"></span></label>
                     <div class="am-u-sm-9">
                         <input type="text" name="adtime" class="tpl-form-input" id="user-name" placeholder="请输入广告时间">
                     </div>
