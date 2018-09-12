@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-	/*
-	 * 地址
-	 */
+     return $this->hasMany('App\Yjfk'); 
+	
     public function urls()
     {
     	return $this->hasMany('App\Url');
     }
+
 }

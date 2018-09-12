@@ -53,46 +53,16 @@
             </div>
             <div class="site-footer-navs clearfix">
                 <div class="footer-nav-item">
-                    <h4 class="footer-nav-title">帮助说明</h4>
+                
                     <ul>
-                        <li><a href="http://store.meizu.com/explain/payment_help.html" target="_blank">支付方式</a></li>
-                        <li><a href="http://store.meizu.com/explain/deliverynote.html" target="_blank">配送说明</a></li>
-                        <li><a href="http://store.meizu.com/explain/warranty_services.html" target="_blank">售后服务</a></li>
-                        <li><a href="http://store.meizu.com/explain/payment_helps.html" target="_blank">付款帮助</a></li>
+                        @foreach($links as $v)
+                        <li style="float:left;margin-left:50px;"><a href="{{$v['url']}}">{{$v['name']}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
-                <div class="footer-nav-item">
-                    <h4 class="footer-nav-title">Flyme OS</h4>
-                    <ul>
-                        <li><a target="_blank" href="https://cloud.flyme.cn/">云服务</a></li>
-                        <li><a target="_blank" href="http://www.flyme.cn/firmware.jsp">固件下载</a></li>
-                        <li><a target="_blank" href="http://app.flyme.cn/">软件商店</a></li>
-                        <li><a target="_blank" href="http://finder.flyme.cn/">查找手机</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav-item">
-                    <h4 class="footer-nav-title">关于我们</h4>
-                    <ul>
-                        <li><a target="_blank" href="http://www.meizu.com/about.html">关于魅族</a></li>
-                        <li><a target="_blank" href="http://hr.meizu.com/">加入我们</a></li>
-                        <li><a target="_blank" href="http://www.meizu.com/contact.html">联系我们</a></li>
-                        <li><a target="_blank" href="http://www.meizu.com/legalStatement.html">法律声明</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav-item">
-                    <h4 class="footer-nav-title">关注我们</h4>
-                    <ul>
-                        <li><a target="_blank" href="http://weibo.com/meizumobile">新浪微博</a></li>
-                        <li><a target="_blank" href="http://t.qq.com/meizu_tech">腾讯微博</a></li>
-                        <li><a target="_blank" href="http://user.qzone.qq.com/2762957059">QQ空间</a></li>
-                        <li>
-                            <a class="meizu-footer-wechat">
-                            官方微信
-                            <img src="/qiantai/img/weixin.png" alt="微信二维码">
-                        </a>
-                        </li>
-                    </ul>
-                </div>
+           
+             
+            
                 <div class="footer-nav-custom">
                     <h4 class="nav-custom-title">24小时全国服务热线</h4>
                     <a href="tel:400-788-3333"><h3 class="nav-custom-number">400-788-3333</h3></a>

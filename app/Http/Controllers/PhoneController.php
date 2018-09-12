@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
+
 
 
 use Gregwar\Captcha\CaptchaBuilder;
@@ -11,10 +11,15 @@ use App\Color;
 use App\Memory;
 use App\Parameter;
 use App\Phone;
+use App\Setting;
 use App\Type;
 use App\Car;
 use App\Xinghao;
+use App\Yjfk;
+use App\link;
 use Illuminate\Http\Request;
+
+
 
 class PhoneController extends Controller
 {
@@ -26,9 +31,10 @@ class PhoneController extends Controller
     public function index()
     {
         //读取数据库 获取用户数据
-        $phones = Phone::orderBy('id','desc')
+    $phones = Phone::orderBy('id','desc')
             ->where('pname','like', '%'.request()->keywords.'%')
             ->paginate(10);
+
         //解析模板显示用户数据
         return view('admin.phone.index', ['phones'=>$phones]);
     }
@@ -39,11 +45,15 @@ class PhoneController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {    
         $brand = Brand::all();
+        //型号
         $xinghao = Xinghao::all();
+        //手机类型
         $type = Type::all();
+        //颜色
         $color = Color::all();
+         //
         $memory = Memory::all();
 
         return view('admin.phone.create', compact('brand','xinghao','type','color','memory'));
@@ -174,7 +184,8 @@ class PhoneController extends Controller
      * 商品列表
      */
     public function list(Request $request)
-    {
+    {   
+
         $phones = Phone::all();
         $brands = Brand::all();
         $recoms = Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
@@ -191,8 +202,13 @@ class PhoneController extends Controller
      */
     public function shouyei()
     {
-        return view('home.shouyei');
+        $links = link::all();
+        $settings = Setting::all();
+        $phones = Phone::all();
+       return view('home.shouyei',compact('links','settings','phones'));
+    
     }
+
    /*
    *购物车添加
    */
@@ -325,5 +341,23 @@ public function dologin(Request $req){
     return back()->with('error','验证码错误');
 
     }
+
+    //意见反馈
+    public function yjfk(){
+        return view('home.yjfk');    
+    } 
+    public function ycreate(Request $request){
+        $yjfk = new Yjfk;
+         $yjfk -> user_id = $request -> user_id;
+         $yjfk -> yijian = $request -> yijian;
+        dd($yjfk);
+        
+
+    } 
+    //后台意见反馈
+     public function hyjfk(){
+        return view('admin.yjfk.index');
+     }
+
 }
 }
