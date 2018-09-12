@@ -102,9 +102,5 @@ class ZhuceController extends Controller
         ob_clean();
         header('Content-Type: image/jpeg');
         $builder->output();
-
-
     }
-
-
 }

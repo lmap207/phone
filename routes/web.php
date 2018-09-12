@@ -40,6 +40,9 @@ Route::resource('brand', 'BrandController');
 //内存
 Route::resource('memory', 'MemoryController');
 
+//广告管理
+Route::resource('advert','AdvertController');
+
 //后台路由
 Route::get('/admin', 'AdminController@index');
 //登录路由

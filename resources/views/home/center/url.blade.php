@@ -56,8 +56,7 @@
                     <div class="list ">
                         <div class="row ">
                             <div class="title ">
-                                <div>已有地址</div>
-                               
+                                <div>已有地址</div>                               
                                 <div class="upload hide ">
                                     <i class="iconfont icon-zhuyi "></i>
                                     <span>因配送地址库数据升级，请点击地址进行升级，让您享受更好的配送服务！</span>
@@ -80,9 +79,8 @@
                                 <span class="center w20 ">{{$v['xadd']}}</span>
                                 <span class="center w20 "> 
                                     <div class="am-btn-group am-btn-group-xs ">
-                                        <a href="/center/url "><span class="am-icon-pencil-square-o "></span> 编辑</a>
-                                        <form style="float:left " action=" " method="post ">
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only "><span class="am-icon-trash-o "></span> 删除</button>
+                                        <a href="/center/url"><span class="am-icon-pencil-square-o "></span> 编辑</a>
+                                        <form style="float:left " action="" method="post "><button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only "><span class="am-icon-trash-o "></span> 删除</button>
                                         </form>
                                     </div>
                                 </span>
