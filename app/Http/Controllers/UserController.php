@@ -96,7 +96,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-             //获取用户的信息
+        //获取用户的信息
         $user = User::findOrFail($id);
 
         //更新
