@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Url;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class UrlController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,20 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-          
-    $users = User::orderBy('id','desc')
-            ->where('name','like', '%'.request()->keywords.'%')
-            ->paginate(10);
+    {
+        $urls = Url::all();
+        $users = User::all();
+        $urls -> user_id = \Session::get('id');
+        // dd($urls);
+        return view('home.center.dizhi.create', ['urls' =>$urls,'users'=>$users]);
+        //读取数据库 获取用户数据
+        /*
+        $url = Url::orderBy('id','asc')
+            ->where('shname','like', '%'.request()->keywords.'%')
+            ->get();
+        */
         //解析模板显示用户数据
-        return view('admin.user.index', ['users'=>$users]);
-  
+        //return view('home.center.url', ['url'=>$url]);
     }
 
     /**
@@ -31,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        return view('home.center.dizhi.create');
     }
 
     /**
@@ -42,23 +48,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-    
-        if ($request->hasFile('pic')) {
-            $user->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
-        }    
-        
-        //单向加密
-        //验证密码是否正确见手册
-        $user->password = Hash::make($request->password);
-        //如果添加成功进行跳转  并做一下闪存   给用户一个提醒
-        if($user ->save()){
-            return redirect('/user')->with('success','添加成功');
+        $urls = new Url;
+        $urls -> sheng = $request->sheng;
+        $urls -> shi = $request->shi;
+        $urls -> qu = $request->qu;
+        $urls -> user_id = \Session::get('id');
+
+        // dd($urls);
+        if($urls -> save()){
+            return back()->with('success', '添加成功');
         }else{
             return back()->with('error','添加失败');
         }
-
+        
     }
 
     /**
@@ -69,7 +71,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      
+        //
     }
 
     /**
@@ -80,10 +82,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-          //获取用户的信息
-        $user = User::findOrFail($id);
-        //解析模板显示数据
-        return view('admin.user.edit', ['user'=>$user]);
+        /*
+        $url = Url::findOrFail($id);
+
+        return view('home.center.url', ['url'=>$url]);
+        */
     }
 
     /**
@@ -95,21 +98,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-             //获取用户的信息
-        $user = User::findOrFail($id);
-
-        //更新
-        $user -> name = $request->name;
-         if ($request->hasFile('pic')) {
-            $user->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
-        }
-
-        if($user->save()){
-            return redirect('/user')->with('success','更新成功');
+        /*
+        $url = Url::findOrFail($id);
+        
+        $url -> shname = $request -> shname;
+        $url -> shtel = $request->shtel;
+        $url -> shadd = $request->shadd;
+        $url -> xadd = $request->xadd;
+        
+        if($url -> save()){
+            return redirect('/url')->with('success', '更新成功');
         }else{
             return back()->with('error','更新失败');
         }
-        
+        */    
     }
 
     /**
@@ -120,9 +122,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-         $user = User::findOrFail($id);
+        $urls = Url::findOrFail($id);
 
-        if($user->delete()){
+        if($urls->delete()){
             return back()->with('success','删除成功');
         }else{
             return back()->with('error','删除失败!');

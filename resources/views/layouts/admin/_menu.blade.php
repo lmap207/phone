@@ -165,4 +165,14 @@
             </li>
         </ul>
     </li>
+
+
+     <li class="tpl-left-nav-item">
+        <a href="/admin/settings" class="nav-link tpl-left-nav-link-list">
+            <i class="am-icon-wpforms"></i>
+            <span>网站管理</span>
+            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+        </a>
+        
+    </li>
 </ul>

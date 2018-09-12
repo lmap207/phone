@@ -17,7 +17,7 @@
                     <div class="am-form-group">
                         <label for="user-name" class="am-u-sm-3 am-form-label">用户名 <span class="tpl-form-line-small-title"></span></label>
                         <div class="am-u-sm-9">
-                            <input type="text" name="username" class="tpl-form-input" id="user-name" placeholder="" >
+                            <input type="text" name="name" class="tpl-form-input" id="user-name" placeholder="" >
                             <small>请填写标题文字6-20位字母数字下划线</small>
                         </div>
                     </div>
