@@ -15,13 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+//登录路由
+Route::get('/admin/login','AdminController@login');
+//登录操作
+Route::post('/admin/login','AdminController@dologin');
 
 
 //后台路由
 Route::get('/admin', 'AdminController@index');
 //用户管理
+Route::group(['middleware'=>'admin'],function(){
+//后台路由
+Route::get('/admin', 'AdminController@index');
+//用户管理
 Route::resource('user','UserController');
-//手机
+//手机管理
 Route::resource('phone', 'PhoneController');
 //参数
 Route::resource('parameter', 'ParameterController');
@@ -48,7 +56,15 @@ Route::get('/admin/login','AdminController@login');
 Route::post('/admin/login','AdminController@dologin');
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
-
+//地址管理
+Route::resource('/url','UrlController@create');
+ //意见反馈后台
+Route::get('/hyjfk','PhoneController@hyjfk');
+//广告管理
+Route::resource('advert','AdvertController');
+//退出登录
+Route::get('/admin/logout','AdminController@logout');
+});
 
 //前台路由
 //详情页  
@@ -95,3 +111,8 @@ Route::get('/admin/settings', 'SettingController@setting');
 Route::post('/admin/settings', 'SettingController@update');
 //地址管理
 Route::resource('/url','UrlController@create');
+//意见反馈的增加
+Route::post('/ycreate','PhoneController@ycreate');
+//意见反馈前台
+Route::get('/yjfk','PhoneController@yjfk');
+
