@@ -44,13 +44,13 @@
         <div class="header-cart" id="MzHeaderCart">
             <a href="http://store.meizu.com/cart" target="_blank" data-yoyi="2500">
                 <div class="header-cart-wrap">
-                    <span class="header-cart-icon"></span> 购物车
+                    <span>购物车</span> 
                     <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
                     <div class="header-cart-spacer"></div>
                 </div>
             </a>
             <div class="header-cart-detail">
-                <div class="header-cart-empty" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
+                <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
             </div>
         </div>
     </div>

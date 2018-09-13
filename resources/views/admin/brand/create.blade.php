@@ -8,7 +8,7 @@
 <div class="tpl-portlet-components">
 <div class="portlet-title">
     <div class="caption font-green bold">
-        <span class="am-icon-code"></span> 品牌
+        <span>品牌添加</span> 
     </div>
 </div>
 

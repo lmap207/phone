@@ -32,7 +32,7 @@
                             <div class="inputOuter2">
                                 <input type="text" id="user" name="name" maxlength="16" class="inputstyle2" value="" />
                                 <span></span>
-                            </div>                           
+                            </div>
                         </li>
                         <li>
                             <label for="passwd" class="input-tips2">密码：</label>
@@ -50,13 +50,13 @@
                         </li>
                         <li>
                             <div class="inputArea">
-                                <button style="margin-top:10px;margin-left:85px;" class="button_blue" value=注册"/>注册</button>
+                                <button style="margin-top:10px;margin-left:85px;" class="button_blue" value=注册 "/>注册</button>
                             </div>
                         </li>
-                        <div class="cl"></div>
+                        <div class="cl "></div>
                     </ul>
                 </form>
-                <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>
                 <script>
                 var CUSER = false;                
                 var CPASS = false;
@@ -80,7 +80,7 @@
                         //边框
                         $(this).addClass('error');
                         //文字提醒
-                        $(this).next().html('<span style="color:red">格式不正确</span>').show();
+                        $(this).next().html('<span style="color:red ">格式不正确</span>').show();
                         CUSER = false;
                     } else {
                         var input = $(this);
@@ -98,11 +98,11 @@
                                     //边框
                                     input.addClass('error');
                                     //文字提醒
-                                    input.next().html('<span style="color:red">该用户名太受欢迎, 请换一个!!</span>').show();
+                                    input.next().html('<span style="color:red ">该用户名太受欢迎, 请换一个!!</span>').show();
                                     CUSER = false;
                                 } else {
                                     input.removeClass('error');
-                                    input.next().html('<p style="color:green;font-size:16px;font-weight:bold">&nbsp;&nbsp;√</p>').show();
+                                    input.next().html('<p style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</p>').show();
                                     CUSER = true;
                                 }
                             },
@@ -128,13 +128,13 @@
                         //边框
                         $(this).addClass('error');
                         //文字提醒
-                        $(this).next().html('<span style="color:red">格式不正确</span>').show();
+                        $(this).next().html('<span style="color:red ">格式不正确</span>').show();
                         CPASS = false;
                     } else {
                         //边框
                         $(this).removeClass('error');
                         //文字提醒
-                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold">&nbsp;&nbsp;√</span>').show();
+                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
                         CPASS = true;
 
                     }
@@ -155,13 +155,13 @@
                         //边框
                         $(this).addClass('error');
                         //文字提醒
-                        $(this).next().html('<span style="color:red">两次密码不一致</span>').show();
+                        $(this).next().html('<span style="color:red ">两次密码不一致</span>').show();
                         CREPASS = false;
                     } else {
                         //边框
                         $(this).removeClass('error');
                         //文字提醒
-                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold">&nbsp;&nbsp;√</span>').show();
+                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
                         CREPASS = true;
 
                     }

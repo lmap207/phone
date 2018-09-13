@@ -1,5 +1,5 @@
-
 <ul class="tpl-left-nav-menu">
+    <!-- 用户管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -20,6 +20,7 @@
             </li>
         </ul>
     </li>
+    <!-- 手机管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -40,7 +41,7 @@
             </li>
         </ul>
     </li>
-
+    <!-- 参数管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -61,7 +62,7 @@
             </li>
         </ul>
     </li>
-
+    <!-- 型号管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -82,7 +83,7 @@
             </li>
         </ul>
     </li>
-
+    <!-- 类型管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -103,7 +104,7 @@
             </li>
         </ul>
     </li>
-
+    <!-- 颜色管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -124,7 +125,7 @@
             </li>
         </ul>
     </li>
-
+    <!-- 内存管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -145,7 +146,7 @@
             </li>
         </ul>
     </li>
-
+    <!-- 品牌管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -166,9 +167,7 @@
             </li>
         </ul>
     </li>
-
-<!-- 链接管理 -->
-
+    <!-- 链接管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -188,8 +187,8 @@
                 </a>
             </li>
         </ul>
-     <li class="tpl-left-nav-item">
-
+    </li>
+    <!-- 广告管理 -->
     <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
@@ -210,16 +209,16 @@
             </li>
         </ul>
     </li>
-
+    <!-- 网站管理 -->
     <li class="tpl-left-nav-item">
-
         <a href="/admin/settings" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
             <span>网站管理</span>
             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
         </a>
+    </li>
     <!-- 意见反馈管理 -->
-        <li class="tpl-left-nav-item">
+    <li class="tpl-left-nav-item">
         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
             <i class="am-icon-wpforms"></i>
             <span>意见反馈管理</span>
@@ -233,7 +232,5 @@
                 </a>
             </li>
         </ul>
-    </li>
-
     </li>
 </ul>

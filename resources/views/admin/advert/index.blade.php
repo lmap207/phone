@@ -4,7 +4,7 @@
 <div class="tpl-portlet-components">
     <div class="portlet-title">
         <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 广告
+            <span>广告列表</span> 
         </div>
     </div>
 

@@ -17,6 +17,7 @@ use App\Car;
 use App\Xinghao;
 use App\Yjfk;
 use App\link;
+use App\Advert;
 use Illuminate\Http\Request;
 
 
@@ -202,10 +203,11 @@ class PhoneController extends Controller
      */
     public function shouyei()
     {
+        $adverts=Advert::first();
         $links = link::all();
         $settings = Setting::all();
         $phones = Phone::all();
-       return view('home.shouyei',compact('links','settings','phones'));
+       return view('home.shouyei',compact('links','settings','phones','adverts'));
     
     }
 
