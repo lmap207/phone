@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('daohang')
+
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
@@ -25,7 +25,6 @@
     </div>
    
 </div>
-@endsection
 
 @section('content') 
 <style>
@@ -36,7 +35,7 @@
         }
         #slide{
             width:1520px;
-            height:480px;
+            height:670px;
             border:solid 1px #ddd;
             margin:0px auto;
             position:relative;
@@ -48,7 +47,7 @@
         }
         #images li{
             width:1520px;
-            height:480px;
+            height:670px;
             left:0px;
             top:0px;
             float:left;
@@ -77,11 +76,11 @@
     </style>
     <div id="slide">
         <ul id="images">
-            <li><img src="/qiantai/img/1458725501-57846.jpg" width="1560" height="480" alt=""></li>
-            <li><img src="/qiantai/img/1458285012-23841.jpg" width="1560" height="480" alt=""></li>
-            <li><img src="/qiantai/img/1458541851-33151.jpg" width="1560" height="480" alt=""></li>
-            <li><img src="/qiantai/img/1458542539-29472.jpg" width="1560" height="480" alt=""></li>
-            <li><img src="/qiantai/img/1458546669-26155.png" width="1560" height="480" alt=""></li>
+            <li><img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1560" height="670" alt=""></li>
+            <li><img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1560" height="670" alt=""></li>
+            <li><img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1560" height="670" alt=""></li>
+            <li><img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1560" height="670" alt=""></li>
+            <li><img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1560" height="670" alt=""></li>
         </ul>
 
         <ul id="dots">

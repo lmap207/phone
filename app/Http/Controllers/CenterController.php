@@ -60,16 +60,16 @@ class CenterController extends Controller
 
 
 
-	public function url()
+	public function dizhi()
 	{
 		$uid = \Session::get('id');
 		$url = Url::all();
 
-		return view('home.center.url',compact('url'));
+		return view('home.center.dizhi.create',compact('dizhi'));
 	}
 
-	public function ywb()
+	/*public function ywb()
 	{
 		return view('home.center.ywb');
-	}
+	}*/
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +22,6 @@ Route::get('/admin/login','AdminController@login');
 Route::post('/admin/login','AdminController@dologin');
 
 
-//后台路由
-Route::get('/admin', 'AdminController@index');
 //用户管理
 Route::group(['middleware'=>'admin'],function(){
 //后台路由
@@ -43,28 +42,14 @@ Route::resource('color', 'ColorController');
 Route::resource('brand', 'BrandController');
 //内存
 Route::resource('memory', 'MemoryController');
+
+
 //友情链接
 Route::resource('link','LinkController');
-
-//前台路由
-
-// //详情页 
-
-// Route::get('/{id}.html', 'PhoneController@show');
-// //列表页
-// Route::get('phones', 'PhoneController@list');
-// //首页
-// Route::get('/','PhoneController@shouyei');
-// //意见反馈前台
-// Route::get('/yjfk','PhoneController@yjfk');
-// //意见反馈的增加
-// Route::post('/ycreate','PhoneController@ycreate');
-
-
-
 // 设置
 Route::get('/admin/settings', 'SettingController@setting');
 Route::post('/admin/settings', 'SettingController@update');
+
 //广告管理
 Route::resource('advert','AdvertController');
 
@@ -72,6 +57,7 @@ Route::resource('advert','AdvertController');
 Route::post('/admin/login','AdminController@dologin');
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
+
 //地址管理
 Route::resource('/url','UrlController@create');
  //意见反馈后台
@@ -81,6 +67,7 @@ Route::resource('advert','AdvertController');
 
 });
 
+
 //登录路由
 Route::get('/admin/login','AdminController@login');
 
@@ -88,34 +75,38 @@ Route::get('/admin/login','AdminController@login');
 Route::group(['middleware'=>'weihu'],function(){
 //详情页
 
-//详情页  
 
+//前台路由
+
+//详情页  
 Route::get('/{id}.html', 'PhoneController@show');
 //列表页
 Route::get('phones', 'PhoneController@list');
 //首页
 Route::get('/','PhoneController@shouyei');
-//意见反馈前台
-Route::get('/yjfk','PhoneController@yjfk');
-//意见反馈的增加
-Route::post('/ycreate','PhoneController@ycreate');
-//意见反馈后台
-Route::get('/hyjfk','PhoneController@hyjfk');
+//前台路由
+//详情页
+Route::get('/{id}.html', 'PhoneController@show');
+//列表页
+Route::get('phones', 'PhoneController@list');
+//首页
+Route::get('/','PhoneController@shouyei');
 //前台购物车添加
 Route::post('add/{id}','PhoneController@add');
+
 //购物车商品删除
 
 Route::get('delete/{id}','PhoneController@delete');
+
 
 //前台添加购物车到数据库
 Route::get('tianjia','PhoneController@tianjia');
 //验证码
 Route::get('/captcha/{tmp}','PhoneController@captcha');
-// //注册
-// Route::get('/home/zc','ZhuceController@zhuce');
-// //验证注册
-// Route::post('/home/zhuce','ZhuceController@store');
-
+//注册
+Route::get('/home/zc','ZhuceController@zhuce');
+//验证注册
+Route::post('/home/zhuce','ZhuceController@store');
 //登录
 Route::get('/home/denglu','ZhuceController@denglu');
 Route::get('/captcha/{tmp}','ZhuceController@captcha');
@@ -123,26 +114,10 @@ Route::get('/captcha/{tmp}','ZhuceController@captcha');
 Route::post('/','ZhuceController@dologin');
 //退出登录
 Route::get('home/logout','ZhuceController@tuichu');
-//个人中心
-Route::get('/center','CenterController@index');
 //我的资料
 Route::get('/center/ziliao','CenterController@ziliao');
 //我的地址
 Route::resource('/center/url','UrlController');
-
-
-
-//个人中心
-Route::get('/center','CenterController@center');
-//Route::get('/center/url','CenterController@url');
-Route::get('/ywb','CenterController@ywb');
-
-
-
-
-//地址管理
-Route::resource('/url','UrlController@create');
-
 
 //前台添加购物车到数据库
 
@@ -164,6 +139,8 @@ Route::get('/admin/settings', 'SettingController@setting');
 Route::post('/admin/settings', 'SettingController@update');
 //地址管理
 Route::resource('/url','UrlController@create');
+
+
 //意见反馈的增加
 Route::post('/ycreate','PhoneController@ycreate');
 //意见反馈前台
