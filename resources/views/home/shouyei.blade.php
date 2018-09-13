@@ -1,149 +1,131 @@
-@extends('layouts.home') @section('content')
-<!-- 轮播图开始 -->
-<!doctype html>
-<html>
+@extends('layouts.home') @section('content') 
 
-<head>
-    <meta charset="utf-8">
-    <title>js无缝轮播图-jq22.com</title>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
+<style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+        }
+        #slide{
+            width:1520px;
+            height:480px;
+            border:solid 1px #ddd;
+            margin:100px auto;
+            position:relative;
+            overflow: hidden;
+        }
+        #images {
+            width:2250px;
+            position:absolute;
+        }
+        #images li{
+            width:1520px;
+            height:480px;
+            left:0px;
+            top:0px;
+            float:left;
+        }
 
-    img {
-        width: 200px;
-        height: 310px;
-        float: left;
-    }
+        #dots{
+            width:200px;
+            height:20px;
+            position:absolute;
+            left:180px;
+            bottom:5px;
+        }
 
-    #outer {
-        margin: 50px auto;
-        width: 1200px;
-        height: 310px;
-        /*border:1px solid crimson;*/
-        overflow: hidden;
-        /*把多余的部分隐藏掉*/
-    }
+        #dots li{
+            width: 10px;
+            height: 10px;
+            background:#aef;
+            float:left;
+            margin-right:5px;
+            border-radius:50%;
+        }
 
-    #inner {
-        width: 2000px;
-        height: 310px;
-    }
-
-    #inner div {
-        float: left;
-    }
+        #dots .active{
+            background:black;
+        }
     </style>
-</head>
+    <div id="slide">
+        <ul id="images">
+            <li><img src="/qiantai/img/1458725501-57846.jpg" width="1560" height="480" alt=""></li>
+            <li><img src="/qiantai/img/1458285012-23841.jpg" width="1560" height="480" alt=""></li>
+            <li><img src="/qiantai/img/1458541851-33151.jpg" width="1560" height="480" alt=""></li>
+            <li><img src="/qiantai/img/1458542539-29472.jpg" width="1560" height="480" alt=""></li>
+            <li><img src="/qiantai/img/1458546669-26155.png" width="1560" height="480" alt=""></li>
+        </ul>
 
-<body>
-    <div id="outer">
-        <div id="inner">
-            <div id="demo1">
-                @foreach($phones as $v)
-                <img src="{{$v['pic']}}"></a>
-                <img src="/uploads/lbt/01.jpg">
-                <img src="/uploads/lbt/02.jpg">
-                <img src="/uploads/lbt/03.jpg">
-                <img src="/uploads/lbt/04.jpg"> @endforeach
-            </div>
-            <div id="demo2">
-            </div>
-        </div>
+        <ul id="dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
-    <script>
-    //定义变量初值
-    var dOuter = null;
-    var demo1 = null;
-    var demo2 = null;
-    var timer = null;
-    //绑定事件
-    window.onload = function() {
-        dOuter = document.getElementById('outer');
-        demo1 = document.getElementById('demo1');
-        demo2 = document.getElementById('demo2');
-        demo2.innerHTML = demo1.innerHTML;
-        //          timer=setInterval(moveLeft,10);
-        clock();
-        //绑定鼠标
-        dOuter.onmouseover = function() {
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+        var index = -1;
+        var timer = null;
+
+        $('#dots li').mouseover(function(){
+            //清除定时器
             clearInterval(timer);
-        }
-        dOuter.onmouseout = function() {
-            //              timer=setInterval(moveLeft,10);
-            clock()
-        }
-    }
+            //修改图片的显示的内容
+            index  = $(this).index();
+            //显示当前索引的图片和点
+            show(index);
+        }).mouseout(function(){
+            // 启动定时器
+            autoRun();
+        });
 
-    //重新定义一个函数
-    function clock() {
-        clearInterval(timer);
-        timer = setInterval(moveLeft, 10);
-    }
-
-    function clock2() {
-        clearInterval(timer);
-        timer = setInterval(moveRight, 10);
-    }
-
-    //计时器函数
-    function moveLeft() {
-        //容器向左滚动的距离
-        dOuter.scrollLeft += 2;
-        //判断临界值
-        if (dOuter.scrollLeft >= demo1.offsetWidth) {
-            dOuter.scrollLeft = 0;
+        //自动变化
+        function autoRun() {
+            timer = setInterval(function(){
+                index++;
+                //显示当前索引对应 图片和点
+                show(index);
+                //判断
+                if(index >= $('#images li').length-1) {
+                    index = -1;
+                }
+            }, 3000);
         }
-
-        //每一幅图停顿一次
-        if (dOuter.scrollLeft % 200 == 0) {
-            clearInterval(timer);
-            timer = setTimeout(clock, 1500);
+        //显示当前索引对应图片和点
+        function show(index) {
+            //点样式发生改变
+            $('#dots li').removeClass('active');
+            $('#dots li').eq(index).addClass('active');
+            //切换图片
+            //使其他索引的元素隐藏
+            $('#images>li').fadeOut();      //siblings  
+            //使当前索引的元素显示
+            $('#images>li').eq(index).fadeIn();
         }
-    }
-    //向右
-    function moveRight() {
-        //容器向右滚动的距离
-        dOuter.scrollLeft -= 2;
-        //判断临界值
-        if (dOuter.scrollLeft <= 0) {
-            dOuter.scrollLeft = demo1.offsetWidth;
-        }
-
-    }
+        autoRun();
     </script>
-</body>
 
-</html>
-<!-- 轮播图结束 -->
 @endsection
-
 <!--这里是广告效果-->
-<div id="div1" style="position:fixed;right:10px;top:50%;margin-top:-100px;width:200px;height:200px;border:0px #cd1b1b solid; display: block" >
+<div id="div1" style="position:fixed;right:10px;top:80%;margin-top:-100px;width:200px;height:200px;border:0px #cd1b1b solid; display: block">
     <button id="gg_1" style="position:absolute;right:0px" onclick="qx()">×</button>
     <a href="#"><img src="{{$adverts->adpic}}" style="width:200px;height:200px" ></a>
 </div>
 <script type="text/javascript">
-   function qx(){
-    document.getElementById('div1').style.display='none';
-   }
-
-
+function qx() {
+    document.getElementById('div1').style.display = 'none';
+}
 </script>
-
-
-
-
-<div id="div2" style="position:fixed;left:10px;top:50%;margin-top:-100px;width:200px;height:200px;border:0px #cd1b1b solid; display: block" >
+<div id="div2" style="position:fixed;left:10px;top:80%;margin-top:-100px;width:200px;height:200px;border:0px #cd1b1b solid; display: block">
     <button id="gg_2" style="position:absolute;right:0px"></button>
     <a href="#"><img src="{{$adverts->adpic}}" style="width:200px;height:200px" ></a>
 </div>
 <script>
-    setTimeout(function(){
-        document.getElementById('div2').style.display='none';
-    },7000);
+setTimeout(function() {
+    document.getElementById('div2').style.display = 'none';
+}, 7000);
 </script>
 <!--广告结束-->
