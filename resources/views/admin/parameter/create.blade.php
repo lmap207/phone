@@ -7,7 +7,7 @@
 <div class="tpl-portlet-components">
     <div class="portlet-title">
         <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 参数添加
+            <span>参数添加</span> 
         </div>
     </div>
     <div class="tpl-block">

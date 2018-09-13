@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 
 
-use App\Advert;
+
 use App\Brand;
 use App\Car;
 use App\Color;
@@ -15,8 +15,12 @@ use App\Type;
 use App\Xinghao;
 use App\Yjfk;
 use App\link;
+
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
+
+use App\Advert;
+
 use Illuminate\Http\Request;
 use Session;
 
@@ -203,12 +207,16 @@ class PhoneController extends Controller
      */
     public function shouyei()
     {
+
         
         //dd($adverts);
+
+        $adverts=Advert::first();
+
         $links = link::all();
         $settings = Setting::all();
         $phones = Phone::all();
-       return view('home.shouyei',compact('links','settings','phones'));
+       return view('home.shouyei',compact('links','settings','phones','adverts'));
     
     }
 

@@ -34,8 +34,7 @@ class CenterController extends Controller
 	 */
 	public function ziliao(Request $request)
 	{
-		echo 'aaaa';
-		/*
+		
 		$users = $request->session()->all();
 		
 		//$users = User::all();
@@ -44,7 +43,7 @@ class CenterController extends Controller
 
 
 		return view('home.center.ziliao.index',['users' =>$users]);
-		*/
+		
 	}
 
 
