@@ -39,13 +39,13 @@ img {
     
     <div id="inner">
         <div id="demo1">
-     @foreach($phones as $v)
-                <img src="{{$v['pic']}}"></a>
-            <img src="/uploads/lbt/01.jpg">
+    
+              
+            <img src="/uploads/lbt/01.jpg" >
             <img src="/uploads/lbt/02.jpg">
             <img src="/uploads/lbt/03.jpg">
             <img src="/uploads/lbt/04.jpg">
-    @endforeach      
+     
         </div>
         <div id="demo2">
         </div>
@@ -121,5 +121,4 @@ function moveRight() {
  
    <!-- 轮播图结束 -->
 @endsection
-
 

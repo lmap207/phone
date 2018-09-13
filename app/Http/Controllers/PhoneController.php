@@ -3,21 +3,22 @@ namespace App\Http\Controllers;
 
 
 
-use Gregwar\Captcha\CaptchaBuilder;
-use Gregwar\Captcha\PhraseBuilder;
-use Session; 
+use App\Advert;
 use App\Brand;
+use App\Car;
 use App\Color;
 use App\Memory;
 use App\Parameter;
 use App\Phone;
 use App\Setting;
 use App\Type;
-use App\Car;
 use App\Xinghao;
 use App\Yjfk;
 use App\link;
+use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
 use Illuminate\Http\Request;
+use Session;
 
 
 
@@ -202,6 +203,8 @@ class PhoneController extends Controller
      */
     public function shouyei()
     {
+        
+        //dd($adverts);
         $links = link::all();
         $settings = Setting::all();
         $phones = Phone::all();

@@ -56,7 +56,9 @@
                 
                     <ul>
                         
-                        <li style="float:left;margin-left:50px;"><a href="{">}</a></li>
+                        <li style="float:left;margin-left:50px;"><a href="#">
+                            
+                            </a></li>
                        
                     </ul>
                 </div>
@@ -72,21 +74,23 @@
                 </a>
                 </div>
             </div>
-            <div class="site-footer-end">
-                <p>
+            <div class="site-footer-end" style="float:right">
+                <p style="white-space:nowrap">
                     ©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
                     <a target="_blank" href="http://www.miitbeian.gov.cn/" hidefocus="true">备案号：粤ICP备13003602号-2</a>
                     <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/icp2.jpg" hidefocus="true">经营许可证编号：粤B2-20130198</a>
                     <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true">营业执照</a>
+                  
                     <a target="_blank" rel="nofollow" href="http://210.76.65.188/" hidefocus="true">
-                    <img src="/qiantai/img/footer-copy-1.png">
+                    <img src="/qiantai/img/footer-copy-1.png" style="width:20px;height:20px">
                 </a>
                     <a target="_blank" rel="nofollow" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" hidefocus="true">
-                    <img src="/qiantai/img/footer-copy-2.png">
+                    <img src="/qiantai/img/footer-copy-2.png" style="width:20px;height:20px">
                 </a>
                     <a target="_blank" rel="nofollow" href="https://credit.szfw.org/CX20151204012550820380.html" hidefocus="true">
-                    <img src="/qiantai/img/trust-icon.png">
+                    <img src="/qiantai/img/trust-icon.png" style="width:20px;height:20px">
                 </a>
+               
                 </p>
             </div>
         </div>
