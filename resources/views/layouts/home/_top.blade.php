@@ -1,7 +1,6 @@
 <div class="site-topbar clearfix">
     <div class="mzcontainer">
         <div class="topbar-nav">
-            <img src="/qiantai/img/myface.jpg" alt="" style="width:60px;height:60px;border-radius:360px;margin-right:80px">
             <a href="/" target="_blank">魅族官网</a>
             <a href="http://store.meizu.com/">魅族商城</a>
             <a href="http://www.flyme.cn/" target="_blank">Flyme</a>
@@ -33,6 +32,7 @@
                 <li class="topbar-info-member" style="">
                     <a class="topbar-link" href="http://store.meizu.com/member/index" target="_blank">
                         <span id="MzUserName" class="site-member-name">XXXXXX</span>
+
                     </a>
                     <div class="site-member-items">
                         <a class="site-member-link" href="/center/url" target="_blank">地址管理</a>
