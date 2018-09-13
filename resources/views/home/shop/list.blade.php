@@ -6,41 +6,6 @@
                 <img src="/qiantai/img/logo-header.png" srcset="/qiantai/img/logo-header@2x.png 2x" width="115" height="20" alt="魅族科技（中国）有限公司">
             </a>
         </div>
-        <div class="header-nav">
-            <ul class="nav-list">
-                <!--
-                <div class="nav clearfix" id="nav">
-                    <ul class="clearfix">
-                        @foreach ($brands as $v)
-                        <li><a href="/phones?brand_id={{$v->id}}">{{$v->bname}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-                -->
-                <!--
-                <li class="nav-item">
-                    <a class="nav-item-link" href="javascrip:" onclick="return false" target="_blank">PRO手机</a>
-                    <div class="nav-item-children">
-                        <ul class="menu-product-list">
-                            <li class="menu-product-item">
-                                <a href="http://store.meizu.com/item/meizu_pro5.html?rc=sd" target="_blank">
-                                    <div class="menu-product-figure">
-                                        <img src="/qiantai/img/init-1x1.jpg" data-src="/qiantai/img/1450928403@126x126.png" width="100" height="150">
-                                    </div>
-                                    <p class="menu-product-name">PRO 5</p>
-                                    <p class="menu-product-price">
-                                        ¥
-                                        <span>2799</span>
-                                    </p>
-                                </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </li>
-                -->
-            </ul>
-        </div>
         <div class="header-cart" id="MzHeaderCart">
             <a href="http://store.meizu.com/cart" target="_blank" data-yoyi="2500">
                 <div class="header-cart-wrap">
@@ -71,14 +36,14 @@
                 @endforeach
 
 <script type="text/javascript">
-        //获取图片
+        
         var imgs = document.getElementsByTagName('li');
 
 
         for(var i = 1;i<imgs.length;i++){
             imgs[i].onmouseover = function(){
                 this.style.background = 'cyan';
-                // 获取当前移入的图片的src地址
+                
             }
             imgs[i].onmouseout = function(){
                 this.style.background = '';

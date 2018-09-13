@@ -23,25 +23,7 @@
             </div>
         </div>
     </div>
-    <div id="MzNavMenu" class="header-nav-menu" style="">
-        <div class="mzcontainer">
-            <ul class="menu-product-list">
-                <li class="menu-product-item">
-                    <a href="http://store.meizu.com/item/meizu_pro5.html?rc=sd" target="_blank">
-                        <div class="menu-product-figure">
-                            <img src="/qiantai/img/1450928403@126x126.png" data-src="/qiantai/img/1450928403@126x126.png" width="100" height="150">
-                        </div>
-                        <p class="menu-product-name">PRO 5</p>
-                        <p class="menu-product-price">
-                            ¥
-                            <span>2799</span>
-                        </p>
-                    </a>
-                </li>
-                <!-- more -->
-            </ul>
-        </div>
-    </div>
+    
 </div>
 @endsection @section('content')
 <main class="wrapper">
@@ -56,17 +38,10 @@
                 <div class="preview" id="preview">
                     <div class="preview-booth">
                         <a href="javascript:;">
-                            <img src="{{$phones->pic}}"  alt="" style="display: inline;">
+                            <img src="{{$phones->pic}}"  alt="" style="display: inline;margin-left:50px;margin-top:100px;width:400px;height:400px">
                         </a>
                     </div>
-                    <!--
-                <ul class="preview-thumb clearfix" id="J_previewThumb">
-                    <li class="current"><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1453884271-20264.png@120x120.jpg" width="110" height="110"></a></li>
-                    <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332831-67349.png@120x120.jpg" width="110" height="110"></a></li>
-                    <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332904-16654.png@120x120.jpg" width="110" height="110"></a></li>
-                    <li class=""><a href="http://store.meizu.com/item/meilan2.html#"><img src="/qiantai/img/1450332877-94122.png@120x120.jpg" width="110" height="110"></a></li>
-                </ul>
-                -->
+                  
                 </div>
                 <div class="property" id="property">
                     <div class="property-hd">
@@ -171,7 +146,7 @@
                     </ul>
                     <div class="shortcut trans">
                         <div class="mod-buy">
-                            <a href="javascript:void(0);" id="J_btnBuyShortcut" class="btn btn-primary btn-lg"><i></i>现在购买</a>
+                            <a href="/tianjia" id="J_btnBuyShortcut" class="btn btn-primary btn-lg"><i></i>现在购买</a>
                         </div>
                         <div class="mod-total">
                             <em class="vm-price"><b style="color:red;">￥ {{$phones->money}}</b></em>
@@ -200,7 +175,7 @@
                         
                         <tr>
                             <th>品牌</th>
-                            <td></td>
+                            <td>魅蓝</td>
                             
                         </tr>
                         <tr>

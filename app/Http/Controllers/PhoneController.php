@@ -248,6 +248,15 @@ class PhoneController extends Controller
         $cars->shuliang = $request ->shuliang;
 
         $cars->phone_id = $id;
+
+        $phones = Phone::findOrFail($id);
+
+        $cars->money = $phones['money'] * $request->shuliang;
+
+
+        $username = $request->session()->get('name');
+
+        $cars->username = $username;
   
        if($cars->save()){
 
@@ -263,13 +272,42 @@ class PhoneController extends Controller
     /*
     *添加购物车到数据库
     */
-    public function tianjia()
+    public function tianjia(Request $request)
     {
+       
 
-      return view('home.shop.dingdan');
+       $cars = Car::where('username',$request->session()->get('name'))->get();
+
+       $data = $cars->ToArray();
+       $money = 0;
+       
+       foreach($data as $v){
+        
+        
+        $money += $v['money'];
+       }
+       
+        
+
+       return view('home.shop.dingdan',compact('cars','money'));
 
     }
 
+    /*
+    *删除购物车商品
+    */
+    
+     public function delete($id)
+     {
+
+         $cars = Car::findOrFail($id);
+
+        if($cars->delete()){
+            return back();
+        }else{
+            return back();
+        }
+     }
     public function captcha($tmp)
 
     {

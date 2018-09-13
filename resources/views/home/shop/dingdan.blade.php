@@ -50,7 +50,7 @@
                         <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
                     </li>
                     <li class="topbar-order-msg">
-                        <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">我的订单</a>
+                        <a class="topbar-link" href="/tianjia" target="_blank">我的订单</a>
                         <span class="msg-tag" id="MzOrderMsgTag"></span>
                     </li>
                     <li class="mz_login" style="display: none;">
@@ -77,26 +77,31 @@
     <div class="site-header">
         <div class="mzcontainer">
             <div class="header-logo">
-                <a href="http://www.meizu.com/" target="_blank">
+                <a href="/" target="_blank">
       <img src="/qiantai/img/logo-header.png" srcset="http://store.res.meizu.com/resources/php/store/images/logo-header@2x.png 2x" width="115" height="20" alt="魅族科技（中国）有限公司">
       </a>
             </div>
-            <div class="header-cart" id="MzHeaderCart">
-                <a href="http://store.meizu.com/cart" target="_blank">
+            <div class="header-cart">
+                <a href="/tianjia" target="_blank">
                     <div class="header-cart-wrap">
-                        <span>购物车</span> 
-                        <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
+
+                        <span class="header-cart-icon"></span> 购物车
+                        <span >{{$cars->count()}}</span>
+                        <!-- <div class="header-cart-spacer"></div> -->
+                    </div>
+                </a>
                         <div class="header-cart-spacer"></div>
                     </div>
                 </a>
                 <div class="header-cart-detail">
                     <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
                 </div>
+
             </div>
         </div>
     </div>
     <!--MZstore-->
-    <form method="post" action="/tianjia" id="realFrom" enctype="multipart/form-data">
+    <form method="post" action="" id="realFrom" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div id="storeContainer">
             <div class="mz_content clearfix">
@@ -158,29 +163,50 @@
                             <th width="200">单价</th>
                             <th width="200">数量</th>
                             <th>小计</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
+                    @if((count($cars) < 1))
                     <tbody>
+                    
                         <tr>
-                            <td class="img"><img src=""></td>
+                            <td class="img"></td>
+                            
+                            <td class="price"><span style="font-size:25px;color:#ddd">你还没有选择商品,你去前面买点商品吧!</span></td>
+                               
+                            <td></td>
+                            <td class="price"></td>
+                            <td class="del"></td>
+                        </tr> 
+                       
+                    </tbody>
+
+                    @endif
+                    <tbody>
+                    @foreach($cars as $v)
+                        <tr>
+                            <td class="img"><img src="{{$v->phone->pic}}"></td>
                             <td class="detial">
                                 <p class="title">
                                     <a target="_blank" href="http://store.meizu.com/item/meizu_mx5.html">
                                         <!--如果是套餐则显示套餐-->
-                                        &nbsp; &nbsp; &nbsp; </a>
+                                        {{$v->phone->pname}}&nbsp; {{$v->cname}}&nbsp; {{$v->tname}}&nbsp; {{$v->mname}}</a>
                                 </p>
                             </td>
                             <td class="price">
-                                ¥&nbsp;</td>
-                            <td></td>
-                            <td class="price">¥&nbsp;</td>
+                                ¥&nbsp;{{$v->phone->money}}</td>
+                            <td>{{$v->shuliang}}</td>
+                            <td class="price">¥&nbsp;{{$v->money}}</td>
+                            <td><a href="delete/{{$v->id}}"><u>删除</u></a></td>
                         </tr>
+                        @endforeach
                     </tbody>
+
                 </table>
                 <div class="order_total">
                     <div class="tr">
                         <div class="th">总金额</div>
-                        <div class="td">¥&nbsp;</div>
+                        <div class="td">¥&nbsp;{{$money}}</div>
                     </div>
                     <div class="tr">
                         <div class="th">优惠总额</div>
@@ -205,7 +231,7 @@
                     <div class="line"></div>
                     <div class="tr">
                         <div class="th">应付：</div>
-                        <div class="td total_price">¥&nbsp;<span id="totalPrice"></span></div>
+                        <div class="td total_price">¥&nbsp;<span id="totalPrice">{{$money}}</span></div>
                     </div>
                     <div class="tr" style="display: none">
                         <div class="th">可获得商城积分：</div>
@@ -215,7 +241,7 @@
                         验证码
                         <input name="captcha" type="text" align="center" style="height:30px">
                         <a onclick="javascript:re_captcha();">
-                         <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片" width="150" height="60" id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center">
+                         <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片" width="150" height="60" id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center" onclick="this.src='{{ URL('/captcha/1') }} ?d='+Math.random();">
                         </a>
                     </div>
                     <div class="tr">

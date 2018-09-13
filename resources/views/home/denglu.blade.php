@@ -10,7 +10,11 @@
 </head>
 
 <body style="zoom: 1;">
+
+    <div class="img1"><img src="/qiantai/img/logo-header.png" style="width:115px;height:20px;margin-top:30px"></div>
+
     <div class="img1"><img src="/qiantai/img/myface.jpg"></div>
+
     <h1>魅族账号登陆</h1>
     <div class="login" style="margin-top:50px;">
         <div class="header">
@@ -39,11 +43,11 @@
                                     <input type="password" id="p" name="password" class="inputstyle" />
                                 </div>
                             </div>
-                            <input name="captcha" type="text" placeholder="请输入验证码" align="center">
-                            <a onclick="javascript:re_captcha();">
+                            验证码: &nbsp;&nbsp;<input name="captcha" type="text" align="center" style="height:30px;width:90px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a onclick="javascript:re_captcha();"  >
 
 
-            <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片" width="250" height="60" id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center">
+            <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片"  id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center" style="width:100px;height:40px;" onclick="this.src='{{ URL('/captcha/1') }} ?d='+Math.random();">
 
 
         </a>

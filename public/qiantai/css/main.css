@@ -539,6 +539,11 @@ input[type="button"].btn-block {
 
 
 
+
+
+
+
+
 /*!
  * base.css
  * @date 2015.11.16
@@ -591,6 +596,11 @@ input { line-height: normal; } */
     float: right;
     _display: inline;
 }
+
+
+
+
+
 
 
 
@@ -851,6 +861,11 @@ input { line-height: normal; } */
 
 
 
+
+
+
+
+
 /* Typography */
 
 .fs12 {
@@ -992,6 +1007,11 @@ input { line-height: normal; } */
 
 
 
+
+
+
+
+
 /* filter */
 
 .togray {
@@ -999,6 +1019,11 @@ input { line-height: normal; } */
     -webkit-filter: grayscale(1);
     filter: url("data:image/svg+xml; utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
 }
+
+
+
+
+
 
 
 
@@ -1034,6 +1059,11 @@ textarea:focus,
 select:focus {
     outline: 0;
 }
+
+
+
+
+
 
 
 
@@ -1153,8 +1183,8 @@ a {
 }
 
 .preview .preview-booth {
-    width: 660px;
-    height: 660px;
+    width: 500px;
+    height: 500px;
 }
 
 .preview .preview-thumb {
@@ -1848,6 +1878,11 @@ a {
 
 
 
+
+
+
+
+
 /* Box-model */
 
 .hide {
@@ -2105,6 +2140,11 @@ a {
 
 
 
+
+
+
+
+
 /* Typography */
 
 .fs12 {
@@ -2246,6 +2286,11 @@ a {
 
 
 
+
+
+
+
+
 /* filter */
 
 .togray {
@@ -2253,6 +2298,11 @@ a {
     -webkit-filter: grayscale(1);
     filter: url("data:image/svg+xml; utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
 }
+
+
+
+
+
 
 
 
@@ -2291,6 +2341,11 @@ select:focus {
 
 
 
+
+
+
+
+
 /* animate */
 
 .trans {
@@ -2324,6 +2379,11 @@ select:focus {
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
 }
+
+
+
+
+
 
 
 
@@ -2364,6 +2424,11 @@ select:focus {
     background: #00c3f5;
     color: #fff;
 }
+
+
+
+
+
 
 
 
@@ -2605,6 +2670,11 @@ select:focus {
 
 
 
+
+
+
+
+
 /*
  * jQuery FlexSlider v2.6.0
  * http://www.woothemes.com/flexslider/
@@ -2632,6 +2702,11 @@ select:focus {
 
 
 
+
+
+
+
+
 /* ====================================================================================================================
  * RESETS
  * ====================================================================================================================*/
@@ -2653,6 +2728,11 @@ select:focus {
 .flex-pauseplay span {
     text-transform: capitalize;
 }
+
+
+
+
+
 
 
 
@@ -2695,6 +2775,11 @@ html[xmlns] .flexslider .slides {
 .no-js .flexslider .slides>li:first-child {
     display: block;
 }
+
+
+
+
+
 
 
 
@@ -2920,6 +3005,11 @@ html[xmlns] .flexslider .slides {
     opacity: 1;
     cursor: default;
 }
+
+
+
+
+
 
 
 
