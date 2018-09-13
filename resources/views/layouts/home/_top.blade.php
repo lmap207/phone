@@ -1,9 +1,6 @@
 <div class="site-topbar clearfix">
         <div class="mzcontainer">
             <div class="topbar-nav">
-            
-            <img src="" alt="" style="width:60px;height:60px;border-radius:360px;margin-right:80px">
-           
                 <a href="http://www.meizu.com/" target="_blank">魅族官网</a>
                 <a href="http://store.meizu.com/">魅族商城</a>
                 <a href="http://www.flyme.cn/" target="_blank">Flyme</a>

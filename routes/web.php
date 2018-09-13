@@ -113,11 +113,7 @@ Route::get('/center','CenterController@index');
 Route::get('/center/ziliao','CenterController@ziliao');
 //我的地址
 Route::resource('/center/url','UrlController');
-//个人中心
 
-Route::get('/center','CenterController@center');
-Route::get('/center/url','CenterController@url');
-Route::get('/ywb','CenterController@ywb');
 
 // 设置
 Route::get('/admin/settings', 'SettingController@setting');

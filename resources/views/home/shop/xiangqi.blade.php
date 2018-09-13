@@ -146,7 +146,7 @@
                     </ul>
                     <div class="shortcut trans">
                         <div class="mod-buy">
-                            <a href="javascript:void(0);" id="J_btnBuyShortcut" class="btn btn-primary btn-lg"><i></i>现在购买</a>
+                            <a href="/tianjia" id="J_btnBuyShortcut" class="btn btn-primary btn-lg"><i></i>现在购买</a>
                         </div>
                         <div class="mod-total">
                             <em class="vm-price"><b style="color:red;">￥ {{$phones->money}}</b></em>
@@ -175,7 +175,7 @@
                         
                         <tr>
                             <th>品牌</th>
-                            <td></td>
+                            <td>魅蓝</td>
                             
                         </tr>
                         <tr>
