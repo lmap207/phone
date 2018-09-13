@@ -81,6 +81,9 @@ Route::get('phones', 'PhoneController@list');
 Route::get('/','PhoneController@shouyei');
 //前台购物车添加
 Route::post('add/{id}','PhoneController@add');
+//购物车商品删除
+
+Route::get('delete/{id}','PhoneController@delete');
 
 //前台添加购物车到数据库
 

@@ -23,7 +23,7 @@
                         <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
                     </li>
                     <li class="topbar-order-msg">
-                        <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">我的订单</a>
+                        <a class="topbar-link" href="{{url('tianjia')}}" target="_blank">我的订单</a>
                         <span class="msg-tag" id="MzOrderMsgTag"></span>
                     </li>
                     <li class="mz_login" style="display: none;">

@@ -71,14 +71,14 @@
                 @endforeach
 
 <script type="text/javascript">
-        //获取图片
+        
         var imgs = document.getElementsByTagName('li');
 
 
         for(var i = 1;i<imgs.length;i++){
             imgs[i].onmouseover = function(){
                 this.style.background = 'cyan';
-                // 获取当前移入的图片的src地址
+                
             }
             imgs[i].onmouseout = function(){
                 this.style.background = '';
