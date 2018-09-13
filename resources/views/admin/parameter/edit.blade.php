@@ -1,4 +1,4 @@
-@extends('layouts.admin') @section('title') 文章修改 @endsection @section('title','文章修改') @section('content')
+@extends('layouts.admin') @section('title') 参数修改 @endsection @section('title','参数修改') @section('content')
 <hr>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
@@ -7,7 +7,7 @@
 <div class="tpl-portlet-components">
     <div class="portlet-title">
         <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 文章修改
+            <span>参数修改</span> 
         </div>
     </div>
     <div class="tpl-block">

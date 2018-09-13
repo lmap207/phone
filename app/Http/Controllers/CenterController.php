@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class CenterController extends Controller
 {
+
+	//网站维护
+	public function weihu()
+	{
+		return '网站维护中！！！';
+	}
 	/**
 	 * 个人中心
 	 * [index description]
@@ -28,8 +34,7 @@ class CenterController extends Controller
 	 */
 	public function ziliao(Request $request)
 	{
-		echo 'aaaa';
-		/*
+		
 		$users = $request->session()->all();
 		
 		//$users = User::all();
@@ -38,7 +43,7 @@ class CenterController extends Controller
 
 
 		return view('home.center.ziliao.index',['users' =>$users]);
-		*/
+		
 	}
 
 

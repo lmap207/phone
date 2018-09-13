@@ -10,7 +10,11 @@
 </head>
 
 <body style="zoom: 1;">
+
     <div class="img1"><img src="/qiantai/img/logo-header.png" style="width:115px;height:20px;margin-top:30px"></div>
+
+    <div class="img1"><img src="/qiantai/img/myface.jpg"></div>
+
     <h1>魅族账号登陆</h1>
     <div class="login" style="margin-top:50px;">
         <div class="header">
@@ -21,8 +25,8 @@
         @if(Session::has('success')) {{Session::get('success')}} @endif @if(Session::has('error')) {{Session::get('error')}} @endif
         <div class="web_qr_login" id="web_qr_login" style="display: block; height: 300px;">
             <!--登录-->
-            <div class="web_login" id="web_login" >
-                <div class="login-box" >
+            <div class="web_login" id="web_login">
+                <div class="login-box">
                     <div class="login_form">
                         <form action="/" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
                             <input type="hidden" name="did" value="0" />
@@ -46,7 +50,7 @@
             <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片"  id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center" style="width:100px;height:40px;" onclick="this.src='{{ URL('/captcha/1') }} ?d='+Math.random();">
 
 
-        </a> 
+        </a>
                             <br>{{csrf_field()}}
                             <div style="padding-left:50px;margin-top:20px;">
                                 <input type="submit" value="登 录" style="width:150px;" class="button_blue" />

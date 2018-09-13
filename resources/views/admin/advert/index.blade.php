@@ -4,7 +4,7 @@
 <div class="tpl-portlet-components">
     <div class="portlet-title">
         <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 广告
+            <span>广告列表</span> 
         </div>
     </div>
 
@@ -39,9 +39,9 @@
                     <thead>
                         <tr>
                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                            <th class="table-id">ID</th>
-                            <th class="table-id">广告名称</th>
-                            <th class="table-id">广告图片</th>
+                            <th class="table-title"">ID</th>
+                            <th class="table-title"">广告名称</th>
+                            <th class="table-title"">广告图片</th>
                             <th class="table-title">广告内容</th>
                             <th class="table-title">广告时间</th>
                             <th class="table-set">操作</th>

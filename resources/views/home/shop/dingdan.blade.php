@@ -54,20 +54,20 @@
                         <span class="msg-tag" id="MzOrderMsgTag"></span>
                     </li>
                     <li class="mz_login" style="display: none;">
-                        <a class="topbar-link site-login" href="https://member.meizu.com/login/login.html?appuri=http://store.meizu.com/accounts/login.htm&sid=&service=store&useruri=http://store.meizu.com:80/orders/add" data-href="https://member.meizu.com/login/login.html?appuri=http://store.meizu.com/accounts/login.htm&amp;sid=&amp;service=store&amp;useruri=">登录</a>
+                        <a class="topbar-link site-login" href="/home/denglu">登录</a>
                     </li>
                     <li class="mz_login" style="display: none;">
-                        <a class="topbar-link" href="https://member.meizu.com/register" target="_blank">注册</a>
+                        <a class="topbar-link" href="/home/zc" target="_blank">注册</a>
                     </li>
                     <li class="topbar-info-member" style="">
                         <a class="topbar-link" href="http://store.meizu.com/member/index" target="_blank">
-            <span id="MzUserName" class="site-member-name">虚拟世界的我丶</span>的商城
+            <span id="MzUserName" class="site-member-name">XXXXX</span>
           </a>
                         <div class="site-member-items">
-                            <a class="site-member-link" href="http://store.meizu.com/member/address/index" target="_blank">地址管理</a>
+                            <a class="site-member-link" href="/center/url">地址管理</a>
                             <a class="site-member-link" href="http://store.meizu.com/member/repurchase_ticket/index" target="_blank">我的回购券</a>
                             <a class="site-member-link" href="http://store.meizu.com/member/suggest/index" target="_blank">问题反馈</a>
-                            <a class="site-member-link site-logout" href="http://store.meizu.com/accounts/logout.htm?useruri=http://store.meizu.com/orders/add" data-href="http://store.meizu.com/accounts/logout.htm?useruri=">退出</a>
+                            <a class="site-member-link site-logout" href="/">退出</a>
                         </div>
                     </li>
                 </ul>
@@ -84,11 +84,19 @@
             <div class="header-cart">
                 <a href="/tianjia" target="_blank">
                     <div class="header-cart-wrap">
+
                         <span class="header-cart-icon"></span> 购物车
                         <span >{{$cars->count()}}</span>
                         <!-- <div class="header-cart-spacer"></div> -->
                     </div>
                 </a>
+                        <div class="header-cart-spacer"></div>
+                    </div>
+                </a>
+                <div class="header-cart-detail">
+                    <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
+                </div>
+
             </div>
         </div>
     </div>

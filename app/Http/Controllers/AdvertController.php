@@ -47,7 +47,7 @@ class AdvertController extends Controller
         $advert -> adcontent = $request->adcontent;
         $advert -> adtime = $request->adtime;
        if ($request->hasFile('adpic')) {
-        $advert->adpic = '/'.$request->adpic->store('upload');
+        $advert->adpic = '/'.$request->adpic->store('uploads/'.date('Ymd'));
         }
 
         if($advert -> save()){
@@ -90,13 +90,13 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $adverts = Advert::findOrFail($id);
-        
+        $adverts = Advert::findOrFail($id);   
         $adverts -> adname = $request->adname;
         $adverts -> adcontent = $request->adcontent;
         $adverts -> adtime = $request->adtime;
-       if ($request->hasFile('adpic')) {
-        $adverts->adpic = '/'.$request->adpic->store('upload');
+       
+        if ($request->hasFile('adpic')) {
+            $adverts->adpic = '/'.$request->adpic->store('uploads/'.date('Ymd'));
         }
 
         if($adverts -> save()){

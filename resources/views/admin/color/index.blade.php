@@ -4,7 +4,7 @@
 <div class="tpl-portlet-components">
     <div class="portlet-title">
         <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 颜色列表
+            <span>颜色列表</span> 
         </div>
     </div>
 

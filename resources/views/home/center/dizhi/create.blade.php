@@ -35,15 +35,15 @@
                 </ul>
             </div>
             <div class="header-cart" id="MzHeaderCart">
-                <a href="http://store.meizu.com/cart" target="_blank">
+                <a href="" target="_blank">
                     <div class="header-cart-wrap">
-                        <span class="header-cart-icon"></span> 购物车
+                        <span class="">购物车</span>
                         <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
                         <div class="header-cart-spacer"></div>
                     </div>
                 </a>
                 <div class="header-cart-detail">
-                    <div class="header-cart-empty" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
+                    <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
                 </div>
             </div>
         </div>
@@ -57,47 +57,45 @@
                 <span class="title active">
                 </span>
                 <div class="nav-main">
-                    <a href="/center" class="ml ">我的资料</a>
-                    <a href="http://store.meizu.com/member/myorder/index" class="ml ">我的订单</a>
-                    <a href="/center/url/create" class="active">我的地址</a>
+                    <a href="/center/ziliao" class="ml ">我的资料</a>
+                    <a href="#" class="ml ">我的订单</a>
+                    <a href="/center/url" class="active">我的地址</a>
                 </div>
             </div>
             <div class="right-content f-fr">
-				<!-- 三级联动 -->
-				<link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
-    			<form class="form-inline" action="/center/url" method="post">
-      				<div data-toggle="distpicker">
-        				<div class="form-group">
-          					<label class="sr-only" for="province3">Province</label>
-          					<select class="form-control" name="sheng" id="province3" data-province="浙江省"></select>
-        				</div>
-        				<div class="form-group">
-          					<label class="sr-only" for="city3">City</label>
-          					<select class="form-control" name="shi" id="city3" data-city="杭州市"></select>
-        				</div>
-        				<div class="form-group">
-          					<label class="sr-only" for="district3">District</label>
-          					<select class="form-control" name="qu" id="district3" data-district="西湖区"></select>
-        				</div>
-        				{{csrf_field()}}
-        				<div class="form-group">
-          					<button>提交</button>
-        				</div>
-      				</div>
-    			</form>
-				<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
-				<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-				<script src="/sjld/js/distpicker.data.js"></script>
-				<script src="/sjld/js/distpicker.js"></script>
-				<script src="/sjld/js/main.js"></script>
-                
+                <!-- 三级联动 -->
+                <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
+                <form class="form-inline" action="/center/url" method="post">
+                    <div data-toggle="distpicker">
+                        <div class="form-group">
+                            <label class="sr-only" for="province3">Province</label>
+                            <select class="form-control" name="sheng" id="province3" data-province="浙江省"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="city3">City</label>
+                            <select class="form-control" name="shi" id="city3" data-city="杭州市"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="district3">District</label>
+                            <select class="form-control" name="qu" id="district3" data-district="西湖区"></select>
+                        </div>
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <button>提交</button>
+                        </div>
+                    </div>
+                </form>
+                <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+                <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+                <script src="/sjld/js/distpicker.data.js"></script>
+                <script src="/sjld/js/distpicker.js"></script>
+                <script src="/sjld/js/main.js"></script>
                 <br>
                 <br>
                 <br>
                 <br>
                 <br>
                 <p style="color: cyan; center">收货地址栏</p>
-                
                 <div class="col-md-8" style="margin: 0px;padding: 0px;">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
@@ -110,7 +108,6 @@
                                 <th width="100">操作</th>
                             </tr>
                         </thead>
-                        
                         <tbody>
                             @foreach ($urls as $v)
                             <tr class="active">
@@ -121,19 +118,16 @@
                                 <th>{{$v['qu']}}</th>
                                 <th>
                                     <form style="float:left" action="/center/url/{{$v['id']}}" method="post">
-                                        {{method_field('DELETE')}}
-                                        {{csrf_field()}}
+                                        {{method_field('DELETE')}} {{csrf_field()}}
                                         <button>删除</button>
-                                    </form> 
+                                    </form>
                                 </th>
                             </tr>
                             @endforeach
                         </tbody>
-
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
     @endsection
