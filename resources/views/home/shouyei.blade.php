@@ -1,5 +1,5 @@
 @extends('layouts.home')
-
+@section('daohang')
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
@@ -25,7 +25,7 @@
     </div>
    
 </div>
-
+@endsection
 @section('content') 
 <style>
         *{

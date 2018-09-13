@@ -50,7 +50,7 @@
     </div>
     <div class="store-wrap">
         <div class="crumbs">
-            <a href="/">首页&gt;</a><a href="/center/ziliao" class="active">我的资料</a>
+            <a href="/">首页&gt;</a><a href="/phones" class="active">商城列表</a>
         </div>
         <div class="main clearfix">
             <div class="left-nav f-fl">
@@ -58,7 +58,6 @@
                 </span>
                 <div class="nav-main">
                     <a href="/center/ziliao" class="ml ">我的资料</a>
-                    <a href="#" class="ml ">我的订单</a>
                     <a href="/center/url" class="active">我的地址</a>
                 </div>
             </div>

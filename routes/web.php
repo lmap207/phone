@@ -138,7 +138,7 @@ Route::post('/home/zhuce','ZhuceController@store');
 Route::get('/admin/settings', 'SettingController@setting');
 Route::post('/admin/settings', 'SettingController@update');
 //地址管理
-Route::resource('/url','UrlController@create');
+// Route::resource('/url','UrlController@create');
 
 
 //意见反馈的增加
