@@ -178,44 +178,44 @@
                         
                         <tr>
                             <th>品牌</th>
-                            <td>魅蓝</td>
+                            <td>{{$phones->pname}}</td>
                             
                         </tr>
                         <tr>
                             <th>型号</th>
-                            <td>魅蓝2</td>
+                            <td>{{$phones->pname}}</td>
                         </tr>
                         <tr>
                             <th>电池容量</th>
-                            <td>2500mAh</td>
+                            <td>{{$parameters->capacity}}</td>
                         </tr>
                         <tr>
                             <th>尺寸</th>
-                            <td>140.1×68.9×8.7mm</td>
+                            <td>{{$parameters->size .'英尺'}}</td>
                         </tr>
                         <tr>
                             <th>重量</th>
-                            <td>131g</td>
+                            <td>{{$parameters->weight .'g'}}</td>
                         </tr>
                         <tr>
                             <th>屏幕尺寸</th>
-                            <td>5.0英寸</td>
+                            <td>{{$parameters->size .'英尺'}}</td>
                         </tr>
                         <tr>
                             <th>分辨率</th>
-                            <td>1280 x 720</td>
+                            <td>{{$parameters->pixel}}</td>
                         </tr>
                         <tr>
                             <th>运行内存（RAM）</th>
-                            <td>2GB</td>
+                            <td>{{$phones->memory->mname}}</td>
                         </tr>
                         <tr>
                             <th>CPU</th>
-                            <td>MTK MT6735 处理器</td>
+                            <td>{{$parameters->CPU}}</td>
                         </tr>
                         <tr>
                             <th>GPU</th>
-                            <td>Mali T720 图形处理器</td>
+                            <td>{{$parameters->GPU}}</td>
                         </tr>
                         <tr>
                             <th>网络模式</th>
@@ -223,15 +223,15 @@
                         </tr>
                         <tr>
                             <th>前置摄像头</th>
-                            <td>500万像素</td>
+                            <td>{{$parameters->front .'万像素'}}</td>
                         </tr>
                         <tr>
                             <th>后置摄像头</th>
-                            <td>1300万像素</td>
+                            <td>{{$parameters->behind .'万像素'}}</td>
                         </tr>
                         <tr>
                             <th>系统版本</th>
-                            <td>Flyme 4.5</td>
+                            <td>{{$parameters->edition}}</td>
                         </tr>
                         
                     </tbody>
