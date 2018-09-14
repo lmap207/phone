@@ -10,17 +10,14 @@
         <div class="header-nav">
         
         </div>
-        <div class="header-cart" id="MzHeaderCart">
-            <a href="http://store.meizu.com/cart" target="_blank" data-yoyi="2500">
+        <div class="header-cart">
+            <a href="" target="_blank" data-yoyi="2500">
                 <div class="header-cart-wrap">
                     <span>购物车</span> 
-                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
-                    <div class="header-cart-spacer"></div>
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
+                    
                 </div>
             </a>
-            <div class="header-cart-detail">
-                <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
-            </div>
         </div>
     </div>
    
@@ -154,6 +151,7 @@
     </script>
 
 @endsection
+
 <!--这里是广告效果-->
 <div id="div1" style="position:fixed;right:10px;top:80%;margin-top:-100px;width:200px;height:200px;border:0px #cd1b1b solid; display: block">
     <button id="gg_1" style="position:absolute;right:0px" onclick="qx()">×</button>
@@ -173,4 +171,5 @@ setTimeout(function() {
     document.getElementById('div2').style.display = 'none';
 }, 7000);
 </script>
+
 <!--广告结束-->

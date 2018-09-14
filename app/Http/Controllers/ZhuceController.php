@@ -109,7 +109,7 @@ class ZhuceController extends Controller
     public function tuichu(Request $request)
     {
         $request->session()->flush();
-        return redirect('/home/denglu')->with('success','退出成功');
+        return redirect('/')->with('success','退出成功');
     }
 
 }

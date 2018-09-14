@@ -14,13 +14,9 @@
             <a href="#" target="_blank" data-yoyi="2500">
                 <div class="header-cart-wrap">
                     <span>购物车</span> 
-                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
-                    <div class="header-cart-spacer"></div>
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
                 </div>
             </a>
-            <div class="header-cart-detail">
-                <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
-            </div>
         </div>
     </div>
     
@@ -122,13 +118,19 @@
                     <dl class="property-buy" id="J_BuyOrDiy">
                         <dt class="vm-message" id="J_message"></dt>
                         <dd>
+                             @if(Session::has('name'))
                             <button class="btn btn-primary btn-lg">立即购买</button>
+                             @else
+                             <button class="btn btn-primary btn-lg" type="button" onclick="alert('请选登陆!!!')">立即购买</button>
+                            @endif
+
                         </dd>
                     </dl>
                 </div>
             </section>
         </form>
     </div>
+
     <section class="row detail" id="detail">
         <div style="height:62px;">
             <div class="detail-tab" id="detailTabFixed">
