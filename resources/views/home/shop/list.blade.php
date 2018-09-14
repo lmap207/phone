@@ -6,17 +6,13 @@
                 <img src="/qiantai/img/logo-header.png" srcset="/qiantai/img/logo-header@2x.png 2x" width="115" height="20" alt="魅族科技（中国）有限公司">
             </a>
         </div>
-        <div class="header-cart" id="MzHeaderCart">
+        <div class="header-cart">
             <a href="http://store.meizu.com/cart" target="_blank" data-yoyi="2500">
                 <div class="header-cart-wrap">
                     <span>购物车</span> 
-                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
-                    <div class="header-cart-spacer"></div>
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
                 </div>
             </a>
-            <div class="header-cart-detail">
-                <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
-            </div>
         </div>
     </div>
    

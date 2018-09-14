@@ -53,8 +53,7 @@ Route::post('/admin/settings', 'SettingController@update');
 //广告管理
 Route::resource('advert','AdvertController');
 
-//登录操作
-Route::post('/admin/login','AdminController@dologin');
+
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
 
@@ -67,9 +66,6 @@ Route::resource('advert','AdvertController');
 
 });
 
-
-//登录路由
-Route::get('/admin/login','AdminController@login');
 
 //网站维护路由组
 Route::group(['middleware'=>'weihu'],function(){

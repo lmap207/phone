@@ -13,7 +13,7 @@
 
     <div class="img1"><img src="/qiantai/img/logo-header.png" style="width:115px;height:20px;margin-top:30px"></div>
 
-    <div class="img1"><img src="/qiantai/img/myface.jpg"></div>
+    <!-- <div class="img1"><img src="/qiantai/img/myface.jpg"></div> -->
 
     <h1>魅族账号登陆</h1>
     <div class="login" style="margin-top:50px;">
