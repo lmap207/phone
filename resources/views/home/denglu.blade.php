@@ -13,7 +13,6 @@
 
     <div class="img1"><img src="/qiantai/img/logo-header.png" style="width:115px;height:20px;margin-top:30px"></div>
 
-    <div class="img1"><img src="/qiantai/img/myface.jpg"></div>
 
     <h1>魅族账号登陆</h1>
     <div class="login" style="margin-top:50px;">
@@ -53,7 +52,11 @@
         </a>
                             <br>{{csrf_field()}}
                             <div style="padding-left:50px;margin-top:20px;">
-                                <input type="submit" value="登 录" style="width:150px;" class="button_blue" />
+                                <input type="submit" value="登 录" style="width:100px; float: left;" class="button_blue" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="button" value="注 册" style="width:100px; float: right;" class="button_blue" onclick="javascrtpt:window.location.href='/home/zc'" />
+                                
                             </div>
                         </form>
                         <script>

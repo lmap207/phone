@@ -30,6 +30,7 @@
     <div class="container">
         <section class="crumbs clearfix">
             <a href="/">首页</a>&nbsp;&gt;&nbsp;
+            <a href="/phones">商城列表</a>&nbsp;&gt;&nbsp;
             <a class="ellipsis crumbs-title">{{$phones->pname}}</a>
         </section>
         <form action="/add/{{$phones->id}}" method="post">

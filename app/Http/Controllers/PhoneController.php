@@ -104,6 +104,9 @@ class PhoneController extends Controller
     {
         $phones = Phone::findOrFail($id);
 
+        $phones->view += 1;
+        $phones -> save();
+
         $types = Type::all();
         $colors = Color::all();
         $memorys = Memory::all();
@@ -193,13 +196,16 @@ class PhoneController extends Controller
 
         $phones = Phone::all();
         $brands = Brand::all();
-        $recoms = Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
+        //推荐
+        $recoms = Phone::where('recom','1')->take(5)->orderBy('id','desc')->get();
+        //排行
+        $views = Phone::orderBy('view','desc')->take(5)->get();
 
         if(!empty($request->brand_id)){
             $phones = Phone::where('brand_id', $request->brand_id)->orderBy('id','desc')->paginate(10);
         }
 
-        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms]);
+        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms, 'views' => $views]);
     }
 
     /**

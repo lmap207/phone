@@ -23,21 +23,23 @@
                     <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">我的订单</a>
                     <span class="msg-tag" id="MzOrderMsgTag"></span>
                 </li>
-                <li class="mz_login" style="display: block;">
-                    <a class="topbar-link " href="/home/denglu"  target="_blank">登录</a>
-                </li>
-                <li class="mz_login" style="display: block;">
-                    <a class="topbar-link" href="/home/zc" target="_blank">注册</a>
-                </li>
                 <li class="topbar-info-member" style="">
                     <a class="topbar-link" href="http://store.meizu.com/member/index" target="_blank">
                         <span id="MzUserName" class="site-member-name">XXXXXX</span>
 
                     </a>
                     <div class="site-member-items">
-                        <a class="site-member-link" href="/center/url" target="_blank">地址管理</a>
-                        <a class="site-member-link site-logout" href="/home/denglu" data-href="http://store.meizu.com/accounts/logout.htm?useruri=">登录</a>
-                        <a class="site-member-link site-logout" href="/home/logout" data-href="http://store.meizu.com/accounts/logout.htm?useruri=">退出</a>
+                        @if(Session::get('name'))
+                        <a class="site-member-link" href="/center/url" target="_blank">我的地址</a>
+                        @endif
+                        @if(!Session::get('name'))
+                        <a class="site-member-link site-logout" href="/home/denglu" data-href="http://store.meizu.com/accounts/logout.htm?useruri=">登录
+                        </a>
+                        @endif                        
+                        @if(Session::get('name'))
+                        <a class="site-member-link site-logout" href="/home/logout" data-href="http://store.meizu.com/accounts/logout.htm?useruri=">退出
+                        </a>
+                        @endif
                     </div>
                 </li>
             </ul>

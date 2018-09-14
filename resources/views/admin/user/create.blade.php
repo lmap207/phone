@@ -30,6 +30,17 @@
                         </div>
                     </div>
 
+                    <!-- 权限 -->
+                    <div class="am-form-group">
+                        <label for="user-phone" class="am-u-sm-3 am-form-label">权限</label>
+                        <div class="am-u-sm-9">
+                            <select data-am-selected="{searchBox: 1}" name="qx" style="display: none;"> 
+                                <option value="1">普通用户</option>
+                                <option value="2">管理员</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="am-form-group">
                         <label for="user-weibo" class="am-u-sm-3 am-form-label">用户头像</label>
                         <div class="am-u-sm-9">
