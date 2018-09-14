@@ -56,6 +56,11 @@ class ParameterController extends Controller
         $parameter -> memory = $request ->memory;
         $parameter -> pixel = $request ->pixel;
         $parameter -> edition = $request ->edition;
+        $parameter -> weight = $request ->weight;
+        $parameter -> CPU = $request ->CPU;
+        $parameter -> GPU = $request ->GPU;
+        $parameter -> front = $request ->front;
+        $parameter -> behind  = $request ->behind;
         
         if($parameter->save()){
             return redirect('parameter')->with('success','删除成功');
@@ -108,6 +113,11 @@ class ParameterController extends Controller
         $parameters -> memory = $request ->memory;
         $parameters -> pixel = $request ->pixel;
         $parameters -> edition = $request ->edition;
+        $parameters -> weight = $request ->weight;
+        $parameters -> CPU = $request ->CPU;
+        $parameters -> GPU = $request ->GPU;
+        $parameters -> front = $request ->front;
+        $parameters -> behind  = $request ->behind;
 
         if($parameters->save()){
             return redirect('parameter')->with('success','删除成功');

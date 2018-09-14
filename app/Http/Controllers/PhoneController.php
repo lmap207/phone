@@ -107,6 +107,8 @@ class PhoneController extends Controller
         $types = Type::all();
         $colors = Color::all();
         $memorys = Memory::all();
+        $parameters=Parameter::where('phone_id',$id)->first();
+        //dump($parameters->CPU);
 
         //$views = Phone::orderBy('views','desc')->take(8)->get();
         // $recoms = Article::where('recom','1')->take(8)->orderBy('id','desc')->get();
@@ -114,7 +116,7 @@ class PhoneController extends Controller
         //if($request->id == Parameter::all(); 
         // dd($parameters);
 
-        return view('home.shop.xiangqi', compact('phones','types','colors','memorys'));
+        return view('home.shop.xiangqi', compact('phones','types','colors','memorys','parameters'));
     }
 
     /**
@@ -210,6 +212,8 @@ class PhoneController extends Controller
 
         
         //dd($adverts);
+        //$weight=Phone::get()->where('id','=','phone_id');
+        //dump($weight);
 
         $adverts=Advert::first();
 
