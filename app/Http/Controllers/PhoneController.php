@@ -1,9 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-
-
-
 use App\Brand;
 use App\Car;
 use App\Color;
@@ -39,7 +36,7 @@ class PhoneController extends Controller
     $phones = Phone::orderBy('id','desc')
             ->where('pname','like', '%'.request()->keywords.'%')
             ->paginate(10);
-
+   
         //解析模板显示用户数据
         return view('admin.phone.index', ['phones'=>$phones]);
     }
@@ -100,7 +97,7 @@ class PhoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         $phones = Phone::findOrFail($id);
 
@@ -116,8 +113,8 @@ class PhoneController extends Controller
 
         //if($request->id == Parameter::all(); 
         // dd($parameters);
-
-        return view('home.shop.xiangqi', compact('phones','types','colors','memorys'));
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        return view('home.shop.xiangqi', compact('phones','types','colors','memorys','cars'));
     }
 
     /**
@@ -205,13 +202,15 @@ class PhoneController extends Controller
             $phones = Phone::where('brand_id', $request->brand_id)->orderBy('id','desc')->paginate(10);
         }
 
-        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms, 'views' => $views]);
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms,'cars'=>$cars,'views'=>$views]);
+
     }
 
     /**
      * 商品首页
      */
-    public function shouyei()
+    public function shouyei(Request $request)
     {
 
         
@@ -222,7 +221,8 @@ class PhoneController extends Controller
         $links = link::all();
         $settings = Setting::all();
         $phones = Phone::all();
-       return view('home.shouyei',compact('links','settings','phones','adverts'));
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+       return view('home.shouyei',compact('links','settings','phones','adverts','cars'));
     
     }
 
