@@ -2456,8 +2456,8 @@ select:focus {
 }
 
 .gl-item {
-    width: 25%;
-    height: 406px;
+    width: 379px;
+    height: 350px;
     float: left;
     position: relative;
     border-bottom: 1px solid #e5e5e5;
@@ -2470,7 +2470,7 @@ select:focus {
     left: 0;
     top: 0;
     background: #fff;
-    padding: 38px 0 10px;
+    /*padding: 38px 0 10px;*/
     -webkit-transition: border-color .1s ease;
     -moz-transition: border-color .1s ease;
     transition: border-color .1s ease;

@@ -15,7 +15,6 @@ use App\Type;
 use App\Xinghao;
 use App\Yjfk;
 use App\link;
-
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
 
@@ -207,16 +206,13 @@ class PhoneController extends Controller
      */
     public function shouyei()
     {
-
-        
-        //dd($adverts);
-
         $adverts=Advert::first();
-
+        $recoms=Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
         $links = link::all();
         $settings = Setting::all();
-        $phones = Phone::all();
-       return view('home.shouyei',compact('links','settings','phones','adverts'));
+        $phones = Phone::take(8)->orderBy('id','desc')->get();
+        //$phones=Phone::all();
+       return view('home.shouyei',compact('links','settings','phones','adverts','recoms'));
     
     }
 
