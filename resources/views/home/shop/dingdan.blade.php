@@ -154,8 +154,8 @@
                 <table cellpadding="0" cellspacing="0" class="product_table">
                     <thead>
                         <tr>
-                            <th width="150">商品</th>
-                            <th width="500" class="supplier">
+                            <th width="200">商品</th>
+                            <th width="300" class="supplier">
                                 <div class="title">
                                     <div class="title">
                                         供应商：魅族 <span class="supplier_tips">
@@ -167,8 +167,8 @@
                             </th>
                             <th width="200">单价</th>
                             <th width="200">数量</th>
-                            <th>小计</th>
-                            <th>操作</th>
+                            <th width="200">小计</th>
+                            <th width="200">操作</th>
                         </tr>
                     </thead>
                     @if((count($cars) < 1))
@@ -190,16 +190,16 @@
                     <tbody>
                     @foreach($cars as $v)
                         <tr>
-                            <td class="img"><img src="{{$v->phone->pic}}"></td>
+                            <td class="img"><img src="{{$v->phone['pic']}}"></td>
                             <td class="detial">
                                 <p class="title">
                                     <a target="_blank" href="http://store.meizu.com/item/meizu_mx5.html">
                                         <!--如果是套餐则显示套餐-->
-                                        {{$v->phone->pname}}&nbsp; {{$v->cname}}&nbsp; {{$v->tname}}&nbsp; {{$v->mname}}</a>
+                                        {{$v->phone['pname']}}&nbsp; {{$v->cname}}&nbsp; {{$v->tname}}&nbsp; {{$v->mname}}</a>
                                 </p>
                             </td>
                             <td class="price">
-                                ¥&nbsp;{{$v->phone->money}}</td>
+                                ¥&nbsp;{{$v->phone['money']}}</td>
                             <td>{{$v->shuliang}}</td>
                             <td class="price">¥&nbsp;{{$v->money}}</td>
                             <td><a href="delete/{{$v->id}}"><u>删除</u></a></td>

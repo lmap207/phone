@@ -24,6 +24,7 @@ Route::post('/admin/login','AdminController@dologin');
 
 //用户管理
 Route::group(['middleware'=>'admin'],function(){
+
 	//后台首页路由
 	Route::get('/admin', 'AdminController@index');
 	//用户管理
@@ -109,5 +110,7 @@ Route::group(['middleware'=>'weihu'],function(){
 	//意见反馈前台
 	Route::get('/yjfk','PhoneController@yjfk');
 });
+
+
 
 
