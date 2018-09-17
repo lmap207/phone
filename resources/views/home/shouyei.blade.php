@@ -1,4 +1,5 @@
 @extends('layouts.home') @section('daohang')
+
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
@@ -13,6 +14,11 @@
                 <div class="header-cart-wrap">
                     <span>购物车</span>
                     <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
+                    <span>购物车</span> 
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
+                    <span>购物车</span>
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
+                    <div class="header-cart-spacer"></div>
                 </div>
             </a>
         </div>
@@ -53,26 +59,34 @@
     background: black;
 }
 
-#dots {
-    width: 200px;
-    height: 20px;
-    position: absolute;
-    left: 750px;
-    bottom: 5px;
-}
+</style>
+    <div id="slide">
+        <ul id="images">
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1560" height="670" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1560" height="670" alt="">
+                 </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1560" height="670" alt=""></li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1560" height="670"alt="">
+                 </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1560" height="670" alt="">
+                 </a>
+            </li>
+        </ul>
 
-#dots li {
-    width: 10px;
-    height: 10px;
-    background: #aef;
-    float: left;
-    margin-right: 5px;
-    border-radius: 50%;
-}
-
-#dots .active {
-    background: black;
-}
 </style>
 
     

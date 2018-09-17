@@ -26,6 +26,8 @@ Route::post('/admin/login','AdminController@dologin');
 //用户管理
 Route::group(['middleware'=>'admin'],function(){
 	//后台路由
+
+	//后台首页路由
 	Route::get('/admin', 'AdminController@index');
 	//用户管理
 	Route::resource('user','UserController');
@@ -98,19 +100,22 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::get('home/logout','ZhuceController@tuichu');
 	//我的资料
 	Route::get('ziliao/index','CenterController@ziliao');
+	Route::get('/center/ziliao/{id}','CenterController@ziliao');
+	//我的资料更新
+	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//我的地址
 	Route::resource('/center/url','UrlController');
 	//前台添加购物车到数据库
 	Route::get('tianjia','PhoneController@tianjia');
 	//意见反馈的增加 
 	Route::post('/ycreate','PhoneController@ycreate'); 
-	//意见反馈前台 
+	//后台意见反馈的增加
+	Route::post('/ycreate','PhoneController@ycreate');
+	//后台意见反馈的删除
+	Route::delete('/yjfk/{id}','PhoneController@scyjfk');
+	//意见反馈前台
 	Route::get('/yjfk','PhoneController@yjfk');
 });
-
-
-
-
 
 
 
