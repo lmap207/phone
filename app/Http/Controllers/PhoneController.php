@@ -1,9 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-
-
-
 use App\Brand;
 use App\Car;
 use App\Color;
@@ -38,7 +35,7 @@ class PhoneController extends Controller
     $phones = Phone::orderBy('id','desc')
             ->where('pname','like', '%'.request()->keywords.'%')
             ->paginate(10);
-
+   
         //解析模板显示用户数据
         return view('admin.phone.index', ['phones'=>$phones]);
     }
@@ -99,21 +96,19 @@ class PhoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         $phones = Phone::findOrFail($id);
-
+        $phones->view += 1;
+        $phones -> save();
         $types = Type::all();
         $colors = Color::all();
         $memorys = Memory::all();
+        $parameters=Parameter::where('phone_id',$id)->first();
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        $recoms = Phone::where('recom','1')->take(6)->orderBy('id','desc')->get();
+        return view('home.shop.xiangqi', compact('phones','types','colors','memorys','cars','parameters','recoms'));
 
-        //$views = Phone::orderBy('views','desc')->take(8)->get();
-        // $recoms = Article::where('recom','1')->take(8)->orderBy('id','desc')->get();
-
-        //if($request->id == Parameter::all(); 
-        // dd($parameters);
-
-        return view('home.shop.xiangqi', compact('phones','types','colors','memorys'));
     }
 
     /**
@@ -192,27 +187,33 @@ class PhoneController extends Controller
 
         $phones = Phone::all();
         $brands = Brand::all();
-        $recoms = Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
+        //推荐
+        $recoms = Phone::where('recom','1')->take(5)->orderBy('id','desc')->get();
+        //排行
+        $views = Phone::orderBy('view','desc')->take(5)->get();
 
         if(!empty($request->brand_id)){
             $phones = Phone::where('brand_id', $request->brand_id)->orderBy('id','desc')->paginate(10);
         }
 
-        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms]);
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms,'cars'=>$cars,'views'=>$views]);
+
     }
 
     /**
      * 商品首页
      */
-    public function shouyei()
+    public function shouyei(Request $request)
     {
         $adverts=Advert::first();
-        $recoms=Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
+        $recoms=Phone::where('recom','1')->take(6)->orderBy('id','desc')->get();
         $links = link::all();
         $settings = Setting::all();
-        $phones = Phone::take(8)->orderBy('id','desc')->get();
-        //$phones=Phone::all();
-       return view('home.shouyei',compact('links','settings','phones','adverts','recoms'));
+        $shoujis = Phone::take(8)->orderBy('id','desc')->get();
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        $phones = Phone::all();
+        return view('home.shouyei',compact('links','settings','shoujis','adverts','recoms','cars'));
     
     }
 
@@ -271,7 +272,7 @@ class PhoneController extends Controller
     public function tianjia(Request $request)
     {
        
-
+       
        $cars = Car::where('username',$request->session()->get('name'))->get();
 
        $data = $cars->ToArray();
@@ -396,8 +397,6 @@ public function dologin(Request $req){
         $yjfk = new Yjfk;
          $yjfk -> user_id = $request -> user_id;
          $yjfk -> yijian = $request -> yijian;
-        dd($yjfk);
-        
 
     } 
     //后台意见反馈

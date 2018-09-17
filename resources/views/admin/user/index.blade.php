@@ -17,7 +17,7 @@
             <div class="am-u-sm-12 am-u-md-6">
                 <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                        <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                        <a href="/user/create" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</a>
                         <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                 </div>
@@ -44,6 +44,7 @@
                             </th>
                             <th class="table-id">ID</th>
                             <th class="table-title">用户名</th>
+                            <th class="table-title">权限</th>
                             <th class="table-title">头像</th>
                             <th class="table-set">操作</th>
                         </tr>
@@ -56,6 +57,14 @@
                             </td>
                             <td>{{$v['id']}}</td>
                             <td class="am-hide-sm-only">{{$v['name']}}</td>
+                            <td class="am-hide-sm-only">
+                                @if ($v->qx == 2)
+                                    管理员
+                                @endif         
+                                @if ($v->qx == 1)
+                                    普通用户
+                                @endif
+                            </td>
                             <td class="am-hide-sm-only"><img src="{{$v['pic']}}" alt="" style="width:60px;height:60px;border-radius:360px"></td>
 
                             <td>

@@ -10,11 +10,7 @@
 </head>
 
 <body style="zoom: 1;">
-
     <div class="img1"><img src="/qiantai/img/logo-header.png" style="width:115px;height:20px;margin-top:30px"></div>
-
-    <div class="img1"><img src="/qiantai/img/myface.jpg"></div>
-
     <h1>魅族账号登陆</h1>
     <div class="login" style="margin-top:50px;">
         <div class="header">
@@ -43,21 +39,20 @@
                                     <input type="password" id="p" name="password" class="inputstyle" />
                                 </div>
                             </div>
-                            验证码: &nbsp;&nbsp;<input name="captcha" type="text" align="center" style="height:30px;width:90px;">&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a onclick="javascript:re_captcha();"  >
-
-
-            <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片"  id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center" style="width:100px;height:40px;" onclick="this.src='{{ URL('/captcha/1') }} ?d='+Math.random();">
-
-
-        </a>
+                            验证码: &nbsp;&nbsp;
+                            <input name="captcha" type="text" align="center" style="height:30px;width:90px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a onclick="javascript:re_captcha();">
+                                <img src="{{ URL('/captcha/1') }}"  alt="验证码" title="刷新图片"  id="c2c98f0de5a04167a9e427d883690ff6" border="0" align="center" style="width:100px;height:40px;" onclick="this.src='{{ URL('/captcha/1') }} ?d='+Math.random();">
+                            </a>
                             <br>{{csrf_field()}}
                             <div style="padding-left:50px;margin-top:20px;">
-                                <input type="submit" value="登 录" style="width:150px;" class="button_blue" />
+                                <input type="submit" value="登 录" style="width:100px; float: left;" class="button_blue" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="button" value="注 册" style="width:100px; float: right;" class="button_blue" onclick="javascrtpt:window.location.href='/home/zc'" />
                             </div>
                         </form>
                         <script>
-                        function re_captcha() {
+                        function re_captcha() 
+                        {
                             $url = "{{ URL('/captcha') }}";
                             $url = $url + "/" + Math.random();
                             document.getElementById('captchaid').src = $url;

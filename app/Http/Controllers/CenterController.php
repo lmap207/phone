@@ -23,9 +23,6 @@ class CenterController extends Controller
 	public function index(Request $request)
 	{
 		$users = $request->session()->all();
-		// $password = Hash::check($request->password);
-		// dd($users);
-
 		return view('home.center.index',['users'=>$users]);
 	}
 
@@ -34,14 +31,7 @@ class CenterController extends Controller
 	 */
 	public function ziliao(Request $request)
 	{
-		
 		$users = $request->session()->all();
-		
-		//$users = User::all();
-		
-		//dd($users);
-
-
 		return view('home.center.ziliao.index',['users' =>$users]);
 		
 	}
