@@ -34,7 +34,7 @@ class CenterController extends Controller
 	public function ziliao(Request $request, $id)
 	{
 		$users = $request->session()->all();
-		Fail($id);
+		
 		$users = User::findOrFail($id);
 
 		return view('home.center.ziliao.index',['users' =>$users]);
@@ -46,12 +46,7 @@ class CenterController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		// $userInput = \Request::get('name');
-		// $users = User::all();
-        // $users = new User;
-		// echo 'hhh';
        	$users = User::findOrFail($id);
-
        	$users -> name = $request -> name;
        	$users -> age = $request -> age;
 		$users -> sex = $request -> sex;

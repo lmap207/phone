@@ -55,14 +55,10 @@
         <div class="main clearfix">
             <div class="left-nav f-fl">
                 <div class="nav-main">
-                    <a href="/center/ziliao/index" class="active">我的资料</a>
-
                     <a href="/center/ziliao/{{Session::get('id')}}" class="active">我的资料</a>
-
                     <a href="/center/url" class="ml ">地址管理</a>
                 </div>
             </div>
-        </div>
             <!-- 我的资料表单 开始 -->
             <div class="right-content f-fr">
                 <form action="/center/ziliao/{{Session::get('id')}}" method="post" enctype="multipart/form-data">

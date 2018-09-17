@@ -66,13 +66,6 @@ Route::get('/weihu','CenterController@weihu');
 //网站维护路由组
 Route::group(['middleware'=>'weihu'],function(){
 //前台路由
-	//详情页  
-	Route::get('/{id}.html', 'PhoneController@show');
-	//列表页
-	Route::get('phones', 'PhoneController@list');
-	//首页
-	Route::get('/','PhoneController@shouyei');
-	//前台路由
 	//详情页
 	Route::get('/{id}.html', 'PhoneController@show');
 	//列表页
@@ -99,7 +92,7 @@ Route::group(['middleware'=>'weihu'],function(){
 	//退出登录
 	Route::get('home/logout','ZhuceController@tuichu');
 	//我的资料
-	Route::get('ziliao/index','CenterController@ziliao');
+	Route::get('/center/ziliao/index','CenterController@ziliao');
 	Route::get('/center/ziliao/{id}','CenterController@ziliao');
 	//我的资料更新
 	Route::put('/center/ziliao/{id}', 'CenterController@update');

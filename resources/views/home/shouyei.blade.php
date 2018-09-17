@@ -14,10 +14,6 @@
                 <div class="header-cart-wrap">
                     <span>购物车</span>
                     <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
-                    <span>购物车</span> 
-                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
-                    <span>购物车</span>
-                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
                     <div class="header-cart-spacer"></div>
                 </div>
             </a>
@@ -87,25 +83,11 @@
             </li>
         </ul>
 
-</style>
 
-    
-    <div id="slide">
-        <ul id="images">
-            <li><a href="/"><img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1560" height="670" alt=""></a></li>
-            <li><img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1560" height="670" alt=""></li>
-        </ul>
-        <ul id="dots">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+
     </div>
+
+   
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
     var index = -1;
@@ -149,8 +131,8 @@
     autoRun();
     </script>
     <div>
-        <h1 style="margin-left: 50px;margin-top: 30px;color:black;
-font-family:等线;font-weight:bold;">新款手机</h1> @foreach ($shoujis as $v)
+        <h1 style="margin-left: 50px;margin-top: 30px;color:black;font-family:等线;font-weight:bold;">新款手机</h1> 
+        @foreach ($shoujis as $v)
         <li class="gl-item">
             <dl class="gl-item-wrap">
                 <dd class="mod-pic">
@@ -205,7 +187,6 @@ font-family:等线;font-weight:bold;">推荐排行</h1>
             </ul>
         </div>
     </div>
-</div>
 <!-- 推荐 End -->
 @endsection
 <!--这里是广告效果-->
