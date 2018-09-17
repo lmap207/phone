@@ -95,13 +95,17 @@ Route::group(['middleware'=>'weihu'],function(){
 	//退出登录
 	Route::get('home/logout','ZhuceController@tuichu');
 	//我的资料
-	Route::get('/center/ziliao','CenterController@ziliao');
+	Route::get('/center/ziliao/{id}','CenterController@ziliao');
+	//我的资料更新
+	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//我的地址
 	Route::resource('/center/url','UrlController');
 	//前台添加购物车到数据库
 	Route::get('tianjia','PhoneController@tianjia');
-	//意见反馈的增加
+	//后台意见反馈的增加
 	Route::post('/ycreate','PhoneController@ycreate');
+	//后台意见反馈的删除
+	Route::delete('/yjfk/{id}','PhoneController@scyjfk');
 	//意见反馈前台
 	Route::get('/yjfk','PhoneController@yjfk');
 });

@@ -408,21 +408,45 @@ public function dologin(Request $req){
 }
 
     //意见反馈
-    public function yjfk(){
+    public function yjfk()
+    {
         return view('home.yjfk');    
-    } 
-    public function ycreate(Request $request){
+    }
+
+    //意见反馈添加 
+    public function ycreate(Request $request)
+    {
         $yjfk = new Yjfk;
-         $yjfk -> user_id = $request -> user_id;
-         $yjfk -> yijian = $request -> yijian;
-        dd($yjfk);
-        
+        $yjfk -> uemail = $request -> uemail;
+        $yjfk -> yijian = $request -> yijian;
 
+        if($yjfk->save()){
+            return redirect('/')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     } 
-    //后台意见反馈
-     public function hyjfk(){
-        return view('admin.yjfk.index');
-     }
 
+    //后台意见反馈
+    public function hyjfk()
+    {
+        $yjfks =Yjfk::orderBy('id','desc')
+        ->where('uemail','like', '%'.request()->keywords.'%')
+        ->paginate(10);
+        
+        return view('admin.yjfk.index',['yjfks'=>$yjfks]);
+    }
+
+    //后台意见反馈删除
+    public function scyjfk($id)
+    {
+        $yjfks = Yjfk::findOrFail($id);
+
+        if($yjfks->delete()){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败!');
+        }
+    }
 
 }

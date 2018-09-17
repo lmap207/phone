@@ -57,7 +57,7 @@
                 <span class="title active">
                 </span>
                 <div class="nav-main">
-                    <a href="/center/ziliao" class="ml ">我的资料</a>
+                    <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
                     <a href="/center/url" class="active">我的地址</a>
                 </div>
             </div>
