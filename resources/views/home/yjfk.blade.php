@@ -22,23 +22,21 @@
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-10">
-                        <input type="text" name="user_id" class="form-control" id="inputPassword3" placeholder="请输入你的用户名">
+                        <input type="text" name="uemail" class="form-control" id="inputPassword3" placeholder="请输入你的用户名">
                     </div>
                 </div>
                 <textarea class="form-control" name="yijian" rows="3" name="意见" placeholder="请留下你的宝贵意见"></textarea>
                 <div class="form-group" style="margin-top:30px;margin-left:-100px">
                     <div class="col-sm-offset-2 col-sm-10">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button type="submit">提交</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit"><a href="/" style="color: black;">返回</button>
                     </div>
                 </div>
                 <!-- 布局的响应式 -->
                 {{csrf_field()}}
             </form>
-            <div class="form-group" style="margin-top:30px;margin-left:-100px">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit"><a href="/">back</button>
-		    </div>
-		  </div>
-	</div>
+	   </div>
 	</body>	
-	</html>
+</html>

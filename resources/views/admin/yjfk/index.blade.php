@@ -10,7 +10,7 @@
             <div class="am-u-sm-12 am-u-md-6">
                 <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                        <a href="/link/create" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</a>
+                        
                         <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                 </div>
@@ -37,26 +37,22 @@
                             </th>
                             <th class="table-id">ID</th>
                             <th class="table-title">用户名</th>
-                            <th class="table-title">邮箱</th>
                             <th class="table-title">留言内容</th>
                             <th class="table-set">操作</th>
                         </tr>
                     </thead>
                     <tbody>
-                 
+                        @foreach ($yjfks as $v)
                         <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td></td>
-                            <td class="am-hide-sm-only"></td>
-                            <td class="am-hide-sm-only"></td>
-                            <td class="am-hide-sm-only"></td>
+                            <td><input type="checkbox"></td>
+                            <td>{{$v['id']}}</td>
+                            <td class="am-hide-sm-only">{{$v['uemail']}}</td>
+                            <td class="am-hide-sm-only">{{$v['yijian']}}</td>
                             <td>
                                 <div class="am-btn-toolbar">
                                     <div class="am-btn-group am-btn-group-xs">
                                        
-                                        <form style="float:left" action="/" method="post">
+                                        <form style="float:left" action="/yjfk/{{$v['id']}}" method="post">
                                             
                                             <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                                             {{csrf_field()}}
@@ -67,8 +63,7 @@
                                 </div>
                             </td>
                         </tr>
-                    
-                       
+                        @endforeach
                     </tbody>
                 </table>
                 

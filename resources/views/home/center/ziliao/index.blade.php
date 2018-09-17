@@ -55,16 +55,75 @@
         <div class="main clearfix">
             <div class="left-nav f-fl">
                 <div class="nav-main">
-                    <a href="/center/ziliao" class="active">我的资料</a>
+                    <a href="/center/ziliao/{{Session::get('id')}}" class="active">我的资料</a>
                     <a href="/center/url" class="ml ">地址管理</a>
                 </div>
             </div>
             <!-- 我的资料表单 开始 -->
             <div class="right-content f-fr">
-                <form action="">
-                    名字： <input type="text" value=""><br>
-                    密码： <input type="password" value=""> <br>
-                    头像： 
+                <form action="/center/ziliao/{{Session::get('id')}}" method="post" enctype="multipart/form-data">
+                    <div class="col-md-5">
+                        <table class="table table-striped table-bordered table-hover">
+                
+                            <tbody>
+                                <!-- tr的五个场景 -->
+                                <!-- 密码： <input type="password" value=""> <br> -->
+                                <tr class="active">              
+                                    <td>头像： </td>
+                                    <td> 
+                                        <img src="{{$users->pic}}" name="pic" width="180" height="50" alt="">
+                                        <input type="file" name="pic" value="">
+                                    </td>       
+                                </tr>
+                                <tr class="success">          
+                                    <td>名字： </td>
+                                    <td><input type="text" name="name" value="{{$users->name}}"></td>        
+                                </tr>
+                                <tr class="info">                    
+                                    <td>年龄： </td>
+                                    <td><input type="text" name="age" value="{{$users->age}}"></td>          
+                                </tr>
+                                 <tr class="warning">
+                                    <td>性别： </td>
+                                    <td>
+                                        <input type="radio" name="sex" value="1" {{$users['sex'] == 1 ? 'checked' : '' }} >男 &nbsp; &nbsp;
+                                        <input type="radio" name="sex" value="2" {{$users['sex'] == 2 ? 'checked' : '' }} >女 
+                                    </td>
+                                </tr>
+                                <tr class="active">
+                                    <td>电话： </td>
+                                    <td><input type="text" name="tel" value="{{$users->tel}}"></td>               
+                                </tr>
+                                <tr class="success">
+                                    <td>邮箱： </td>
+                                    <td><input type="text" name="emil" value="{{$users->emil}}"></td>
+                                </tr>
+                                <tr class="info">
+                                    <td>学历： </td>
+                                    <td><input type="text" name="xueli" value="{{$users->xueli}}"></td>
+                                </tr>
+                                 <tr class="warning">
+                                    <td>工作： </td>
+                                    <td><input type="text" name="gongzuo" value="{{$users->gongzuo}}"></td>
+                                </tr>
+                                <tr class="active">
+                                    <td>家庭地址： </td>
+                                    <td><input type="text" name="jtdz" value="{{$users->jtdz}}"></td>
+                                </tr>
+                                <tr class="success">
+                                    <td>出生年月日： </td>
+                                    <td><input type="date" name="csny" value="{{$users->csny}}"></td>
+                                </tr>
+                                <tr class="info">
+                                    <td></td>
+                                    <td><input type="submit" value="提交"> &nbsp; &nbsp; <input type="reset" value="重置"></td>
+                                </tr>                                
+                                {{csrf_field()}}
+                                {{method_field('PUT')}}
+                            </tbody>
+                        </table>
+                    </div>        
+
                 </form>
             </div>
             <!-- 我的资料表单 结束 --> 

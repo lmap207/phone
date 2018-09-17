@@ -10,12 +10,14 @@ use Gregwar\Captcha\PhraseBuilder;
 use Session; 
 
 class ZhuceController extends Controller
-{
+{   
+    //注册
     public function zhuce()
     {
         return view('home.zhuce');
     }
-
+    
+    //注册操作
     public function store(Request $request)
     {
         $user = new User;
@@ -27,50 +29,26 @@ class ZhuceController extends Controller
             return back()->with('error','注册失败');
         }
     }
-
+    
+    //登录
     public function denglu()
     {
         return view('home.denglu');
     }
-
+    
+    //登陆操作
     public function dologin(Request $req)
     {
-        // $user = User::where('username',$request->username)->first();
-        //  if(!$user){
-        //       return back()->with('error','登录失败');
-        //  }
-        //   //校验密码
-        //   if(Hash::check($request->password,$user->password)){
-        //     //将登录信息写入session
-        //      session(['username'=>$user->username,'id'=>$user->id]);
-        //     return redirect('/shop')->with('success','登录成功');
-        //   }else{
-        //     return back()->with('error','登录失败');
-        //   }
-        //   
-        //   
-          //根据用户名读数据库
+        //根据用户名读数据库
         $user=User::where('name',$req->name)->first();
         
         $userInput = \Request::get('captcha');
-        
-    // if(!$user){
-        //     return back()->with('error','登录失败');
-        // }
-        // //校验密码
-        // if(Hash::check($req->password,$user->password)){
-        //     //写入session
-        //     session(['name'=>$user->name,'id'=>$user->id]);
-        //     return redirect('/admin')->with('success','登陆成功');
-        // }else{
-        //     return back()->with('error','登录失败');
-        // }
 
 
         $password=Hash::check($req->password,$user->password); 
         if(Session::get('milkcaptcha') == $userInput){
             if($user && $password){
-                session(['name'=>$user->name,'id'=>$user->id]);
+                session(['name'=>$user->name,'id'=>$user->id,'password'=>$user->password,'pic'=>$user->pic]);
                 return redirect('/')->with('success','登陆成功');
             }else{
                 return back()->with('error','用户名或密码错误');
@@ -81,7 +59,8 @@ class ZhuceController extends Controller
          }
 
     }
-
+    
+    //验证码
     public function captcha($tmp)
     {
         //生成验证码图片的Builder对象，配置相应属性

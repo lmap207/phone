@@ -41,6 +41,11 @@
                             <th class="table-title">屏幕尺寸</th>
                             <th class="table-title">运行内存</th>
                             <th class="table-title">像素</th>
+                            <th class="table-title">重量</th>
+                            <th class="table-title">CPU</th>
+                            <th class="table-title">GPU</th>
+                            <th class="table-title">前置像素</th>
+                            <th class="table-title">后置像素</th>
                             <th class="table-title">系统版本</th>
                             <th class="table-set">操作</th>
                         </tr>
@@ -57,6 +62,11 @@
                             <td>{{$v['size']}}</td>
                             <td>{{$v['memory']}}</td>
                             <td>{{$v['pixel']}}</td>
+                            <td>{{$v['weight']}}</td>
+                            <td>{{$v['CPU']}}</td>
+                            <td>{{$v['GPU']}}</td>
+                            <td>{{$v['front']}}</td>
+                            <td>{{$v['behind']}}</td>
                             <td>{{$v['edition']}}</td>
                             <td>
                                 <div class="am-btn-toolbar">

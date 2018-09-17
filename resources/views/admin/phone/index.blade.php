@@ -55,8 +55,8 @@
                             </td>
                             <td>{{$v['id']}}</td>
                             <td>{{$v['pname']}}</td>
-                            <td>{{$v->brand->bname}}</td>
-                            <td>{{$v->xinghao->xname}}</td>
+                            <td>{{$v->brand['bname']}}</td>
+                            <td>{{$v->xinghao['xname']}}</td>
                             <td>{{$v->type['tname']}}</td>
                             <td>{{$v->color['cname']}}</td>
                             <td>{{$v->memory['mname']}}</td>

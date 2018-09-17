@@ -15,61 +15,45 @@ class CenterController extends Controller
 	{
 		return '网站维护中！！！';
 	}
-	/**
-	 * 个人中心
-	 * [index description]
-	 * @return [type] [description]
-	 */
-	public function index(Request $request)
-	{
-		$users = $request->session()->all();
-		// $password = Hash::check($request->password);
-		// dd($users);
-
-		return view('home.center.index',['users'=>$users]);
-	}
 
 	/**
 	 * 我的资料
 	 */
-	public function ziliao(Request $request)
+	public function ziliao(Request $request, $id)
 	{
+		// $users = $request->session()->all();
 		
-		$users = $request->session()->all();
-		
-		//$users = User::all();
-		
-		//dd($users);
-
+		$users = User::findOrFail($id);
 
 		return view('home.center.ziliao.index',['users' =>$users]);
 		
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public function dizhi()
+	/**
+	 * 我的资料更新
+	 */
+	public function update(Request $request, $id)
 	{
-		$uid = \Session::get('id');
-		$url = Url::all();
+       	$users = User::findOrFail($id);
+       	$users -> name = $request -> name;
+       	$users -> age = $request -> age;
+		$users -> sex = $request -> sex;
+		$users -> tel = $request -> tel;
+		$users -> emil = $request -> emil;
+		$users -> xueli = $request -> xueli;
+		$users -> gongzuo = $request -> gongzuo;
+		$users -> csny = $request -> csny;
+		$users -> jtdz = $request -> jtdz;
+		if ($request->hasFile('pic')) {
+            $users->pic = '/'.$request->pic->store('uploads');
+        }
 
-		return view('home.center.dizhi.create',compact('dizhi'));
+        if($users->save()){
+            return back()->with('success','设置成功');
+        }else{
+            return back()->with('error','设置失败!!');
+        }
+
 	}
 
-	/*public function ywb()
-	{
-		return view('home.center.ywb');
-	}*/
 }

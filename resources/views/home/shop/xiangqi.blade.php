@@ -26,6 +26,7 @@
     <div class="container">
         <section class="crumbs clearfix">
             <a href="/">首页</a>&nbsp;&gt;&nbsp;
+            <a href="/phones">商城列表</a>&nbsp;&gt;&nbsp;
             <a class="ellipsis crumbs-title">{{$phones->pname}}</a>
         </section>
         <form action="/add/{{$phones->id}}" method="post">
@@ -177,44 +178,44 @@
                         
                         <tr>
                             <th>品牌</th>
-                            <td>魅蓝</td>
+                            <td>{{$phones->pname}}</td>
                             
                         </tr>
                         <tr>
                             <th>型号</th>
-                            <td>魅蓝2</td>
+                            <td>{{$phones->pname}}</td>
                         </tr>
                         <tr>
                             <th>电池容量</th>
-                            <td>2500mAh</td>
+                            <td>{{$parameters['capacity']}}</td>
                         </tr>
                         <tr>
                             <th>尺寸</th>
-                            <td>140.1×68.9×8.7mm</td>
+                            <td>{{$parameters['size'] .'英尺'}}</td>
                         </tr>
                         <tr>
                             <th>重量</th>
-                            <td>131g</td>
+                            <td>{{$parameters['weight'].'g'}}</td>
                         </tr>
                         <tr>
                             <th>屏幕尺寸</th>
-                            <td>5.0英寸</td>
+                            <td>{{$parameters['size'] .'英尺'}}</td>
                         </tr>
                         <tr>
                             <th>分辨率</th>
-                            <td>1280 x 720</td>
+                            <td>{{$parameters['pixel']}}</td>
                         </tr>
                         <tr>
                             <th>运行内存（RAM）</th>
-                            <td>2GB</td>
+                            <td>{{$phones->memory['mname']}}</td>
                         </tr>
                         <tr>
                             <th>CPU</th>
-                            <td>MTK MT6735 处理器</td>
+                            <td>{{$parameters['CPU']}}</td>
                         </tr>
                         <tr>
                             <th>GPU</th>
-                            <td>Mali T720 图形处理器</td>
+                            <td>{{$parameters['GPU']}}</td>
                         </tr>
                         <tr>
                             <th>网络模式</th>
@@ -222,15 +223,15 @@
                         </tr>
                         <tr>
                             <th>前置摄像头</th>
-                            <td>500万像素</td>
+                            <td>{{$parameters['front'].'万像素'}}</td>
                         </tr>
                         <tr>
                             <th>后置摄像头</th>
-                            <td>1300万像素</td>
+                            <td>{{$parameters['behind'] .'万像素'}}</td>
                         </tr>
                         <tr>
                             <th>系统版本</th>
-                            <td>Flyme 4.5</td>
+                            <td>{{$parameters['edition']}}</td>
                         </tr>
                         
                     </tbody>
@@ -276,4 +277,35 @@
         </div>
     </section>
 </main>
+<h1 style="margin-left: 50px;margin-top: 30px;color:black;
+font-family:等线;font-weight:bold;">推荐排行</h1>
+    <div class="recommend-slider" id="J_recommendSlider">
+        <!-- 推荐商品列表 Start -->
+        <!-- 推荐商品列表 End -->
+        <div class="flex-viewport" style="overflow: hidden; position: relative;"></div>
+        <div class="flex-viewport" style="overflow: hidden; position: relative;">
+            <ul class="recommend-slider-wrap" style="width: 1800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                <!-- 列表item Start  -->
+                @foreach($recoms as $v)
+                <li class="rs-item" style="width: 245px; margin-right: 5px; float: left; display: block;">
+                    <a class="rs-item-wrap" href="{{$v->id}}.html" target="_blank">
+                        <div class="mod-pic">
+                            <img src="{{$v->pic}}" width="180" height="180" draggable="false">
+                        </div>
+                        <div class="mod-desc">
+                            <h4 class="vm-title">{{$v->pname}}</h4>
+                            <p class="vm-price-oldprice"></p>
+                            <p class="vm-price">
+                                ¥&nbsp;<span>{{$v->money}}</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                @endforeach
+                <!-- 列表item End -->
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 推荐 End -->
 @endsection

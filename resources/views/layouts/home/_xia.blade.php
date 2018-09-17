@@ -94,14 +94,7 @@
                 </li>
             </ul>
         </div>
-        <div class="footer-nav-custom">
-            <h4 class="nav-custom-title">24小时全国服务热线</h4>
-            <a href="tel:400-788-3333"><h3 class="nav-custom-number">400-788-3333</h3></a>
-            <a class="nav-custom-btn" href="javascript:void(0);" onclick="window.open(&#39;http://live-i.meizu.com/live800/chatClient/chatbox.jsp?companyID=8957&amp;configID=4&amp;enterurl=&#39;+ encodeURIComponent(document.URL) + &#39;&amp;pagereferrer=&#39; + encodeURIComponent(document.referrer) + &#39;&amp;info=&amp;k=1&#39;, &#39;_blank&#39;,&#39;height=775,width=1200,fullscreen=3,top=100,left=100,status=yes,toolbar=no,menubar=no,resizable=no,scrollbars=no,location=no,titlebar=no,fullscreen=no&#39;);">
-        
-          24小时在线客服
-        </a>
-        </div>
+    
     </div>
     <div class="site-footer-end">
         <p>

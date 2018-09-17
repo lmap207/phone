@@ -58,18 +58,20 @@
                 <ul class="goods-list-wrap clearfix">
                     <!-- 列表item Start -->
                     @foreach ($phones as $v)
-                    <li class="gl-item">
+                    <li class="gl-item" style="">
                         <dl class="gl-item-wrap">
                             <dd class="mod-pic">
-                                <a target="_blank" href="{{$v->id}}.html">
-                                        <img width="220" height="220" class="err-product" src="{{$v['pic']}}">
-                                    </a>
+                                <a class="rs-item-wrap" target="_blank" href="{{$v->id}}.html">
+                                    <img width="220" height="220" class="err-product" src="{{$v['pic']}}">
+                                </a>
                             </dd>
-                            <dd class="mod-name">
+
+                            <dd style="margin-top: 55px;" class="mod-name">
                                 <a target="_blank" href="{{$v->id}}.html">
-                                        {{$v['pname']}}
-                                    </a>
+                                    {{$v['pname']}}
+                                </a>
                             </dd>
+                            
                             <dd class="mod-price">
                                 <p class="vm-price-oldprice"></p>
                                 <p class="vm-price">
@@ -129,6 +131,51 @@
             </div>
         </div>
         <!-- 推荐 End -->
+
+        <!-- 排行开始 -->
+        <div class="recommend">
+            <div class="recommend-hd">
+                <h2 class="mod-title">商品排行</h2>
+                <!--
+                <div class="mod-control" id="recommendDirectionNav">
+                    <a class="vm-prev flex-prev flex-disabled" href="http://store.meizu.com/topic/list.html?active=0#" id="J_recommendPrev" tabindex="-1">
+                            <i> </i>
+                        </a>
+                    <a class="vm-next flex-next" href="http://store.meizu.com/topic/list.html?active=0#" id="J_recommendNext">
+                            <i></i>
+                        </a>
+                </div>
+                -->
+            </div>
+            <div class="recommend-slider" id="J_recommendSlider">
+                <!-- 推荐商品列表 Start -->
+                <!-- 推荐商品列表 End -->
+                <div class="flex-viewport" style="overflow: hidden; position: relative;"></div>
+                <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                    <ul class="recommend-slider-wrap" style="width: 1800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                        <!-- 列表item Start  -->
+                        @foreach($views as $v)
+                        <li class="rs-item" style="width: 245px; margin-right: 5px; float: left; display: block;">
+                            <a class="rs-item-wrap" href="{{$v['id']}}.html" target="_blank">
+                                <div class="mod-pic">
+                                    <img src="{{$v['pic']}}" width="180" height="180" draggable="false">
+                                </div>
+                                <div class="mod-desc">
+                                    <h4 class="vm-title">{{$v['pname']}}</h4>
+                                    <p class="vm-price-oldprice"></p>
+                                    <p class="vm-price">
+                                        ¥&nbsp;<span>{{$v['money']}}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        @endforeach
+                        <!-- 列表item End -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 排行结束 -->
     </div>
 </div>
 @endsection

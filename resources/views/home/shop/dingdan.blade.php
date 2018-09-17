@@ -45,8 +45,11 @@
             </div>
             <div class="topbar-right">
                 <ul class="topbar-info">
-                   <li class="topbar-order-msg">
-                        <a class="topbar-link" href="/tianjia" target="_blank">欢迎 &nbsp;{{Session::get('name')}} &nbsp;用户</a>
+
+                    <li class="topbar-order-msg">
+                        <a class="topbar-link" href="/" target="_blank">
+                        {{Session::get('name')}} &nbsp;用户</a>
+
                         <span class="msg-tag" id="MzOrderMsgTag"></span>
                     </li>
                     <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
@@ -71,8 +74,6 @@
                       </a>
                         <div class="site-member-items">
                             <a class="site-member-link" href="/center/url">地址管理</a>
-                            <a class="site-member-link" href="http://store.meizu.com/member/repurchase_ticket/index" target="_blank">我的回购券</a>
-                            <a class="site-member-link" href="http://store.meizu.com/member/suggest/index" target="_blank">问题反馈</a>
                             <a class="site-member-link site-logout" href="/">退出登陆</a>
                         </div>
                     </li>
@@ -148,8 +149,8 @@
                 <table cellpadding="0" cellspacing="0" class="product_table">
                     <thead>
                         <tr>
-                            <th width="150">商品</th>
-                            <th width="500" class="supplier">
+                            <th width="200">商品</th>
+                            <th width="300" class="supplier">
                                 <div class="title">
                                     <div class="title">
                                         供应商：魅族 <span class="supplier_tips">
@@ -161,8 +162,8 @@
                             </th>
                             <th width="200">单价</th>
                             <th width="200">数量</th>
-                            <th>小计</th>
-                            <th>操作</th>
+                            <th width="200">小计</th>
+                            <th width="200">操作</th>
                         </tr>
                     </thead>
                     @if((count($cars) < 1))
@@ -184,16 +185,16 @@
                     <tbody>
                     @foreach($cars as $v)
                         <tr>
-                            <td class="img"><img src="{{$v->phone->pic}}"></td>
+                            <td class="img"><img src="{{$v->phone['pic']}}"></td>
                             <td class="detial">
                                 <p class="title">
                                     <a target="_blank" href="http://store.meizu.com/item/meizu_mx5.html">
                                         <!--如果是套餐则显示套餐-->
-                                        {{$v->phone->pname}}&nbsp; {{$v->cname}}&nbsp; {{$v->tname}}&nbsp; {{$v->mname}}</a>
+                                        {{$v->phone['pname']}}&nbsp; {{$v->cname}}&nbsp; {{$v->tname}}&nbsp; {{$v->mname}}</a>
                                 </p>
                             </td>
                             <td class="price">
-                                ¥&nbsp;{{$v->phone->money}}</td>
+                                ¥&nbsp;{{$v->phone['money']}}</td>
                             <td>{{$v->shuliang}}</td>
                             <td class="price">¥&nbsp;{{$v->money}}</td>
                             <td><a href="delete/{{$v->id}}"><u>删除</u></a></td>
@@ -427,10 +428,10 @@
                     <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/icp2.jpg" hidefocus="true">经营许可证编号：粤B2-20130198</a>
                     <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true">营业执照</a>
                     <a target="_blank" rel="nofollow" href="http://210.76.65.188/" hidefocus="true">
-          <img src="./img/footer-copy-1.png">
+          <img src="/qiantai/img/footer-copy-1.png">
         </a>
                     <a target="_blank" rel="nofollow" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" hidefocus="true">
-          <img src="./img/footer-copy-2.png">
+          <img src="/qiantai/img/footer-copy-2.png">
         </a>
                     <a target="_blank" rel="nofollow" href="https://credit.szfw.org/CX20151204012550820380.html" hidefocus="true">
           <img src="/qiantai/img/trust-icon.png">
