@@ -397,12 +397,9 @@ public function dologin(Request $req){
         return view('home.yjfk');    
     } 
     public function ycreate(Request $request){
-        $yjfk = new Yjfk;
+         $yjfk = new Yjfk;
          $yjfk -> user_id = $request -> user_id;
          $yjfk -> yijian = $request -> yijian;
-        dd($yjfk);
-        
-
     } 
     //后台意见反馈
      public function hyjfk(){

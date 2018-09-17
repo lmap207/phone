@@ -31,7 +31,7 @@
                         <button type="submit">提交</button>
                     </div>
                 </div>
-                <!-- 布局的响应式 -->
+            
                 {{csrf_field()}}
             </form>
             <div class="form-group" style="margin-top:30px;margin-left:-100px">

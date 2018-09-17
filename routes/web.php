@@ -23,7 +23,7 @@ Route::post('/admin/login','AdminController@dologin');
 
 
 //用户管理
-Route::group(['middleware'=>'admin'],function(){
+ Route::group(['middleware'=>'admin'],function(){
 //后台路由
 Route::get('/admin', 'AdminController@index');
 //用户管理
@@ -53,8 +53,6 @@ Route::post('/admin/settings', 'SettingController@update');
 //广告管理
 Route::resource('advert','AdvertController');
 
-//登录操作
-Route::post('/admin/login','AdminController@dologin');
 //退出登录
 Route::get('/admin/logout','AdminController@logout');
 
@@ -64,8 +62,7 @@ Route::resource('/url','UrlController@create');
 Route::get('/hyjfk','PhoneController@hyjfk');
 //广告管理
 Route::resource('advert','AdvertController');
-
-});
+ });
 
 
 //登录路由
