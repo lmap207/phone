@@ -78,9 +78,11 @@
             <li><img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1560" height="670" alt=""></li>
             <li><img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1560" height="670" alt=""></li>
             <li><img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1560" height="670" alt=""></li>
+            <li><img src="https://openfile.meizu.com/group1/M00/06/7C/Cgbj0VuXhNuAP-KOAAFNa343Kr8161.jpg" width="1560" height="670" alt=""></li>
         </ul>
 
         <ul id="dots">
+            <li></li>
             <li></li>
             <li></li>
             <li></li>

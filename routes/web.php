@@ -94,6 +94,13 @@ Route::post('add/{id}','PhoneController@add');
 
 Route::get('delete/{id}','PhoneController@delete');
 
+//购物车详细信息补全
+Route::post('save','PhoneController@save');
+
+//付款
+
+Route::get('fukuan','PhoneController@fukuan');
+
 
 //前台添加购物车到数据库
 Route::get('tianjia','PhoneController@tianjia');

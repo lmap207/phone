@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Advert;
 use App\Brand;
 use App\Car;
 use App\Color;
@@ -12,16 +13,14 @@ use App\Parameter;
 use App\Phone;
 use App\Setting;
 use App\Type;
+use App\Url;
 use App\Xinghao;
 use App\Yjfk;
 use App\link;
-
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
-
-use App\Advert;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 
@@ -116,6 +115,7 @@ class PhoneController extends Controller
 
         //if($request->id == Parameter::all(); 
         // dd($parameters);
+
         $cars = Car::where('username',$request->session()->get('name'))->count();
         return view('home.shop.xiangqi', compact('phones','types','colors','memorys','cars'));
     }
@@ -291,10 +291,42 @@ class PhoneController extends Controller
         $money += $v['money'];
        }
        
+        $dizhis = Url::where('sname',\Session::get('name'))->orderBy('id','desc')->first();         
+ 
+
         
 
-       return view('home.shop.dingdan',compact('cars','money'));
+       return view('home.shop.dingdan',compact('cars','money','dizhis'));
 
+    }
+
+    /*
+    * 购物车里的表补全详细信息
+    */
+    public function save(Request $request)
+    {
+
+          // $cars = Car::where('username',\Session::get('name'))->get();
+
+          // foreach($cars as $v){
+
+          //    $v['xxxx'] = request()->xxxx;
+          // }
+       $cars = DB::table('cars')->where('username',\Session::get('name') )->update(['xxxx' => request()->xxxx]);
+        return view('home.shop.fukuan');
+
+          
+
+    }
+
+    /*
+    * 付款
+    */
+    public function fukuan(Request $request)
+    {
+        
+        $cars = Car::where('username',$request->session()->get('name')); 
+        return view('home.shop.fukuan',compact('cars'));
     }
 
     /*

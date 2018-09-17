@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use App\Url;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,13 +14,13 @@ class UrlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $urls = Url::all();
-        $users = User::all();
-        $urls -> user_id = \Session::get('id');
-        // dd($urls);
-        return view('home.center.dizhi.create', ['urls' =>$urls,'users'=>$users]);
+        $urls = Url::where('sname',\Session::get('name'))->get();
+        
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+       
+        return view('home.center.dizhi.create', ['urls' =>$urls,'cars'=>$cars]);
         //读取数据库 获取用户数据
         /*
         $url = Url::orderBy('id','asc')
@@ -49,10 +50,14 @@ class UrlController extends Controller
     public function store(Request $request)
     {
         $urls = new Url;
+        $urls->uname = $request->uname;
+        $urls->stel = $request->stel;
+        $urls->xurl = $request->xurl;
         $urls -> sheng = $request->sheng;
         $urls -> shi = $request->shi;
         $urls -> qu = $request->qu;
         $urls -> user_id = \Session::get('id');
+        $urls ->sname =  \Session::get('name');
 
         // dd($urls);
         if($urls -> save()){
