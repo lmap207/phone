@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +23,9 @@ Route::get('/admin/login','AdminController@login');
 //登录操作
 Route::post('/admin/login','AdminController@dologin');
 
-
 //用户管理
 Route::group(['middleware'=>'admin'],function(){
+	//后台路由
 
 	//后台首页路由
 	Route::get('/admin', 'AdminController@index');
@@ -43,43 +45,43 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::resource('brand', 'BrandController');
 	//内存
 	Route::resource('memory', 'MemoryController');
-
 	//友情链接
 	Route::resource('link','LinkController');
-	//后台设置
+	// 设置
 	Route::get('/admin/settings', 'SettingController@setting');
 	Route::post('/admin/settings', 'SettingController@update');
-
 	//广告管理
 	Route::resource('advert','AdvertController');
-
 	//退出登录
 	Route::get('/admin/logout','AdminController@logout');
-
 	//地址管理
 	Route::resource('/url','UrlController@create');
-	//意见反馈后台
+	 //意见反馈后台
 	Route::get('/hyjfk','PhoneController@hyjfk');
-
+	//广告管理
+	Route::resource('advert','AdvertController');
 });
+
 
 //网站维护的路由
 Route::get('/weihu','CenterController@weihu');
-
 //网站维护路由组
 Route::group(['middleware'=>'weihu'],function(){
 	//前台路由
-	//详情页  
+	//详情页
 	Route::get('/{id}.html', 'PhoneController@show');
 	//列表页
 	Route::get('phones', 'PhoneController@list');
 	//首页
 	Route::get('/','PhoneController@shouyei');
-
 	//前台购物车添加
 	Route::post('add/{id}','PhoneController@add');
 	//购物车商品删除
 	Route::get('delete/{id}','PhoneController@delete');
+	//购物车详细信息补全
+	Route::post('save','PhoneController@save');
+	//付款
+	Route::get('fukuan','PhoneController@fukuan');
 	//前台添加购物车到数据库
 	Route::get('tianjia','PhoneController@tianjia');
 	//验证码
@@ -97,22 +99,22 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::get('home/logout','ZhuceController@tuichu');
 	//我的资料
 	Route::get('/center/ziliao/{id}','CenterController@ziliao');
-	//修改密码
-	Route::put('/center/mima/{id}','CenterController@mima');
-	//我的资料更新
-	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//我的地址
 	Route::resource('/center/url','UrlController');
-	//前台添加购物车到数据库
-	Route::get('tianjia','PhoneController@tianjia');
+	//购物车商品删除
+	Route::get('delete/{id}','PhoneController@delete');
+	//我的资料更新
+	Route::put('/center/ziliao/{id}', 'CenterController@update');
+	//意见反馈的增加 
+	Route::post('/ycreate','PhoneController@ycreate'); 
 	//后台意见反馈的增加
 	Route::post('/ycreate','PhoneController@ycreate');
 	//后台意见反馈的删除
 	Route::delete('/yjfk/{id}','PhoneController@scyjfk');
 	//意见反馈前台
 	Route::get('/yjfk','PhoneController@yjfk');
-});
 
+});
 
 
 

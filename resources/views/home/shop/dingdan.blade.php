@@ -45,9 +45,11 @@
             </div>
             <div class="topbar-right">
                 <ul class="topbar-info">
+
                     <li class="topbar-order-msg">
-                        <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">
+                        <a class="topbar-link" href="/" target="_blank">
                         {{Session::get('name')}} &nbsp;用户</a>
+
                         <span class="msg-tag" id="MzOrderMsgTag"></span>
                     </li>
                     <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
@@ -99,14 +101,14 @@
                     </div>
                 </a>
                 <div class="header-cart-detail">
-                    <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
+                    <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">快下单吧！</div>
                 </div>
 
             </div>
         </div>
     </div>
     <!--MZstore-->
-    <form method="post" action="" id="realFrom" enctype="multipart/form-data">
+    <form method="post" action="/save" id="realFrom" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div id="storeContainer">
             <div class="mz_content clearfix">
@@ -129,22 +131,15 @@
                         <!-- 用户地址列表 -->
                     </div>
                     <div class="user_address">
-                        <div class="add_form" id="addFrom" style="">
+                        <div class="add_form" id="addFrom" style="margin-top:5px">
                             <div class="tr">
-                                <div class="th">收件人地址</div>
-                                <div class="td">
-                                    <input type="text" class="order_input" name="dizhi" maxlength="30" placeholder=""><i class="must" data-errname="consName"></i></div>
-                            </div>
-                            <div class="tr">
-                                <div class="th">收件人</div>
-                                <div class="td">
-                                    <input type="text" class="order_input" name="username" maxlength="12" placeholder="长度不超过12个字"><i class="must" data-errname="consName"></i></div>
-                            </div>
-                            <div class="tr">
-                                <div class="th">手机号</div>
-                                <div class="td">
-                                    <input type="text" class="order_input" name="tel" maxlength="11" placeholder="请输入11位手机号"><i class="must" data-errname="consPhone"></i></div>
-                            </div>
+                                <div class="th">
+                                    <textarea name="xxxx" rows="7" cols="30">姓名:{{$dizhis->uname}}
+                                                         手机号:{{$dizhis->stel}}
+收货地址:{{$dizhis->sheng}} {{$dizhis->shi}} {{$dizhis->qu}}    {{$dizhis->xurl}} 
+                                    </textarea>
+                                </div>   
+                            </div>    
                         </div>
                     </div>
                 </div>
@@ -177,7 +172,7 @@
                         <tr>
                             <td class="img"></td>
                             
-                            <td class="price"><span style="font-size:25px;color:#ddd">你还没有选择商品,你去前面买点商品吧!</span></td>
+                            <td class="price"><span style="font-size:25px;color:#ddd">你还没有选择商品,你去前面买点商品吧!<img src="/qiantai/images/noData-31ec95ea89.png"></span></td>
                                
                             <td></td>
                             <td class="price"></td>

@@ -56,7 +56,7 @@
             <div class="left-nav f-fl">
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="active">我的资料</a>
-                    <a href="/center/mima/{{Session::get('id')}}" class="ml ">修改密码</a>
+           
                     <a href="/center/url" class="ml ">地址管理</a>
                 </div>
             </div>

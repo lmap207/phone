@@ -12,7 +12,7 @@
         <div class="topbar-right">
             <ul class="topbar-info">
                 <li class="topbar-order-msg">
-                    <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">{{Session::get('name')}} &nbsp;用户</a>
+                    <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">欢迎 &nbsp;{{Session::get('name')}} &nbsp;用户</a>
                     <span class="msg-tag" id="MzOrderMsgTag"></span>
                 </li>
                 <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
@@ -37,9 +37,9 @@
                     </a>
                     @if(Session::has('name'))
                     <div class="site-member-items">
-                        <a class="site-member-link" href="/tianjia" target="_blank">个人中心</a>
+                        <a class="site-member-link" href="/center/ziliao/index" target="_blank">个人中心</a>
                         <a class="site-member-link" href="/center/url" target="_blank">地址管理</a>
-                        <a class="site-member-link site-logout" href="/home/logout" data-href="http://store.meizu.com/accounts/logout.htm?useruri=">退出登陆</a>
+                        <a class="site-member-link site-logout" href="/home/logout" >退出登陆</a>
                     </div>
                     @else
                     <div class="site-member-items">

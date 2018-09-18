@@ -21,11 +21,10 @@ class CenterController extends Controller
 	 */
 	public function ziliao(Request $request, $id)
 	{
-		
 		// $users = $request->session()->all();
-		// $user = User::findOrFail($id);
+		
 		$users = User::findOrFail($id);
-		// dd($users);
+
 		return view('home.center.ziliao.index',['users' =>$users]);
 		
 	}
@@ -35,16 +34,9 @@ class CenterController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		// $userInput = \Request::get('name');
-		// $users = User::all();
-        // $users = new User;
-		// echo 'hhh';
        	$users = User::findOrFail($id);
 
-       	//if(empty($request->name))
-       	//{
-       		$users -> name = $request -> name;
-       	//}
+       	$users -> name = $request -> name;
        	$users -> age = $request -> age;
 		$users -> sex = $request -> sex;
 		$users -> tel = $request -> tel;
@@ -71,9 +63,5 @@ class CenterController extends Controller
 	/**
 	 * 修改密码
 	 */
-	public function mima($id)
-	{
-		echo 'aaaa';
-	}
 
 }

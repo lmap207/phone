@@ -34,17 +34,13 @@
                 <ul class="nav-list">
                 </ul>
             </div>
-            <div class="header-cart" id="MzHeaderCart">
+            <div class="header-cart">
                 <a href="" target="_blank">
                     <div class="header-cart-wrap">
-                        <span class="">购物车</span>
-                        <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
-                        <div class="header-cart-spacer"></div>
+                        <span class="header-cart-icon"></span> 购物车
+                        <span >{{$cars}}</span>
                     </div>
                 </a>
-                <div class="header-cart-detail">
-                    <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
-                </div>
             </div>
         </div>
     </div>
@@ -58,7 +54,7 @@
                 </span>
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
-                    <a href="/center/mima/{{Session::get('id')}}" class="ml ">修改密码</a>
+                
                     <a href="/center/url" class="active">我的地址</a>
                 </div>
             </div>
@@ -68,7 +64,7 @@
                 <form class="form-inline" action="/center/url" method="post">
                     <div data-toggle="distpicker">
                         <div class="form-group">
-                            <label class="sr-only" for="province3">Province</label>
+                            地址信息: <label class="sr-only" for="province3">Province</label>
                             <select class="form-control" name="sheng" id="province3" data-province="浙江省"></select>
                         </div>
                         <div class="form-group">
@@ -78,9 +74,21 @@
                         <div class="form-group">
                             <label class="sr-only" for="district3">District</label>
                             <select class="form-control" name="qu" id="district3" data-district="西湖区"></select>
-                        </div>
-                        {{csrf_field()}}
+                        </div><br><br>
                         <div class="form-group">
+                            详细地址: <label class="sr-only"></label>
+                            <input  type="text" class="form-control" name="xurl">
+                        </div><br><br>
+                        <div class="form-group">
+                            收件人: &nbsp;<label class="sr-only"></label>
+                            <input  type="text" class="form-control" name="uname">
+                        </div><br><br>
+                        <div class="form-group">
+                            手机号: &nbsp;<label class="sr-only"></label>
+                            <input  type="text" class="form-control" name="stel">
+                        </div><br><br>
+                        {{csrf_field()}}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">
                             <button>提交</button>
                         </div>
                     </div>
@@ -96,26 +104,31 @@
                 <br>
                 <br>
                 <p style="color: cyan; center">收货地址栏</p>
-                <div class="col-md-8" style="margin: 0px;padding: 0px;">
+                <div class="col-md-8" style="margin: 0px;padding: 0px;width:900px">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
+                                <th width="120">用户名</th>
                                 <th width="120">收货人</th>
-                                <th width="150">收货人电话</th>
+                                <th width="120">手机号</th>
                                 <th width="280">收货地址(省)</th>
                                 <th width="400">收货地址(市)</th>
                                 <th width="200">收货地址(区)</th>
+                                <th width="200">详细地址</th>
                                 <th width="100">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($urls as $v)
                             <tr class="active">
-                                <th scope="row">朱中飞</th>
-                                <th>18831386987</th>
+                                <th scope="row">{{$v['sname']}}</th>
+                                <th>{{$v['uname']}}</th>
+                                <th>{{$v['stel']}}</th>
                                 <th>{{$v['sheng']}}</th>
                                 <th>{{$v['shi']}}</th>
                                 <th>{{$v['qu']}}</th>
+                                <th>{{$v['xurl']}}</th>
+                                
                                 <th>
                                     <form style="float:left" action="/center/url/{{$v['id']}}" method="post">
                                         {{method_field('DELETE')}} {{csrf_field()}}
