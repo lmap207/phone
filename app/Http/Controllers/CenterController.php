@@ -41,7 +41,10 @@ class CenterController extends Controller
 		// echo 'hhh';
        	$users = User::findOrFail($id);
 
-       	$users -> name = $request -> name;
+       	//if(empty($request->name))
+       	//{
+       		$users -> name = $request -> name;
+       	//}
        	$users -> age = $request -> age;
 		$users -> sex = $request -> sex;
 		$users -> tel = $request -> tel;
@@ -54,12 +57,23 @@ class CenterController extends Controller
             $users->pic = '/'.$request->pic->store('uploads');
         }
 
+        $users -> password = Hash::make($request->password);
+        // dd($users); 
+
         if($users->save()){
             return back()->with('success','设置成功');
         }else{
             return back()->with('error','设置失败!!');
         }
 
+	}
+
+	/**
+	 * 修改密码
+	 */
+	public function mima($id)
+	{
+		echo 'aaaa';
 	}
 
 }

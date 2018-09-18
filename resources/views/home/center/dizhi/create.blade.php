@@ -58,6 +58,7 @@
                 </span>
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
+                    <a href="/center/mima/{{Session::get('id')}}" class="ml ">修改密码</a>
                     <a href="/center/url" class="active">我的地址</a>
                 </div>
             </div>

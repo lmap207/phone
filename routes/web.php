@@ -97,6 +97,8 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::get('home/logout','ZhuceController@tuichu');
 	//我的资料
 	Route::get('/center/ziliao/{id}','CenterController@ziliao');
+	//修改密码
+	Route::put('/center/mima/{id}','CenterController@mima');
 	//我的资料更新
 	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//我的地址
