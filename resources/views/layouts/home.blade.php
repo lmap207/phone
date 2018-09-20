@@ -77,37 +77,7 @@
     <script type="text/javascript" src="/qiantai/img/flow.js"></script>
     <script src="/qiantai/img/analytics-min.js"></script>
     <script id="J_packageTmpl" type="text/x-tmpl">
-        <ul class="clearfix">
-            <% for(var i = 0, length = items.length; i < length; i++) { %>
-                <li>
-                    <p class="vm-pic">
-                        <img src="<%= items[i].cells[items[i].recommend].images + '@80x80.jpg' %>" width="80" height="80" alt="<%= items[i].cells[items[i].recommend].names %>">
-                    </p>
-                    <p class="vm-tit">
-                        <%= items[i].name %>
-                    </p>
-                    <div class="vm-prop">
-                        <% if (items[i].saleAttrs ) { %>
-                            <% for (var p in items[i].saleAttrs) { %>
-                                <p>
-                                    <% for (var j = 0, length2 = items[i].saleAttrs[p].length; j < length2; j++) { %>
-                                        <% if (!items[i].saleAttrs[p][j].imageColor || length2 === 1) { %>
-                                            <a class="vm-prop-text <% if (items[i].recommend === p + ':' + items[i].saleAttrs[p][j].id) { %>selected<% } %>" href="javascript:;" data-sku="<%= items[i].cells[p + ':' + items[i].saleAttrs[p][j].id].skuId %>" data-sid="<%= items[i].id %>" data-key="<%= p + ':' + items[i].saleAttrs[p][j].id %>" title="<%= items[i].saleAttrs[p][j].name %>">
-                                            <span><%= items[i].saleAttrs[p][j].name %></span>
-                                        </a>
-                                            <% } else { %>
-                                                <a class="vm-prop-img <% if (items[i].recommend === p + ':' + items[i].saleAttrs[p][j].id) { %>selected<% } %>" href="javascript:;" data-sku="<%= items[i].cells[p + ':' + items[i].saleAttrs[p][j].id].skuId %>" data-sid="<%= items[i].id %>" data-key="<%= p + ':' + items[i].saleAttrs[p][j].id %>" title="<%= items[i].saleAttrs[p][j].name %>">
-                                            <img class="vm-prop-sale" src="<%= items[i].saleAttrs[p][j].imageColor %>" width="16" height="16" >
-                                       </a>
-                                                <% } %>
-                                                    <% } %>
-                                </p>
-                                <% } %>
-                                    <% } %>
-                    </div>
-                </li>
-                <% } %>
-        </ul>
+
     </script>
     <script type="text/javascript">
     //商品源数据

@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
+use App\Advert;
 use App\Brand;
 use App\Car;
 use App\Color;
@@ -9,15 +9,14 @@ use App\Parameter;
 use App\Phone;
 use App\Setting;
 use App\Type;
+use App\Url;
 use App\Xinghao;
 use App\Yjfk;
 use App\link;
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
-
-use App\Advert;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 
@@ -99,15 +98,12 @@ class PhoneController extends Controller
     public function show(Request $request,$id)
     {
         $phones = Phone::findOrFail($id);
-
         $phones->view += 1;
         $phones -> save();
-
         $types = Type::all();
         $colors = Color::all();
         $memorys = Memory::all();
-        $parameters=Parameter::where('phone_id',$id)->first();
-        //dump($parameters->CPU);
+
 
         //$views = Phone::orderBy('views','desc')->take(8)->get();
         // $recoms = Article::where('recom','1')->take(8)->orderBy('id','desc')->get();
@@ -115,11 +111,11 @@ class PhoneController extends Controller
         //if($request->id == Parameter::all(); 
         // dd($parameters);
 
-
-      
+        $parameters=Parameter::where('phone_id',$id)->first();
 
         $cars = Car::where('username',$request->session()->get('name'))->count();
-        return view('home.shop.xiangqi', compact('phones','types','colors','memorys','cars','parameters'));
+        $recoms = Phone::where('recom','1')->take(6)->orderBy('id','desc')->get();
+        return view('home.shop.xiangqi', compact('phones','types','colors','memorys','cars','parameters','recoms'));
 
     }
 
@@ -218,17 +214,14 @@ class PhoneController extends Controller
      */
     public function shouyei(Request $request)
     {
-
-
-        
-        //dd($adverts);
-        //$weight=Phone::get()->where('id','=','phone_id');
-        //dump($weight);
-
         $adverts=Advert::first();
-        $recoms=Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
+        $recoms=Phone::where('recom','1')->take(6)->orderBy('id','desc')->get();
         $links = link::all();
         $settings = Setting::all();
+        $shoujis = Phone::take(8)->orderBy('id','desc')->get();
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        $phones = Phone::all();
+        return view('home.shouyei',compact('links','settings','shoujis','adverts','recoms','cars'));
 
         $phones = Phone::all();
         $cars = Car::where('username',$request->session()->get('name'))->count();
@@ -236,7 +229,6 @@ class PhoneController extends Controller
         $phones = Phone::take(8)->orderBy('id','desc')->get();
         //$phones=Phone::all();
         return view('home.shouyei',compact('links','settings','phones','adverts','recoms','cars'));
-
     
     }
 
@@ -295,7 +287,7 @@ class PhoneController extends Controller
     public function tianjia(Request $request)
     {
        
-
+       
        $cars = Car::where('username',$request->session()->get('name'))->get();
 
        $data = $cars->ToArray();
@@ -307,10 +299,30 @@ class PhoneController extends Controller
         $money += $v['money'];
        }
        
+        $dizhis = Url::where('sname',\Session::get('name'))->orderBy('id','desc')->first();    
+
+       return view('home.shop.dingdan',compact('cars','money','dizhis'));
+
+    }
+
+    /*
+    * 购物车里的表补全详细信息
+    */
+    public function save(Request $request)
+    {
+
+       $cars = DB::table('cars')->where('username',\Session::get('name') )->update(['xxxx' => request()->xxxx]);
+        return view('home.shop.fukuan');
+    }
+
+    /*
+    * 付款
+    */
+    public function fukuan(Request $request)
+    {
         
-
-       return view('home.shop.dingdan',compact('cars','money'));
-
+        $cars = Car::where('username',$request->session()->get('name')); 
+        return view('home.shop.fukuan',compact('cars'));
     }
 
     /*
@@ -371,34 +383,8 @@ public function dologin(Request $req){
 
     $userInput = \Request::get('captcha');
 
-    // if(!$user){
-
-    //     return back()->with('error','登录失败');
-
-    // }
-
-    //校验密码
-
-     // if(Hash::check($req->password,$user->password)){
-
-    //写入session
-
-    //     session(['name'=>$user->name,'id'=>$user->id]);
-
-     //     return redirect('/admin')->with('success','登陆成功');
-
-    // }else{
-
-     //     return back()->with('error','登录失败');
-
-     // }
-
-    //$password=Hash::check($req->password,$user->password); 
-
      if(Session::get('milkcaptcha') == $userInput){
-
      
-
       return redirect('#')->with('success','登陆成功');
 
         
@@ -422,6 +408,8 @@ public function dologin(Request $req){
     public function ycreate(Request $request)
     {
         $yjfk = new Yjfk;
+        $yjfk -> user_id = $request -> user_id;
+        $yjfk -> yijian = $request -> yijian;
         $yjfk -> uemail = $request -> uemail;
         $yjfk -> yijian = $request -> yijian;
 

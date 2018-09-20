@@ -16,7 +16,6 @@ class AddUserTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer('age')->comment('用户年龄');
             $table->integer('sex')->comment('用户性别');
-            $table->integer('tel')->comment('用户电话');
             $table->string('emil')->comment('用户邮箱');
             $table->string('xueli')->comment('用户学历');
             $table->string('gongzuo')->comment('用户工作');
@@ -35,7 +34,6 @@ class AddUserTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('age');
             $table->dropColumn('sex');
-            $table->dropColumn('tel');
             $table->dropColumn('emil');
             $table->dropColumn('xueli');
             $table->dropColumn('gongzuo');

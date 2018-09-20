@@ -61,7 +61,7 @@ class ParameterController extends Controller
         $parameter -> GPU = $request ->GPU;
         $parameter -> front = $request ->front;
         $parameter -> behind  = $request ->behind;
-        
+         
         if($parameter->save()){
             return redirect('parameter')->with('success','删除成功');
         }else{

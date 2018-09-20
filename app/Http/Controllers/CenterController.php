@@ -21,11 +21,10 @@ class CenterController extends Controller
 	 */
 	public function ziliao(Request $request, $id)
 	{
-		
 		// $users = $request->session()->all();
-		// $user = User::findOrFail($id);
+		
 		$users = User::findOrFail($id);
-		// dd($users);
+
 		return view('home.center.ziliao.index',['users' =>$users]);
 		
 	}
@@ -35,10 +34,6 @@ class CenterController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		// $userInput = \Request::get('name');
-		// $users = User::all();
-        // $users = new User;
-		// echo 'hhh';
        	$users = User::findOrFail($id);
 
        	$users -> name = $request -> name;
@@ -54,6 +49,9 @@ class CenterController extends Controller
             $users->pic = '/'.$request->pic->store('uploads');
         }
 
+        $users -> password = Hash::make($request->password);
+        // dd($users); 
+
         if($users->save()){
             return back()->with('success','设置成功');
         }else{
@@ -61,5 +59,9 @@ class CenterController extends Controller
         }
 
 	}
+
+	/**
+	 * 修改密码
+	 */
 
 }
