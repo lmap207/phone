@@ -56,6 +56,7 @@
             <div class="left-nav f-fl">
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="active">我的资料</a>
+           
                     <a href="/center/url" class="ml ">地址管理</a>
                 </div>
             </div>
@@ -69,51 +70,52 @@
                                 <!-- tr的五个场景 -->
                                 <!-- 密码： <input type="password" value=""> <br> -->
                                 <tr class="active">              
-                                    <td>头像： </td>
+                                    <th>头像： </th>
                                     <td> 
                                         <img src="{{$users->pic}}" name="pic" width="180" height="50" alt="">
                                         <input type="file" name="pic" value="">
                                     </td>       
                                 </tr>
                                 <tr class="success">          
-                                    <td>名字： </td>
+                                    <th>名字： </th>
                                     <td><input type="text" name="name" value="{{$users->name}}"></td>        
                                 </tr>
                                 <tr class="info">                    
-                                    <td>年龄： </td>
+                                    <th>年龄： </th>
                                     <td><input type="text" name="age" value="{{$users->age}}"></td>          
                                 </tr>
                                  <tr class="warning">
-                                    <td>性别： </td>
+                                    <th>性别： </th>
                                     <td>
                                         <input type="radio" name="sex" value="1" {{$users['sex'] == 1 ? 'checked' : '' }} >男 &nbsp; &nbsp;
                                         <input type="radio" name="sex" value="2" {{$users['sex'] == 2 ? 'checked' : '' }} >女 
                                     </td>
                                 </tr>
                                 <tr class="active">
-                                    <td>电话： </td>
+                                    <th>电话： </th>
                                     <td><input type="text" name="tel" value="{{$users->tel}}"></td>               
                                 </tr>
                                 <tr class="success">
-                                    <td>邮箱： </td>
+                                    <th>邮箱： </th>
                                     <td><input type="text" name="emil" value="{{$users->emil}}"></td>
                                 </tr>
                                 <tr class="info">
-                                    <td>学历： </td>
+                                    <th>学历： </th>
                                     <td><input type="text" name="xueli" value="{{$users->xueli}}"></td>
                                 </tr>
                                  <tr class="warning">
-                                    <td>工作： </td>
+                                    <th>工作： </th>
                                     <td><input type="text" name="gongzuo" value="{{$users->gongzuo}}"></td>
                                 </tr>
                                 <tr class="active">
-                                    <td>家庭地址： </td>
+                                    <th>家庭地址： </th>
                                     <td><input type="text" name="jtdz" value="{{$users->jtdz}}"></td>
                                 </tr>
                                 <tr class="success">
-                                    <td>出生年月日： </td>
+                                    <th>出生年月日： </th>
                                     <td><input type="date" name="csny" value="{{$users->csny}}"></td>
                                 </tr>
+                                
                                 <tr class="info">
                                     <td></td>
                                     <td><input type="submit" value="提交"> &nbsp; &nbsp; <input type="reset" value="重置"></td>
@@ -125,6 +127,7 @@
                     </div>        
 
                 </form>
+
             </div>
             <!-- 我的资料表单 结束 --> 
         </div>

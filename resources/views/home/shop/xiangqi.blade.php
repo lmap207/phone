@@ -146,6 +146,9 @@
                         <li class="">
                             <a href="http://store.meizu.com/item/meilan2.html#">常见问题</a>
                         </li>
+                         <li class="">
+                            <a href="http://store.meizu.com/item/meilan2.html#">商品评论</a>
+                        </li>
                     </ul>
                     <div class="shortcut trans">
                         <div class="mod-buy">

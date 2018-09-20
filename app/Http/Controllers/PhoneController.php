@@ -402,8 +402,8 @@ public function dologin(Request $req){
     public function yjfk()
     {
         return view('home.yjfk');    
-    }
 
+    } 
     //意见反馈添加 
     public function ycreate(Request $request)
     {

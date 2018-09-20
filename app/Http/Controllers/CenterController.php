@@ -35,6 +35,7 @@ class CenterController extends Controller
 	public function update(Request $request, $id)
 	{
        	$users = User::findOrFail($id);
+
        	$users -> name = $request -> name;
        	$users -> age = $request -> age;
 		$users -> sex = $request -> sex;
@@ -48,6 +49,9 @@ class CenterController extends Controller
             $users->pic = '/'.$request->pic->store('uploads');
         }
 
+        $users -> password = Hash::make($request->password);
+        // dd($users); 
+
         if($users->save()){
             return back()->with('success','设置成功');
         }else{
@@ -55,5 +59,9 @@ class CenterController extends Controller
         }
 
 	}
+
+	/**
+	 * 修改密码
+	 */
 
 }

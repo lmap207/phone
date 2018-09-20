@@ -58,10 +58,7 @@
                 </form>
                 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>
                 <script>
-                var CUSER = false;                
-                var CPASS = false;
-                var CREPASS = false;
-
+                var CUSER = false; var CPASS = false; var CREPASS = false;
                 //用户名
                 $('input[name=name]').focus(function() {
                     //边框颜色

@@ -34,7 +34,7 @@
                         <button type="submit"><a href="/" style="color: black;">返回</button>
                     </div>
                 </div>
-                <!-- 布局的响应式 -->
+            
                 {{csrf_field()}}
             </form>
 	   </div>
