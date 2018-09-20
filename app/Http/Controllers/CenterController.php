@@ -49,9 +49,6 @@ class CenterController extends Controller
             $users->pic = '/'.$request->pic->store('uploads');
         }
 
-        $users -> password = Hash::make($request->password);
-        // dd($users); 
-
         if($users->save()){
             return back()->with('success','设置成功');
         }else{
@@ -63,5 +60,29 @@ class CenterController extends Controller
 	/**
 	 * 修改密码
 	 */
+	public function mima()
+	{
+		// echo 'aaa';
+		return view('home.center.mima.index');
+	}
+
+	public function save(Request $request, $id)
+	{
+		$users = User::findOrFail($id);
+
+		if(!$users = Hash::check($request->jpassword,$users->password)){
+			return back()->with('error','旧密码不正确');
+		}else{
+			$users = User::findOrFail($id);
+			// dd($users);
+			$users -> password = Hash::make($request->repassword);
+			if($users->save()){
+            	return back()->with('success','修改密码成功！！');
+        	}else{
+            	return back()->with('error','修改密码失败!!');
+        	}
+		}		
+
+	}
 
 }

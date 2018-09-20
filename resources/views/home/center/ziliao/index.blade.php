@@ -56,12 +56,28 @@
             <div class="left-nav f-fl">
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="active">我的资料</a>
-           
+                    <a href="/center/mima" class="ml ">修改密码</a>
                     <a href="/center/url" class="ml ">地址管理</a>
                 </div>
             </div>
             <!-- 我的资料表单 开始 -->
             <div class="right-content f-fr">
+                @if (Session::Has('success'))
+                <h3 style="color: cyan;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{Session::get('success')}}
+                </h3>  
+                @endif
+                @if (Session::Has('error'))
+                <h3 style="color: red;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{Session::get('error')}}
+                </h3>  
+                @endif
                 <form action="/center/ziliao/{{Session::get('id')}}" method="post" enctype="multipart/form-data">
                     <div class="col-md-5">
                         <table class="table table-striped table-bordered table-hover">

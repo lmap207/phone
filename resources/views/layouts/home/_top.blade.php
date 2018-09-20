@@ -37,7 +37,7 @@
                     </a>
                     @if(Session::has('name'))
                     <div class="site-member-items">
-                        <a class="site-member-link" href="/center/ziliao/index" target="_blank">个人中心</a>
+                        <a class="site-member-link" href="/center/ziliao/{{Session::get('id')}}" target="_blank">个人中心</a>
                         <a class="site-member-link" href="/center/url" target="_blank">地址管理</a>
                         <a class="site-member-link site-logout" href="/home/logout" >退出登陆</a>
                     </div>
