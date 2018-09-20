@@ -19,6 +19,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/holder/2.9.4/holder.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -58,78 +59,24 @@
                 </span>
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
-                    <a href="/center/url" class="active">我的地址</a>
-                    <a href="/center/pingjia/create" class="ml ">我的评价</a>
+                    <a href="/center/url" class="ml ">我的地址</a>
+                    <a href="/center/pingjia/create" class="active">我的评价</a>
                 </div>
             </div>
-            <div class="right-content f-fr">
-                <!-- 三级联动 -->
-                <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
-                <form class="form-inline" action="/center/url" method="post">
-                    <div data-toggle="distpicker">
-                        <div class="form-group">
-                            <label class="sr-only" for="province3">Province</label>
-                            <select class="form-control" name="sheng" id="province3" data-province="浙江省"></select>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="city3">City</label>
-                            <select class="form-control" name="shi" id="city3" data-city="杭州市"></select>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="district3">District</label>
-                            <select class="form-control" name="qu" id="district3" data-district="西湖区"></select>
-                        </div>
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <button>提交</button>
-                        </div>
-                    </div>
-                </form>
-                <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
-                <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-                <script src="/sjld/js/distpicker.data.js"></script>
-                <script src="/sjld/js/distpicker.js"></script>
-                <script src="/sjld/js/main.js"></script>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p style="color: cyan; center">收货地址栏</p>
-                <div class="col-md-8" style="margin: 0px;padding: 0px;">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th width="120">收货人</th>
-                                <th width="150">收货人电话</th>
-                                <th width="280">收货地址(省)</th>
-                                <th width="400">收货地址(市)</th>
-                                <th width="200">收货地址(区)</th>
-                                <th width="100">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($urls as $v)
-                            <tr class="active">
-                                <th scope="row">朱中飞</th>
-                                <th>18831386987</th>
-                                <th>{{$v['sheng']}}</th>
-                                <th>{{$v['shi']}}</th>
-                                <th>{{$v['qu']}}</th>
-                                <th>
-                                    <form style="float:left" action="/center/url/{{$v['id']}}" method="post">
-                                        {{method_field('DELETE')}} {{csrf_field()}}
-                                        <button>删除</button>
-                                    </form>
-                                </th>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+
+     <form action="/center/pingjia" method="post" enctype="multipart/form-data">
+ <!-- 商品图片 -->
+               <img src="holder.js/300x300" alt="" class="col-md-offset-3">
+            <div class="right-content f-fr col-md-5 col-md-offset-2" style="padding-left:100px;padding-top:50px">
+            <p style="font-size:14px;color:pink;font-weight:bold">我的评价<span class="glyphicon glyphicon-heart" aria-hidden="true"></span></p>
+                    <textarea class="form-control" rows="3" placeholder="请输入你的评价"></textarea>
+               <button class="btn btn-danger pull-right" style="margin-top:30px;">提交一下吧</button> 
+             </div>           
+          </div>
+ 
+    </div> 
+    {{csrf_field()}}
+</form>
     @endsection
     <!-- common footer -->
     <!-- common js -->

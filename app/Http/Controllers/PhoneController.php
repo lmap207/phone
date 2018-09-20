@@ -1,9 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-
-
-
 use App\Brand;
 use App\Car;
 use App\Color;
@@ -38,7 +35,7 @@ class PhoneController extends Controller
     $phones = Phone::orderBy('id','desc')
             ->where('pname','like', '%'.request()->keywords.'%')
             ->paginate(10);
-
+   
         //解析模板显示用户数据
         return view('admin.phone.index', ['phones'=>$phones]);
     }
@@ -99,13 +96,18 @@ class PhoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         $phones = Phone::findOrFail($id);
+
+        $phones->view += 1;
+        $phones -> save();
 
         $types = Type::all();
         $colors = Color::all();
         $memorys = Memory::all();
+        $parameters=Parameter::where('phone_id',$id)->first();
+        //dump($parameters->CPU);
 
         //$views = Phone::orderBy('views','desc')->take(8)->get();
         // $recoms = Article::where('recom','1')->take(8)->orderBy('id','desc')->get();
@@ -113,7 +115,12 @@ class PhoneController extends Controller
         //if($request->id == Parameter::all(); 
         // dd($parameters);
 
-        return view('home.shop.xiangqi', compact('phones','types','colors','memorys'));
+
+      
+
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        return view('home.shop.xiangqi', compact('phones','types','colors','memorys','cars','parameters'));
+
     }
 
     /**
@@ -192,27 +199,44 @@ class PhoneController extends Controller
 
         $phones = Phone::all();
         $brands = Brand::all();
-        $recoms = Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
+        //推荐
+        $recoms = Phone::where('recom','1')->take(5)->orderBy('id','desc')->get();
+        //排行
+        $views = Phone::orderBy('view','desc')->take(5)->get();
 
         if(!empty($request->brand_id)){
             $phones = Phone::where('brand_id', $request->brand_id)->orderBy('id','desc')->paginate(10);
         }
 
-        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms]);
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+        return view('home.shop.list', ['phones' => $phones, 'brands' => $brands, 'recoms'=>$recoms,'cars'=>$cars,'views'=>$views]);
+
     }
 
     /**
      * 商品首页
      */
-    public function shouyei()
+    public function shouyei(Request $request)
     {
+
+
+        
+        //dd($adverts);
+        //$weight=Phone::get()->where('id','=','phone_id');
+        //dump($weight);
+
         $adverts=Advert::first();
         $recoms=Phone::where('recom','1')->take(8)->orderBy('id','desc')->get();
         $links = link::all();
         $settings = Setting::all();
+
+        $phones = Phone::all();
+        $cars = Car::where('username',$request->session()->get('name'))->count();
+
         $phones = Phone::take(8)->orderBy('id','desc')->get();
         //$phones=Phone::all();
-       return view('home.shouyei',compact('links','settings','phones','adverts','recoms'));
+        return view('home.shouyei',compact('links','settings','phones','adverts','recoms','cars'));
+
     
     }
 
@@ -389,18 +413,45 @@ public function dologin(Request $req){
 }
 
     //意见反馈
-    public function yjfk(){
+    public function yjfk()
+    {
         return view('home.yjfk');    
-    } 
-    public function ycreate(Request $request){
-         $yjfk = new Yjfk;
-         $yjfk -> user_id = $request -> user_id;
-         $yjfk -> yijian = $request -> yijian;
-    } 
-    //后台意见反馈
-     public function hyjfk(){
-        return view('admin.yjfk.index');
-     }
 
+    } 
+    //意见反馈添加 
+    public function ycreate(Request $request)
+    {
+        $yjfk = new Yjfk;
+        $yjfk -> uemail = $request -> uemail;
+        $yjfk -> yijian = $request -> yijian;
+
+        if($yjfk->save()){
+            return redirect('/')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+    } 
+
+    //后台意见反馈
+    public function hyjfk()
+    {
+        $yjfks =Yjfk::orderBy('id','desc')
+        ->where('uemail','like', '%'.request()->keywords.'%')
+        ->paginate(10);
+        
+        return view('admin.yjfk.index',['yjfks'=>$yjfks]);
+    }
+
+    //后台意见反馈删除
+    public function scyjfk($id)
+    {
+        $yjfks = Yjfk::findOrFail($id);
+
+        if($yjfks->delete()){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败!');
+        }
+    }
 
 }

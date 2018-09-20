@@ -13,33 +13,42 @@ class AdminController extends Controller
         return view('admin');
     }
 
+    //登录页面
     public function login(){
         return view('admin.login');
         
     }
 
-    public function dologin(Request $request){
-            //获取用户的数据
+    //登录操作
+    public function dologin(Request $request)
+    {
+        //获取用户的数据
         $user = User::where('name', $request->name)->first();
-
-        if(!$user){
-            return back()->with('error','登陆失败!');
-        }
-        //校验密码
-        if(Hash::check($request->password, $user->password)){
-            //写入session
-            session(['name'=>$user->name, 'id'=>$user->id]);
-            return redirect('/admin')->with('success','登陆成功');
+        // dd($user);
+        if($user['qx']==2)
+        {
+            if(!$user){
+                return back()->with('error','登陆失败!');
+            }
+            //校验密码
+            if(Hash::check($request->password, $user->password)){
+                //写入session
+                session(['name'=>$user->name, 'id'=>$user->id]);
+                return redirect('/admin')->with('success','登陆成功');
+            }else{
+                return back()->with('error','登陆失败!');
+            
+            }
         }else{
-            return back()->with('error','登陆失败!');
-        
+            return back()->with('error','登陆失败');
         }
     }
-        //退出登录
-      public function logout(Request $request)
-      {
+    
+    //退出登录
+    public function logout(Request $request)
+    {
         $request->session()->flush();
         return redirect('/admin/login')->with('success','退出成功');
-      }        
+    }        
 
 }

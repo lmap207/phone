@@ -36,8 +36,8 @@
     <div class="site-topbar clearfix">
         <div class="mzcontainer">
             <div class="topbar-nav">
-                <a href="http://www.meizu.com/" target="_blank">魅族官网</a>
-                <a href="http://store.meizu.com/">魅族商城</a>
+                <a href="/" target="_blank">魅族官网</a>
+                <a href="/phones">魅族商城</a>
                 <a href="http://www.flyme.cn/" target="_blank">Flyme</a>
                 <a href="http://retail.meizu.com/index.html" target="_blank">专卖店</a>
                 <a href="http://service.meizu.com/index.html" target="_blank">服务</a>
@@ -45,6 +45,11 @@
             </div>
             <div class="topbar-right">
                 <ul class="topbar-info">
+                    <li class="topbar-order-msg">
+                        <a class="topbar-link" href="http://store.meizu.com/member/myorder/index" target="_blank">
+                        {{Session::get('name')}} &nbsp;用户</a>
+                        <span class="msg-tag" id="MzOrderMsgTag"></span>
+                    </li>
                     <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
                         <a class="topbar-link" href="http://store.meizu.com/member/message/index" target="_blank">消息</a>
                         <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
@@ -53,21 +58,21 @@
                         <a class="topbar-link" href="/tianjia" target="_blank">我的订单</a>
                         <span class="msg-tag" id="MzOrderMsgTag"></span>
                     </li>
-                    <li class="mz_login" style="display: none;">
-                        <a class="topbar-link site-login" href="/home/denglu">登录</a>
-                    </li>
-                    <li class="mz_login" style="display: none;">
-                        <a class="topbar-link" href="/home/zc" target="_blank">注册</a>
-                    </li>
                     <li class="topbar-info-member" style="">
                         <a class="topbar-link" href="http://store.meizu.com/member/index" target="_blank">
-            <span id="MzUserName" class="site-member-name">XXXXX</span>
-          </a>
+                   <span id="MzUserName" class="site-member-name">
+                  @if(Session::has('name'))
+
+                        <img src="/qiantai/images/denglu.png">
+
+                         @else
+                        <img src="/qiantai/images/icon-user_d8bdb23.png">
+                        @endif
+                     </span>
+                      </a>
                         <div class="site-member-items">
                             <a class="site-member-link" href="/center/url">地址管理</a>
-                            <a class="site-member-link" href="http://store.meizu.com/member/repurchase_ticket/index" target="_blank">我的回购券</a>
-                            <a class="site-member-link" href="http://store.meizu.com/member/suggest/index" target="_blank">问题反馈</a>
-                            <a class="site-member-link site-logout" href="/">退出</a>
+                            <a class="site-member-link site-logout" href="/">退出登陆</a>
                         </div>
                     </li>
                 </ul>
@@ -428,10 +433,10 @@
                     <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/icp2.jpg" hidefocus="true">经营许可证编号：粤B2-20130198</a>
                     <a target="_blank" href="http://www2.res.meizu.com/zh_cn/images/common/com_licence.jpg" hidefocus="true">营业执照</a>
                     <a target="_blank" rel="nofollow" href="http://210.76.65.188/" hidefocus="true">
-          <img src="./img/footer-copy-1.png">
+          <img src="/qiantai/img/footer-copy-1.png">
         </a>
                     <a target="_blank" rel="nofollow" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" hidefocus="true">
-          <img src="./img/footer-copy-2.png">
+          <img src="/qiantai/img/footer-copy-2.png">
         </a>
                     <a target="_blank" rel="nofollow" href="https://credit.szfw.org/CX20151204012550820380.html" hidefocus="true">
           <img src="/qiantai/img/trust-icon.png">

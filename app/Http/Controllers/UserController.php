@@ -15,9 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {  
-          $users = User::orderBy('id','asc')
+        $users = User::orderBy('id','asc')
             ->where('name','like', '%'.request()->keywords.'%')
-            ->paginate(5);
+            ->paginate(10);
+        // dd($users);
         //解析模板显示用户数据
         return view('admin.user.index', ['users'=>$users]);
   
@@ -43,6 +44,7 @@ class UserController extends Controller
     {
         $user = new User;
         $user->name = $request->name;
+        $user->qx = $request->qx;
     
         if ($request->hasFile('pic')) {
             $user->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
@@ -80,9 +82,9 @@ class UserController extends Controller
     public function edit($id)
     {
           //获取用户的信息
-        $user = User::findOrFail($id);
+        $users = User::findOrFail($id);
         //解析模板显示数据
-        return view('admin.user.edit', ['user'=>$user]);
+        return view('admin.user.edit', ['users'=>$users]);
     }
 
     /**
@@ -99,6 +101,9 @@ class UserController extends Controller
 
         //更新
         $user -> name = $request->name;
+        $user -> qx = $request->qx;
+
+        // dd($user);
          if ($request->hasFile('pic')) {
             $user->pic = '/'.$request->pic->store('uploads/'.date('Ymd'));
         }

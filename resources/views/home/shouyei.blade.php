@@ -1,5 +1,7 @@
 @extends('layouts.home')
 @section('daohang')
+@section('daohang')
+
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
@@ -9,22 +11,23 @@
         </div>
         <div class="header-nav">
         </div>
-        <div class="header-cart" id="MzHeaderCart">
-            <a href="http://store.meizu.com/cart" target="_blank" data-yoyi="2500">
+        <div class="header-cart">
+            <a href="" target="_blank" data-yoyi="2500">
                 <div class="header-cart-wrap">
+
+                    <span>购物车</span> 
+                    <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">{{$cars}}</span>
+                    
+
                     <span>购物车</span>
                     <span id="MzHeaderCartNum" class="header-cart-num" data-extcls="existence">0</span>
                     <div class="header-cart-spacer"></div>
                 </div>
             </a>
-            <div class="header-cart-detail">
-                <div class="" data-load="正在加载购物车信息 ..." data-empty="购物车还没有商品，快购买吧！">购物车还没有商品，快购买吧！</div>
-            </div>
         </div>
     </div>
 </div>
 @endsection 
-
 @section('content')
 <style>
 * {
@@ -47,34 +50,37 @@
     position: absolute;
 }
 
-#images li {
-    width: 1520px;
-    height: 670px;
-    left: 0px;
-    top: 0px;
-    float: left;
+#dots .active{
+    background:black;
 }
+</style>
+    <div id="slide">
+        <ul id="images">
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1560" height="670" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1560" height="670" alt="">
+                 </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1560" height="670" alt=""></li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1560" height="670"alt="">
+                 </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1560" height="670" alt="">
+                 </a>
+            </li>
+        </ul>
 
-#dots {
-    width: 200px;
-    height: 20px;
-    position: absolute;
-    left: 750px;
-    bottom: 5px;
-}
-
-#dots li {
-    width: 10px;
-    height: 10px;
-    background: #aef;
-    float: left;
-    margin-right: 5px;
-    border-radius: 50%;
-}
-
-#dots .active {
-    background: black;
-}
 </style>
 <div id="slide">
     <ul id="images">
@@ -196,6 +202,7 @@ font-family:等线;font-weight:bold;">推荐排行</h1>
         <!-- 推荐 End -->
 
 @endsection
+
 <!--这里是广告效果-->
 <div id="div1" style="position:fixed;right:10px;top:80%;margin-top:-100px;width:200px;height:200px;border:0px #cd1b1b solid; display: block">
     <button id="gg_1" style="position:absolute;right:0px" onclick="qx()">×</button>
@@ -215,4 +222,5 @@ setTimeout(function() {
     document.getElementById('div2').style.display = 'none';
 }, 7000);
 </script>
+
 <!--广告结束-->

@@ -101,6 +101,8 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//我的地址
 	Route::resource('/center/url','UrlController');
+	//我的评价
+    Route::resource('/center/pingjia','PingjiaController');
 	//前台添加购物车到数据库
 	Route::get('tianjia','PhoneController@tianjia');
 	//后台意见反馈的增加
@@ -109,7 +111,10 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::delete('/yjfk/{id}','PhoneController@scyjfk');
 	//意见反馈前台
 	Route::get('/yjfk','PhoneController@yjfk');
+
 });	
+
+
 
 
 

@@ -58,6 +58,43 @@
                         </div>
                     </div>
 
+                     <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">重量 <span class="tpl-form-line-small-title"></span></label>
+                        <div class="am-u-sm-9">
+                            <input type="text" value="{{$parameters['weight']}}" name="weight" class="tpl-form-input" id="user-name" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">CPU <span class="tpl-form-line-small-title"></span></label>
+                        <div class="am-u-sm-9">
+                            <input type="text" value="{{$parameters['CPU']}}" name="CPU" class="tpl-form-input" id="user-name" placeholder="">
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">GPU <span class="tpl-form-line-small-title"></span></label>
+                        <div class="am-u-sm-9">
+                            <input type="text" value="{{$parameters['GPU']}}" name="GPU" class="tpl-form-input" id="user-name" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">前置像素 <span class="tpl-form-line-small-title"></span></label>
+                        <div class="am-u-sm-9">
+                            <input type="text" value="{{$parameters['front']}}" name="front" class="tpl-form-input" id="user-name" placeholder="">
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">后置像素 <span class="tpl-form-line-small-title"></span></label>
+                        <div class="am-u-sm-9">
+                            <input type="text" value="{{$parameters['behind']}}" name="behind" class="tpl-form-input" id="user-name" placeholder="">
+                        </div>
+                    </div>
+
                     <div class="am-form-group">
                         <label for="user-name" class="am-u-sm-3 am-form-label">系统版本 <span class="tpl-form-line-small-title"></span></label>
                         <div class="am-u-sm-9">
