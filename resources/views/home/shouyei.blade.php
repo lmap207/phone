@@ -1,5 +1,6 @@
 @extends('layouts.home') @section('daohang')
 
+
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
@@ -20,8 +21,11 @@
         </div>
     </div>
 </div>
-@endsection
+
+@endsection 
+
 @section('content') 
+
 <style>
 * {
     margin: 0px;

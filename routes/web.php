@@ -105,8 +105,8 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::put('/center/mima/save/{id}','CenterController@save');
 	//我的地址
 	Route::resource('/center/url','UrlController');
-	//购物车商品删除
-	Route::get('delete/{id}','PhoneController@delete');
+	//我的评价
+    Route::resource('/center/pingjia','PingjiaController');
 	//我的资料更新
 	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//意见反馈的增加 
@@ -118,7 +118,10 @@ Route::group(['middleware'=>'weihu'],function(){
 	//意见反馈前台
 	Route::get('/yjfk','PhoneController@yjfk');
 
-});
+
+});	
+
+
 
 
 

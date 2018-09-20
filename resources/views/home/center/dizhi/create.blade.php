@@ -56,6 +56,7 @@
                     <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
                     <a href="/center/mima" class="ml ">修改密码</a>
                     <a href="/center/url" class="active">我的地址</a>
+                    <a href="/center/pingjia/create" class="ml ">我的评价</a>
                 </div>
             </div>
             <div class="right-content f-fr">
