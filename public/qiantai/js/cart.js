@@ -263,7 +263,7 @@ var cartInit=function(){
 				if(buy_product_obj.length < 1){
 					html = '<tr class="cart_body"><td colspan="4" align="center" style="padding: 110px 0;"><div class="empty_data">';
 					html += '<span class="cart_icon"></span><h1 class="tips">';
-					html += '您的购物车中还没有商品，快<a href="http://store.meizu.com/" style="color: #515151;">选购</a>吧！</h1></div></td></tr>';
+					// html += '您的购物车中还没有商品，快<a href="http://store.meizu.com/" style="color: #515151;">选购</a>吧！</h1></div></td></tr>';
 					$(".cart_head").after(html);
 				}
 			}

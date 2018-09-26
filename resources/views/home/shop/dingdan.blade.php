@@ -132,6 +132,7 @@
                     </div>
                     <div class="user_address">
                         <div class="add_form" id="addFrom" style="margin-top:5px">
+                        @if($dizhis == true)
                             <div class="tr">
                                 <div class="th">
                                     <textarea name="xxxx" rows="7" cols="30">姓名:{{$dizhis->uname}}
@@ -139,7 +140,16 @@
 收货地址:{{$dizhis->sheng}} {{$dizhis->shi}} {{$dizhis->qu}}    {{$dizhis->xurl}} 
                                     </textarea>
                                 </div>   
-                            </div>    
+                            </div> 
+                         @else 
+                         <div class="tr">
+                                <div class="th">
+                                    
+                                     <a href="center/url"><img src="/qiantai/images/tianjia.png">添加地址</a>
+                                   
+                                </div>   
+                            </div>
+                            @endif 
                         </div>
                     </div>
                 </div>

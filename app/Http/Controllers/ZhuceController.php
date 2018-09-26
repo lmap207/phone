@@ -40,12 +40,19 @@ class ZhuceController extends Controller
     public function dologin(Request $req)
     {
         //根据用户名读数据库
+       
         $user=User::where('name',$req->name)->first();
+
+        if($user == false){
+
+             return back();
+        }
         
         $userInput = \Request::get('captcha');
 
 
-        $password=Hash::check($req->password,$user->password); 
+        $password = Hash::check($req->password,$user->password);
+
         if(Session::get('milkcaptcha') == $userInput){
             if($user && $password){
                 session(['name'=>$user->name,'id'=>$user->id,'password'=>$user->password,'pic'=>$user->pic]);
@@ -59,6 +66,7 @@ class ZhuceController extends Controller
          }
 
     }
+
     
     //验证码
     public function captcha($tmp)

@@ -102,7 +102,7 @@ Route::group(['middleware'=>'weihu'],function(){
 	//我的地址
 	Route::resource('/center/url','UrlController');
 	//我的评价
-    Route::resource('/center/pingjia','PingjiaController');
+    Route::get('/center/pingjia','PingjiaController@index');
 	//我的资料更新
 	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//意见反馈的增加 

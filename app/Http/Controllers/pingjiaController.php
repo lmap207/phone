@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use Illuminate\Http\Request;
 
 class pingjiaController extends Controller
@@ -13,7 +14,9 @@ class pingjiaController extends Controller
      */
     public function index()
     {
-             
+      $phones = Car::where('username',\Session::get('name'))->get();
+
+      return view('home.center.pingjia.create',compact('phones'));
     }
         
     /**
@@ -23,7 +26,7 @@ class pingjiaController extends Controller
      */
     public function create()
     {
-         return view('home.center.pingjia.create');  
+         
     }
 
     /**

@@ -301,7 +301,7 @@ class PhoneController extends Controller
        
         $dizhis = Url::where('sname',\Session::get('name'))->orderBy('id','desc')->first();    
 
-       return view('home.shop.dingdan',compact('cars','money','dizhis'));
+        return view('home.shop.dingdan',compact('cars','money','dizhis'));
 
     }
 
