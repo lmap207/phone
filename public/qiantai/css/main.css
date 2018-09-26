@@ -2456,7 +2456,7 @@ select:focus {
 }
 
 .gl-item {
-    width: 379px;
+    width: 378px;
     height: 350px;
     float: left;
     position: relative;
@@ -2604,7 +2604,6 @@ select:focus {
 
 .recommend-slider {
     overflow: hidden;
-    margin-right: -10px;
     border: 1px solid #e5e5e5;
 }
 
@@ -2615,7 +2614,7 @@ select:focus {
 .rs-item {
     float: left;
     height: 338px;
-    width: 245.6px;
+    width: 245px;
     margin-right: 5px;
     transition: all .2s ease;
 }
