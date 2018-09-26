@@ -221,15 +221,7 @@ class PhoneController extends Controller
         $shoujis = Phone::take(8)->orderBy('id','desc')->get();
         $cars = Car::where('username',$request->session()->get('name'))->count();
         $phones = Phone::all();
-        return view('home.shouyei',compact('links','settings','shoujis','adverts','recoms','cars'));
-
-        $phones = Phone::all();
-        $cars = Car::where('username',$request->session()->get('name'))->count();
-
-        $phones = Phone::take(8)->orderBy('id','desc')->get();
-        //$phones=Phone::all();
-        return view('home.shouyei',compact('links','settings','phones','adverts','recoms','cars'));
-    
+        return view('home.shouyei',compact('links','settings','shoujis','adverts','recoms','cars','phones'));  
     }
 
    /*
