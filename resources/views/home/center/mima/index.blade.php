@@ -38,7 +38,7 @@
                 <a href="" target="_blank">
                     <div class="header-cart-wrap">
                         <span class="header-cart-icon"></span> 购物车
-                        <span >{{$cars}}</span>
+                        <span ></span>
                     </div>
                 </a>
             </div>
@@ -54,11 +54,12 @@
                 </span>
                 <div class="nav-main">
                     <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
-                    <a href="/center/mima" class="ml ">修改密码</a>
-                    <a href="/center/url" class="active">我的地址</a>
-                    <a href="/center/pingjia" class="ml ">我的评价</a>
+                    <a href="/center/mima/{{Session::get('id')}}" class="active">修改密码</a>
+                    <a href="/center/url" class="ml ">我的地址</a>
+                    <a href="/center/pingjia/create" class="ml ">我的评价</a>
                 </div>
             </div>
+
             <div class="right-content f-fr">
                 @if (Session::Has('success'))
                 <h3 style="color: cyan;">
@@ -76,87 +77,113 @@
                     {{Session::get('error')}}
                 </h3>  
                 @endif
-                <!-- 三级联动 -->
-                <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
-                <form class="form-inline" action="/center/url" method="post">
-                    <div data-toggle="distpicker">
-                        <div class="form-group">
-                            地址信息: <label class="sr-only" for="province3">Province</label>
-                            <select class="form-control" name="sheng" id="province3" data-province="浙江省"></select>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="city3">City</label>
-                            <select class="form-control" name="shi" id="city3" data-city="杭州市"></select>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="district3">District</label>
-                            <select class="form-control" name="qu" id="district3" data-district="西湖区"></select>
-                        </div><br><br>
-                        <div class="form-group">
-                            详细地址: <label class="sr-only"></label>
-                            <input  type="text" class="form-control" name="xurl">
-                        </div><br><br>
-                        <div class="form-group">
-                            收件人: &nbsp;<label class="sr-only"></label>
-                            <input  type="text" class="form-control" name="uname">
-                        </div><br><br>
-                        <div class="form-group">
-                            手机号: &nbsp;<label class="sr-only"></label>
-                            <input  type="text" class="form-control" name="stel">
-                        </div><br><br>
+                <br>
+                <form action="/center/mima/save/{{Session::get('id')}}" method="post">
+                    <ul>
+                        <li>
+                            <label for="passwd" class="input-tips2">旧 密 码：</label>
+                            <div class="inputOuter2">
+                                <input type="password" id="passwd" name="jpassword" maxlength="16" class="inputstyle2" />
+                                <span></span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label for="passwd" class="input-tips2">新 密 码：</label>
+                            <div class="inputOuter2">
+                                <input type="password" id="passwd" name="password" maxlength="16" class="inputstyle2" />
+                                <span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="passwd2" class="input-tips2">确认密码：</label>
+                            <div class="inputOuter2">
+                                <input type="password" id="passwd2" name="repassword" maxlength="16" class="inputstyle2" />
+                                <span></span>
+                            </div>
+                        </li>
                         {{csrf_field()}}
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">
-                            <button>提交</button>
-                        </div>
-                    </div>
+                        {{method_field('PUT')}}
+                        <li>
+                            <div class="inputArea">
+                                <button type="reset" style="margin-top:10px;margin-left:15px;" class="button_blue" value=重置 "/>重置</button>
+                                <button style="margin-top:10px;margin-left:50px;" class="button_blue" value=修改 "/>修改</button>
+                            </div>
+                        </li>
+                    </ul>
                 </form>
-                <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
-                <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-                <script src="/sjld/js/distpicker.data.js"></script>
-                <script src="/sjld/js/distpicker.js"></script>
-                <script src="/sjld/js/main.js"></script>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p style="color: cyan; center">收货地址栏</p>
-                <div class="col-md-8" style="margin: 0px;padding: 0px;width:900px">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th width="120">用户名</th>
-                                <th width="120">收货人</th>
-                                <th width="120">手机号</th>
-                                <th width="280">收货地址(省)</th>
-                                <th width="400">收货地址(市)</th>
-                                <th width="200">收货地址(区)</th>
-                                <th width="200">详细地址</th>
-                                <th width="100">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($urls as $v)
-                            <tr class="active">
-                                <th scope="row">{{$v['sname']}}</th>
-                                <th>{{$v['uname']}}</th>
-                                <th>{{$v['stel']}}</th>
-                                <th>{{$v['sheng']}}</th>
-                                <th>{{$v['shi']}}</th>
-                                <th>{{$v['qu']}}</th>
-                                <th>{{$v['xurl']}}</th>
-                                
-                                <th>
-                                    <form style="float:left" action="/center/url/{{$v['id']}}" method="post">
-                                        {{method_field('DELETE')}} {{csrf_field()}}
-                                        <button>删除</button>
-                                    </form>
-                                </th>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>
+                <script>
+                var CPASS = false; var CREPASS = false;
+
+                //密码
+                $('input[name=password]').focus(function() {
+                    //边框颜色
+                    $(this).addClass('active');
+                    //提示语显示
+                    $(this).next().show().html('6~20非空白字符');
+                }).blur(function() {
+                    $(this).removeClass('active');
+                    //获取用户的输入值
+                    var v = $(this).val();
+                    //正则
+                    var reg = /^\S{6,20}$/;
+
+                    if (!reg.test(v)) {
+                        //边框
+                        $(this).addClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:red ">格式不正确</span>').show();
+                        CPASS = false;
+                    } else {
+                        //边框
+                        $(this).removeClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
+                        CPASS = true;
+
+                    }
+                })
+
+                //确认密码
+                $('input[name=repassword]').focus(function() {
+                    //边框颜色
+                    $(this).addClass('active');
+                    //提示语显示
+                    $(this).next().show().html('再次输入密码');
+                }).blur(function() {
+                    $(this).removeClass('active');
+                    //获取用户的输入值
+                    var v = $(this).val();
+
+                    if (v != $('input[name=password]').val()) {
+                        //边框
+                        $(this).addClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:red ">两次密码不一致</span>').show();
+                        CREPASS = false;
+                    } else {
+                        //边框
+                        $(this).removeClass('error');
+                        //文字提醒
+                        $(this).next().html('<span style="color:green;font-size:16px;font-weight:bold ">&nbsp;&nbsp;√</span>').show();
+                        CREPASS = true;
+
+                    }
+                })
+
+                //表单的提交事件
+                $('form').submit(function() {
+                    //触发错误提醒
+                    $('input').trigger('blur');
+                    //判断输入值是否都正确
+                    if (CPASS && CREPASS) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                </script>
             </div>
         </div>
     </div>

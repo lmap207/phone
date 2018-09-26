@@ -96,6 +96,17 @@
         </div>
     
     </div>
+    <div>
+        <?php 
+            use App\link;
+            $links = link::all();
+        ?>
+        
+            @foreach ($links as $v)
+            &nbsp;<a href="{{$v['url']}}">{{$v['name']}}</a>&nbsp;
+            @endforeach
+        
+    </div>
     <div class="site-footer-end">
         <p>
             ©2016 Meizu Telecom Equipment Co., Ltd. All rights reserved.
