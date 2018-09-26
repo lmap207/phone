@@ -1,6 +1,5 @@
 @extends('layouts.home') @section('daohang')
 
-
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
@@ -21,11 +20,8 @@
         </div>
     </div>
 </div>
-
-@endsection 
-
+@endsection
 @section('content') 
-
 <style>
 * {
     margin: 0px;
@@ -34,21 +30,21 @@
 }
 
 #slide {
-    width: 1520px;
+    width: 1519px;
     height: 670px;
-    border: solid 1px #ddd;
+    
     margin: 0px auto;
     position: relative;
     overflow: hidden;
 }
 
 #images {
-    width: 2250px;
+    width: 1519px;
     position: absolute;
 }
 
 #images li {
-    width: 1520px;
+    width: 1519px;
     height: 670px;
     left: 0px;
     top: 0px;
@@ -62,28 +58,31 @@
 </style>
     <div id="slide">
         <ul id="images">
-
-            <li><img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1560" height="670" alt=""></li>
-            <li><img src="https://openfile.meizu.com/group1/M00/06/7C/Cgbj0VuXhNuAP-KOAAFNa343Kr8161.jpg" width="1560" height="670" alt=""></li>
-        </ul>
-
-        <ul id="dots">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1519" height="670" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1519" height="670" alt="">
+                 </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1519" height="670" alt=""></li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1519" height="670"alt="">
+                 </a>
+            </li>
+            <li>
+                <a href="/phones">
+                <img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1519" height="670" alt="">
+                 </a>
+            </li>
         </ul>
     </div>
-
-            
-
- 
 
    
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
@@ -128,63 +127,63 @@
     }
     autoRun();
     </script>
-    <div>
-        <h1 style="margin-left: 50px;margin-top: 30px;color:black;font-family:等线;font-weight:bold;">新款手机</h1> 
-        @foreach ($shoujis as $v)
-        <li class="gl-item">
-            <dl class="gl-item-wrap">
-                <dd class="mod-pic">
-                    <a target="_blank" href="{{$v->id}}.html">
-                                        <img width="220" height="220" class="err-product" src="{{$v['pic']}}">
-                                    </a>
-                </dd>
-                <dd class="mod-name">
-                    <a target="_blank" href="{{$v->id}}.html">
-                                        {{$v['pname']}}
-                                    </a>
-                </dd>
-                <dd class="mod-price">
-                    <p class="vm-price-oldprice"></p>
-                    <p class="vm-price">
-                        ¥&nbsp;<span>{{$v['money']}}</span>
-                    </p>
-                </dd>
-            </dl>
-        </li>
-        @endforeach
-        <img src="/qiantai/img/1458815029-31254.jpg" style="margin-left: 140px;margin-top: 30px;">
-        <a href="/7.html" class="hot-point" style="width: 620px; height: 120px; left: 0px; top: 0px;" target="_blank" title="MX5"></a>
-        <a href="/7.html" class="hot-point" style="width: 620px; height: 120px; left: 620px; top: 0px;" target="_blank" title="PRO5"></a>
-    </div>
+   <div>
+       <h1 style="margin-left: 50px;margin-top: 30px;color:black;font-family:等线;font-weight:bold;">新款手机</h1> 
+       @foreach ($shoujis as $v)
+       <li class="gl-item">
+           <dl class="gl-item-wrap">
+               <dd class="mod-pic">
+                   <a target="_blank" href="{{$v->id}}.html">
+                                       <img width="220" height="220" class="err-product" src="{{$v['pic']}}">
+                                   </a>
+               </dd>
+               <dd class="mod-name">
+                   <a target="_blank" href="{{$v->id}}.html">
+                                       {{$v['pname']}}
+                                   </a>
+               </dd>
+               <dd class="mod-price">
+                   <p class="vm-price-oldprice"></p>
+                   <p class="vm-price">
+                       ¥&nbsp;<span>{{$v['money']}}</span>
+                   </p>
+               </dd>
+           </dl>
+       </li>
+       @endforeach
+       <img src="/qiantai/img/1458815029-31254.jpg" style="margin-left: 140px;margin-top: 30px;">
+       <a href="/7.html" class="hot-point" style="width: 620px; height: 120px; left: 0px; top: 0px;" target="_blank" title="MX5"></a>
+       <a href="/7.html" class="hot-point" style="width: 620px; height: 120px; left: 620px; top: 0px;" target="_blank" title="PRO5"></a>
+   </div>
     <h1 style="margin-left: 50px;margin-top: 30px;color:black;
 font-family:等线;font-weight:bold;">推荐排行</h1>
-    <div class="recommend-slider" id="J_recommendSlider">
-        <!-- 推荐商品列表 Start -->
-        <!-- 推荐商品列表 End -->
-        <div class="flex-viewport" style="overflow: hidden; position: relative;"></div>
-        <div class="flex-viewport" style="overflow: hidden; position: relative;">
-            <ul class="recommend-slider-wrap" style="width: 1800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-                <!-- 列表item Start  -->
-                @foreach($recoms as $v)
-                <li class="rs-item" style="width: 245px; margin-right: 5px; float: left; display: block;">
-                    <a class="rs-item-wrap" href="{{$v->id}}.html" target="_blank">
-                        <div class="mod-pic">
-                            <img src="{{$v->pic}}" width="180" height="180" draggable="false">
-                        </div>
-                        <div class="mod-desc">
-                            <h4 class="vm-title">{{$v->pname}}</h4>
-                            <p class="vm-price-oldprice"></p>
-                            <p class="vm-price">
-                                ¥&nbsp;<span>{{$v->money}}</span>
-                            </p>
-                        </div>
-                    </a>
-                </li>
-                @endforeach
-                <!-- 列表item End -->
-            </ul>
-        </div>
-    </div>
+   <div class="recommend-slider" id="J_recommendSlider">
+       <!-- 推荐商品列表 Start
+       推荐商品列表 End -->
+       <div class="flex-viewport" style="overflow: hidden; position: relative;"></div>
+       <div class="flex-viewport" style="overflow: hidden; position: relative;">
+           <ul class="recommend-slider-wrap" style="width: 100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+               <!-- 列表item Start -->
+               @foreach($recoms as $v)
+               <li class="rs-item" style="width: 245px; margin-right: 5px; float: left; display: block;">
+                   <a class="rs-item-wrap" href="{{$v->id}}.html" target="_blank">
+                       <div class="mod-pic">
+                           <img src="{{$v->pic}}" width="180" height="180" draggable="false">
+                       </div>
+                       <div class="mod-desc">
+                           <h4 class="vm-title">{{$v->pname}}</h4>
+                           <p class="vm-price-oldprice"></p>
+                           <p class="vm-price">
+                               ¥&nbsp;<span>{{$v->money}}</span>
+                           </p>
+                       </div>
+                   </a>
+               </li>
+               @endforeach
+              <!--  列表item End -->
+           </ul>
+       </div>
+   </div>
 <!-- 推荐 End -->
 @endsection
 <!--这里是广告效果-->
