@@ -255,7 +255,7 @@ class PhoneController extends Controller
 
         $phones = Phone::findOrFail($id);
 
-        $cars->money = $phones['money'] * $request->shuliang;
+        $cars->money = intval($phones['money'])* intval($request->shuliang);
 
 
         $username = $request->session()->get('name');
@@ -441,6 +441,12 @@ public function dologin(Request $req){
         }else{
             return back()->with('error','删除失败!');
         }
+    }
+
+
+    public function zhuanmai()
+    {
+        return view('home.shop.zhuanmai');
     }
 
 }

@@ -47,7 +47,7 @@
                 <a href="/" target="_blank">魅族官网</a>
                 <a href="/phones">魅族商城</a>
                 <a href="http://www.flyme.cn/" target="_blank">Flyme</a>
-                <a href="http://retail.meizu.com/index.html" target="_blank">专卖店</a>
+                <a href="/zhuanmai" target="_blank">专卖店</a>
                 <a href="http://service.meizu.com/index.html" target="_blank">服务</a>
                 <a href="http://bbs.meizu.cn/" target="_blank">社区</a>
             </div>

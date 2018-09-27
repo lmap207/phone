@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+Route::get('/zhuanmai','PhoneController@zhuanmai');
 //登录路由
 Route::get('/admin/login','AdminController@login');
 //登录操作
