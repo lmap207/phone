@@ -62,56 +62,45 @@
 
             <div class="right-content f-fr">
                 @if (Session::Has('success'))
-                <h3 style="color: cyan;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{Session::get('success')}}
-                </h3>  
+                <div class="alert alert-info " role="alert" style="text-align: center;">{{Session::get('success')}}</div>
                 @endif
+                
                 @if (Session::Has('error'))
-                <h3 style="color: red;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{Session::get('error')}}
-                </h3>  
+                <div class="alert alert-danger" role="alert" style="text-align: center;">{{Session::get('error')}}</div>
                 @endif
-                <br>
-                <form action="/center/mima/save/{{Session::get('id')}}" method="post">
-                    <ul>
-                        <li>
-                            <label for="passwd" class="input-tips2">旧 密 码：</label>
-                            <div class="inputOuter2">
-                                <input type="password" id="passwd" name="jpassword" maxlength="16" class="inputstyle2" />
-                                <span></span>
-                            </div>
-                        </li>
 
-                        <li>
-                            <label for="passwd" class="input-tips2">新 密 码：</label>
-                            <div class="inputOuter2">
-                                <input type="password" id="passwd" name="password" maxlength="16" class="inputstyle2" />
-                                <span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <label for="passwd2" class="input-tips2">确认密码：</label>
-                            <div class="inputOuter2">
-                                <input type="password" id="passwd2" name="repassword" maxlength="16" class="inputstyle2" />
-                                <span></span>
-                            </div>
-                        </li>
-                        {{csrf_field()}}
-                        {{method_field('PUT')}}
-                        <li>
-                            <div class="inputArea">
-                                <button type="reset" style="margin-top:10px;margin-left:15px;" class="button_blue" value=重置 "/>重置</button>
-                                <button style="margin-top:10px;margin-left:50px;" class="button_blue" value=修改 "/>修改</button>
-                            </div>
-                        </li>
-                    </ul>
+                <form class="form-horizontal" action="/center/mima/save/{{Session::get('id')}}" method="post">
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">旧&nbsp; 密&nbsp; 码： </label>
+                        <div class="col-sm-7">
+                            <input class="form-control" id="inputPassword3" type="password" name="jpassword" maxlength="16">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">新&nbsp; 密&nbsp; 码： </label>
+                        <div class="col-sm-7">
+                            <input class="form-control" id="inputPassword3" type="password" name="password" maxlength="16">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">确认密码： </label>
+                        <div class="col-sm-7">
+                            <input class="form-control" id="inputPassword3" type="password" name="repassword" maxlength="16">
+                            <span></span>
+                        </div>
+                    </div>
+                    {{csrf_field()}}
+                    {{method_field('PUT')}}
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="reset" class="btn btn-default" value="重置"> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; 
+                            <input type="submit" class="btn btn-default" value="提交">
+                        </div>
+                    </div>
                 </form>
+
+
                 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>
                 <script>
                 var CPASS = false; var CREPASS = false;
