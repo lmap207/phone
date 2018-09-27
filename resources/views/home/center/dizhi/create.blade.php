@@ -61,20 +61,11 @@
             </div>
             <div class="right-content f-fr">
                 @if (Session::Has('success'))
-                <h3 style="color: cyan;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{Session::get('success')}}
-                </h3>  
+                <div class="alert alert-info " role="alert" style="text-align: center;">{{Session::get('success')}}</div>
                 @endif
+                
                 @if (Session::Has('error'))
-                <h3 style="color: red;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{Session::get('error')}}
-                </h3>  
+                <div class="alert alert-danger" role="alert" style="text-align: center;">{{Session::get('error')}}</div>
                 @endif
                 <!-- 三级联动 -->
                 <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
