@@ -101,17 +101,6 @@
                         </dd>
                     </dl>
                     <dl class="property-info" id="propertyInfo">
-                        <!--
-                    <dt class="mod-title">
-                        您已选择以下商品:
-                    </dt>
-                    <dd class="mod-summary">
-                        <p id="J_summaryMain">魅蓝2 公开版 白色 16GB&nbsp;&nbsp;￥599</p>
-                        <p id="J_summaryPackageName"></p>
-                        <p id="J_sumaryPackageItemNames"></p>
-                        <p>本商品由 魅族 负责发货，并由 魅族 提供售后服务</p>
-                    </dd>
-                    -->
                         <dd class="mod-total">
                             价格:<em class="vm-price">￥{{$phones->money}}</em>
                         </dd>
