@@ -18,6 +18,14 @@
     <body>
         <div class="col-md-4 col-md-offset-4 yjfk">
             <p style="font-size:30px;margin-left:200px;">意见反馈</p>
+            @if (Session::Has('error'))
+                <h3 style="color: red;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{Session::get('error')}}
+                </h3>  
+                @endif
             <form class="form-horizontal" action="/ycreate" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">用户名</label>

@@ -255,7 +255,7 @@ class PhoneController extends Controller
 
         $phones = Phone::findOrFail($id);
 
-        $cars->money = $phones['money'] * $request->shuliang;
+        $cars->money = intval($phones['money'])* intval($request->shuliang);
 
 
         $username = $request->session()->get('name');
@@ -400,16 +400,25 @@ public function dologin(Request $req){
     public function ycreate(Request $request)
     {
         $yjfk = new Yjfk;
-        $yjfk -> user_id = $request -> user_id;
-        $yjfk -> yijian = $request -> yijian;
-        $yjfk -> uemail = $request -> uemail;
-        $yjfk -> yijian = $request -> yijian;
-
-        if($yjfk->save()){
-            return redirect('/')->with('success','添加成功');
-        }else{
-            return back()->with('error','添加失败');
+        
+        $a = \Session::get('name');
+        if(empty($a)){
+            return back()->with('error','请先登录!!');
         }
+
+        if($a == $request->uemail){
+            $yjfk -> uemail = $request -> uemail;
+            $yjfk -> yijian = $request -> yijian;
+
+            if($yjfk->save()){
+                return redirect('/')->with('success','添加成功');
+            }else{
+                return back()->with('error','添加失败');
+            }
+        }else{
+            return back()->with('error','请输入你的用户名！！');
+        }
+
     } 
 
     //后台意见反馈
@@ -432,6 +441,14 @@ public function dologin(Request $req){
         }else{
             return back()->with('error','删除失败!');
         }
+    }
+
+
+
+
+    public function zhuanmai()
+    {
+        return view('home.shop.zhuanmai');
     }
 
 

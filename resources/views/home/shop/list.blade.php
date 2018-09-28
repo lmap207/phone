@@ -15,7 +15,6 @@
             </a>
         </div>
     </div>
-   
 </div>
 @endsection @section('content')
 <div class="wrapper" id="main">
@@ -28,32 +27,26 @@
             <ul class="clearfix">
                 @foreach ($brands as $v)
                 <li><a href="/phones?brand_id={{$v->id}}">{{$v->bname}}</a></li>
-
                 @endforeach
-
-<script type="text/javascript">
-        
-        var imgs = document.getElementsByTagName('li');
-
-
-        for(var i = 1;i<imgs.length;i++){
-            imgs[i].onmouseover = function(){
-                this.style.background = 'cyan';
-                
-            }
-            imgs[i].onmouseout = function(){
-                this.style.background = '';
-            }
-        }
-
-
-    </script>
+                <script type="text/javascript">
+                    var imgs = document.getElementsByTagName('li');
+                    for(var i = 1;i<imgs.length;i++){
+                        imgs[i].onmouseover = function(){
+                            this.style.background = 'cyan'; 
+                        }
+                        imgs[i].onmouseout = function(){
+                            this.style.background = '';
+                        }
+                    }
+                </script>
             </ul>
         </div>
         <!-- 头部导航 End -->
         <!-- 商品列表 Start -->
         <div class="goods-list" id="goodsList">
             <!-- 手机列表 Start -->
+            <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
             <div class="current" style="display: block;">
                 <ul class="goods-list-wrap clearfix">
                     <!-- 列表item Start -->
@@ -83,24 +76,16 @@
                     @endforeach
                     <!-- 列表item End -->
                 </ul>
-            </div>
-            
+            </div>  
+            <script>
+                $('img').lazyload();
+            </script> 
         </div>
         <!-- 商品列表 End -->
         <!-- 推荐 Start -->
         <div class="recommend">
             <div class="recommend-hd">
                 <h2 class="mod-title">为您推荐</h2>
-                <!--
-                <div class="mod-control" id="recommendDirectionNav">
-                    <a class="vm-prev flex-prev flex-disabled" href="http://store.meizu.com/topic/list.html?active=0#" id="J_recommendPrev" tabindex="-1">
-                            <i> </i>
-                        </a>
-                    <a class="vm-next flex-next" href="http://store.meizu.com/topic/list.html?active=0#" id="J_recommendNext">
-                            <i></i>
-                        </a>
-                </div>
-                -->
             </div>
             <div class="recommend-slider" id="J_recommendSlider">
                 <!-- 推荐商品列表 Start -->
@@ -136,16 +121,6 @@
         <div class="recommend">
             <div class="recommend-hd">
                 <h2 class="mod-title">商品排行</h2>
-                <!--
-                <div class="mod-control" id="recommendDirectionNav">
-                    <a class="vm-prev flex-prev flex-disabled" href="http://store.meizu.com/topic/list.html?active=0#" id="J_recommendPrev" tabindex="-1">
-                            <i> </i>
-                        </a>
-                    <a class="vm-next flex-next" href="http://store.meizu.com/topic/list.html?active=0#" id="J_recommendNext">
-                            <i></i>
-                        </a>
-                </div>
-                -->
             </div>
             <div class="recommend-slider" id="J_recommendSlider">
                 <!-- 推荐商品列表 Start -->
