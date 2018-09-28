@@ -215,10 +215,10 @@ class PhoneController extends Controller
     public function shouyei(Request $request)
     {
         $adverts=Advert::first();
-        $recoms=Phone::where('recom','1')->take(6)->orderBy('id','desc')->get();
+        $recoms=Phone::where('recom','1')->take(5)->orderBy('id','desc')->get();
         $links = link::all();
         $settings = Setting::all();
-        $shoujis = Phone::take(8)->orderBy('id','desc')->get();
+        $shoujis = Phone::take(9)->orderBy('id','desc')->get();
         $cars = Car::where('username',$request->session()->get('name'))->count();
         $phones = Phone::all();
         return view('home.shouyei',compact('links','settings','shoujis','adverts','recoms','cars','phones'));  
@@ -256,8 +256,9 @@ class PhoneController extends Controller
         $phones = Phone::findOrFail($id);
 
         $cars->money = intval($phones['money'])* intval($request->shuliang);
-
-
+        
+      
+     
         $username = $request->session()->get('name');
 
         $cars->username = $username;

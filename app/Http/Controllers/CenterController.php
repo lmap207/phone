@@ -6,6 +6,7 @@ use App\Url;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class CenterController extends Controller
 {
@@ -84,5 +85,26 @@ class CenterController extends Controller
 		}		
 
 	}
+
+	public function email()
+	{
+		return view('layouts.home.email');
+	}
+
+	public function send(Request $req)
+	{
+		//return 1111;
+		//dd();
+		 $age=$req->as;
+        $flag= Mail::raw($age,function($message) {
+        $to='15011034397@163.com';
+    	$message->to($to)->subject('关于合作');
+        });
+        if(!$flag){
+        return redirect('/');
+        }else{
+        return back()->with('error','发送失败');
+	}
+}
 
 }

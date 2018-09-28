@@ -2,7 +2,7 @@
 <div class="site-header">
     <div class="mzcontainer">
         <div class="header-logo">
-            <a href="http://www.meizu.com/" target="_blank">
+            <a href="/" target="_blank">
                 <img src="/qiantai/img/logo-header.png" srcset="/qiantai/img/logo-header@2x.png 2x" width="115" height="20" alt="魅族科技（中国）有限公司">
             </a>
         </div>

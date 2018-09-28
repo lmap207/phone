@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <script src="https://qiyukf.com/script/83d7eeb95477d6eb508d8d1e954d44cd.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>魅蓝2-魅族商城</title>

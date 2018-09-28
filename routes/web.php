@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+//这是邮箱发送
+Route::post('/email/send','CenterController@send');
+Route::get('/email','CenterController@email');
+//这是专卖店显示地区内部所有专卖店的地图
 Route::get('/zhuanmai','PhoneController@zhuanmai');
 //登录路由
 Route::get('/admin/login','AdminController@login');
@@ -25,7 +29,7 @@ Route::get('/admin/login','AdminController@login');
 Route::post('/admin/login','AdminController@dologin');
 
 //用户管理
-//Route::group(['middleware'=>'admin'],function(){
+Route::group(['middleware'=>'admin'],function(){
 	//后台路由
 
 	//后台首页路由
@@ -61,7 +65,7 @@ Route::post('/admin/login','AdminController@dologin');
 	Route::get('/hyjfk','PhoneController@hyjfk');
 	//广告管理
 	Route::resource('advert','AdvertController');
-//});
+});
 
 
 //网站维护的路由

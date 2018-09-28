@@ -17,7 +17,7 @@ class UserController extends Controller
     {  
         $users = User::orderBy('id','asc')
             ->where('name','like', '%'.request()->keywords.'%')
-            ->paginate(10);
+            ->paginate(2);
         // dd($users);
         //解析模板显示用户数据
         return view('admin.user.index', ['users'=>$users]);

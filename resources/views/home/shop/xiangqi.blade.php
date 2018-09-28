@@ -109,9 +109,9 @@
                         <dt class="vm-message" id="J_message"></dt>
                         <dd>
                              @if(Session::has('name'))
-                            <button class="btn btn-primary btn-lg">立即购买</button>
+                            <button class="btn btn-primary btn-lg">立即购买</button> 
                              @else
-                             <button class="btn btn-primary btn-lg" type="button" onclick="alert('请选登陆!!!')">立即购买</button>
+                             <button class="btn btn-primary btn-lg" type="button" onclick="alert('请选登陆!!!')">立即购买</button> 
                             @endif
 
                         </dd>

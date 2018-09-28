@@ -94,6 +94,16 @@
                 </li>
             </ul>
         </div>
+
+        <div class="footer-nav-item">
+            <h4 class="footer-nav-title">联系我们</h4>
+            <ul>
+                <li><a target="_blank" href="/email">邮箱</a></li>
+                <li><a target="_blank" href="http://t.qq.com/meizu_tech">电话：15011034397</a></li>
+                
+                
+            </ul>
+        </div>
     
     </div>
     <div>

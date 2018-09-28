@@ -30,7 +30,7 @@
 }
 
 #slide {
-    width: 1519px;
+    width: 1320px;
     height: 670px;
     
     margin: 0px auto;
@@ -39,12 +39,12 @@
 }
 
 #images {
-    width: 1519px;
+    width: 1320px;
     position: absolute;
 }
 
 #images li {
-    width: 1519px;
+    width: 1320px;
     height: 670px;
     left: 0px;
     top: 0px;
@@ -60,25 +60,25 @@
         <ul id="images">
             <li>
                 <a href="/phones">
-                <img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="1519" height="670" alt="">
+                <img src="https://fms.res.meizu.com/dms/2018/09/12/1bb6243c-74fa-49e1-907d-a7d577fdd890.jpg" width="100%" height="670" alt="">
                 </a>
             </li>
             <li>
                 <a href="/phones">
-                <img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="1519" height="670" alt="">
+                <img src="https://fms.res.meizu.com/dms/2018/08/08/052c55de-5aec-461b-8976-32f407ac3ff6.jpg" width="100%" height="670" alt="">
                  </a>
             </li>
             <li>
                 <a href="/phones">
-                <img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="1519" height="670" alt=""></li>
+                <img src="https://openfile.meizu.com/group1/M00/05/B1/Cgbj0FtfzY-AAFkmAAIKhxCNW4Q048.jpg" width="100%" height="670" alt=""></li>
             <li>
                 <a href="/phones">
-                <img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="1519" height="670"alt="">
+                <img src="https://fms.res.meizu.com/dms/2018/09/13/6a7a3ab4-65cc-4be2-beaf-a1d5bc64a488.jpg" width="100%" height="670"alt="">
                  </a>
             </li>
             <li>
                 <a href="/phones">
-                <img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="1519" height="670" alt="">
+                <img src="https://fms.res.meizu.com/dms/2018/09/05/6bb901e1-3ea5-4a02-94d2-4323743e0404.jpg" width="100%" height="670" alt="">
                  </a>
             </li>
         </ul>
@@ -134,8 +134,8 @@
            <dl class="gl-item-wrap">
                <dd class="mod-pic">
                    <a target="_blank" href="{{$v->id}}.html">
-                                       <img width="220" height="220" class="err-product" src="{{$v['pic']}}">
-                                   </a>
+                      <img width="220" height="220" class="err-product" src="{{$v['pic']}}">
+                   </a>
                </dd>
                <dd class="mod-name">
                    <a target="_blank" href="{{$v->id}}.html">
@@ -152,7 +152,7 @@
            </dl>
        </li>
        @endforeach
-       <img src="/qiantai/img/1458815029-31254.jpg" style="margin-left: 140px;margin-top: 30px;">
+       <img src="/qiantai/img/1458815029-31254.jpg" style="margin-left: 65px;margin-top: 30px;">
        <a href="/7.html" class="hot-point" style="width: 620px; height: 120px; left: 0px; top: 0px;" target="_blank" title="MX5"></a>
        <a href="/7.html" class="hot-point" style="width: 620px; height: 120px; left: 620px; top: 0px;" target="_blank" title="PRO5"></a>
    </div>
