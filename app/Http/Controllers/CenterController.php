@@ -86,6 +86,7 @@ class CenterController extends Controller
 
 	}
 
+
 	public function email()
 	{
 		return view('layouts.home.email');
@@ -106,5 +107,8 @@ class CenterController extends Controller
         return back()->with('error','发送失败');
 	}
 }
+
+	
+
 
 }

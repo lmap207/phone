@@ -445,9 +445,12 @@ public function dologin(Request $req){
     }
 
 
+
+
     public function zhuanmai()
     {
         return view('home.shop.zhuanmai');
     }
+
 
 }

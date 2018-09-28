@@ -65,6 +65,11 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::get('/hyjfk','PhoneController@hyjfk');
 	//广告管理
 	Route::resource('advert','AdvertController');
+
+
+	//后台订单管理
+	Route::resource('indent','IndentController');
+
 });
 
 
@@ -73,6 +78,7 @@ Route::get('/weihu','CenterController@weihu');
 //网站维护路由组
 Route::group(['middleware'=>'weihu'],function(){
 	//前台路由
+	
 	//详情页
 	Route::get('/{id}.html', 'PhoneController@show');
 	//列表页
@@ -112,6 +118,11 @@ Route::group(['middleware'=>'weihu'],function(){
 	Route::resource('/center/url','UrlController');
 	//我的评价
     Route::get('/center/pingjia','PingjiaController@index');
+    //去评价
+    Route::get('/center/xiangqing','PingjiaController@create');
+    //我的消息
+    Route::get('/center/xiaoxi','PingjiaController@show');
+
 	//我的资料更新
 	Route::put('/center/ziliao/{id}', 'CenterController@update');
 	//意见反馈的增加 
