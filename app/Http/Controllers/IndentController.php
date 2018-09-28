@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Car;
 use Illuminate\Http\Request;
 
-class pingjiaController extends Controller
+class IndentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,13 @@ class pingjiaController extends Controller
      */
     public function index()
     {
-      $phones = Car::where('username',\Session::get('name'))->get();
+        $cars = Car::orderBy('id','asc')
+            ->where('username','like', '%'.request()->keywords.'%')
+            ->paginate(10);
 
-      return view('home.center.pingjia.create',compact('phones'));
+        return view('admin.indent.index',compact('cars'));
     }
-        
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +28,7 @@ class pingjiaController extends Controller
      */
     public function create()
     {
-        return view('home.center.pingjia.xiangqing'); 
+        
     }
 
     /**
@@ -37,7 +39,7 @@ class pingjiaController extends Controller
      */
     public function store(Request $request)
     {
-          
+        //
     }
 
     /**
@@ -46,10 +48,9 @@ class pingjiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {  
-        $xiaoxis = Car::where('username',\Session::get('name'))->get();
-        return view('home.center.xiaoxi.index',['xiaoxis'=>$xiaoxis]); 
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -60,7 +61,7 @@ class pingjiaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.indent.edit',['id'=>$id]);
     }
 
     /**
@@ -72,7 +73,16 @@ class pingjiaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cars = Car::findOrFail($id);
+        
+        $cars -> dizhi = $request ->dizhi;
+
+        
+        if($cars -> save()){
+            return redirect('/indent')->with('success', '回复成功');
+        }else{
+            return back()->with('error','回复失败');
+        }  
     }
 
     /**
@@ -83,6 +93,12 @@ class pingjiaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cars = Car::findOrFail($id);
+
+        if($cars -> delete()){
+            return redirect('/indent')->with('success', '删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        } 
     }
 }

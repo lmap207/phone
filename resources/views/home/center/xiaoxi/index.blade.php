@@ -1,4 +1,4 @@
-@extends('layouts.home') @section('content')
+@extends('layouts.home')@section('daohang') @endsection @section('content')
 <!DOCTYPE html>
 <!-- saved from url=(0035)http://store.meizu.com/member/index -->
 <html lang="zh-CN">
@@ -59,39 +59,47 @@
                     <a href="/center/ziliao/{{Session::get('id')}}" class="ml ">我的资料</a>
                     <a href="/center/mima" class="ml ">修改密码</a>
                     <a href="/center/url" class="ml ">我的地址</a>
-                    <a href="/center/pingjia" class="active">评价晒单(3)</a>
-                    <a href="/center/xiaoxi" class="ml">我的消息(3)</a>
+                    <a href="/center/pingjia" class="ml">评价晒单</a>
+                    <a href="/center/xiaoxi" class="active">我的消息</a>
                 </div>
             </div>
             <div style="padding-left:280px" class="filter-list">
-                <h2 style="color:slategray;line-height:80px;margin-top:0px;">商品评价</h2>
+                <h2 style="color:slategray;line-height:80px;margin-top:0px;">我的消息</h2>
                 <ul>
-                    <li style="float:left;cursor:pointer;">待评价商品（3）</li>
-                    <li style="cursor:pointer;">已评价商品（3）</li>
+                    <li style="float:left;cursor:pointer;">全部消息</li>
+                   
                 </ul>
-                <hr> @foreach($phones as $v)
-                <div style="float:left">
+                
+                <div style="height:50px"></div>
+                <hr>
+                 @foreach($xiaoxis as $v)
+                <div id="xiaoxi">
+                   
+                    <p >{{$v->dizhi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$v->updated_at}}</p>
                     <img src="{{$v->phone->pic}}">
-                    <p style="margin-left:90px;">{{$v->phone->pname}} {{$v->cname}}</p>
                     <p style="color:red;margin-left:100px;">{{$v->phone->money}}元</p>
-                    <a href="/center/xiangqing" style="text-decoration:none;">
-                        <p style="margin-left:80px;height:30px;width:90px;;background:#f25807;font-size: 12px; color: #fff;text-align:center;line-height:30px">去评价</p>
-                    </a>
-
+                    <button type="button" style="margin-left:80px;height:30px;width:90px;;background:#f25807;font-size: 12px; color: #fff;text-align:center;line-height:30px">删除
+                    </button>
+                  
                 </div>
-                @endforeach
+               @endforeach  
             </div>
         </div>
     </div>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     <script type="text/javascript">
     $('.filter-list ul li').click(function() {
 
         $(this).css('color', 'tomato');
 
         $(this).siblings().css('color', '');
+        
 
     })
+    $('button').click(function(){
+
+
+            $('#xiaoxi').css('display','none');
+        })
     </script>
     @endsection
     <!-- common footer -->

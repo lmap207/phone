@@ -16,7 +16,7 @@
                     <span class="msg-tag" id="MzOrderMsgTag"></span>
                 </li>
                 <li class="topbar-info-msg" id="MzTopbarMsg" style="display: list-item;">
-                    <a class="topbar-link" href="http://store.meizu.com/member/message/index" target="_blank"> 消息 </a>
+                    <a class="topbar-link" href="/center/xiaoxi" target="_blank"> 消息 </a>
                     <span class="msg-tag" id="MzMsgTag" style="display: inline;"></span>
                 </li>
                 @if(Session::has('name'))
